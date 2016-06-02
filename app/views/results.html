@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="../bower_components/sabre-dev-studio-widgets/dist/widgets/css/SDS.min.css" />
+    <title>Sabre Mock OTA agency</title>
+
+    <style>
+        #ItineraryListFilterPane {
+            vertical-align: top;
+            width: 15%;
+            display: inline-block;
+            margin-right: 12px;
+        }
+
+        #ItineraryList {
+            vertical-align: top;
+            background-color: inherit;
+            width: 82%;
+            display: inline-block;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <filters-panel id="ItineraryListFilterPane"></filters-panel>
+
+        <itinerary-list class="embeddedWidget" id="ItineraryList"
+                        active-search="true" active-search-web-service="instaflights"
+                        search-criteria="newSearchCriteria" target-on-itinerary-selected="/createReservation/itineraryDisplay" selected-itinerary-callback="itinerarySelectedCallback">
+        </itinerary-list>
+
+        <error-display class="embeddedWidget"></error-display>
+    </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+// asterisk for bootstrap forms required fields
+.form-group.OTADemoRequired .control-label:after {
+  content:"*";
+  color:red;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}

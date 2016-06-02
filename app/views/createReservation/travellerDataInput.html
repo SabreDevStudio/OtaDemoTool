@@ -1,0 +1,160 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h5>Passengers data</h5>
+    </div><!-- TODO: repeat this section for every traveller -->
+
+    <div class="panel-body">
+
+        <div class="form-group form-group-sm OTADemoRequired">
+            <div class="col-sm-2">
+                <label for="travellerFirstName" class="control-label">First name</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="text" id="travellerFirstName" required class="form-control" ng-model="ctrl.reservationData.travellerData.travellerFirstName">
+            </div>
+        </div>
+
+        <div class="form-group form-group-sm">
+            <div class="col-sm-2">
+                <label for="travellerMiddleName" class="control-label">Second name</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="text" id="travellerMiddleName" required class="form-control" ng-model="ctrl.reservationData.travellerData.travellerMiddleName">
+            </div>
+        </div>
+
+        <div class="form-group form-group-sm OTADemoRequired">
+            <div class="col-sm-2">
+                <label for="travellerLastName" class="control-label">Last name</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="text" id="travellerLastName" required class="form-control" ng-model="ctrl.reservationData.travellerData.travellerLastName">
+            </div>
+        </div>
+
+        <div class="form-group form-group-sm OTADemoRequired">
+            <div class="col-sm-2">
+                <label class="control-label">Gender</label>
+            </div>
+            <div class="col-sm-1">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="travellerGender" value="F" ng-model="ctrl.reservationData.travellerData.travellerGender">
+                        Female
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-1">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="travellerGender" value="M" ng-model="ctrl.reservationData.travellerData.travellerGender">
+                        Male
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group form-group-sm OTADemoRequired">
+            <div class="col-sm-2">
+                <label class="control-label">Date of birth</label>
+            </div>
+            <div class="col-sm-1">
+                <label for="travellerDateOfBirth.Day" class="control-label">Day</label>
+                <select id="travellerDateOfBirth.Day" ng-options="day for day in ctrl.calendarModel.monthDays" ng-model="ctrl.travellerData.travellerDateOfBirth.day" required class="form-control"></select>
+            </div>
+            <div class="col-sm-1">
+                <label for="travellerDateOfBirth.Month" class="control-label">Month</label>
+                <select id="travellerDateOfBirth.Month" ng-options="month for month in ctrl.calendarModel.months" ng-model="ctrl.travellerData.travellerDateOfBirth.month" required class="form-control"></select>
+            </div>
+            <div class="col-sm-1">
+                <label for="travellerDateOfBirth.Year" class="control-label">Year</label>
+                <select id="travellerDateOfBirth.Year" ng-options="year for year in ctrl.calendarModel.years" ng-model="ctrl.travellerData.travellerDateOfBirth.year" required class="form-control"></select>
+            </div>
+        </div>
+
+        <div>
+            <a href="" ng-click="formDetailsDisplay.seatPreference = !formDetailsDisplay.seatPreference">Seat preference</a>
+        </div>
+        <div class="form-group form-group-sm" ng-if="formDetailsDisplay.seatPreference">
+            <div class="col-sm-2">
+                <select ng-options="seatType for seatType in ctrl.ancilliaryModel.seatTypes" class="form-control" ng-model="ctrl.reservationData.travellerData.preferredSeatType"></select>
+            </div>
+            <small>Seat selections are requested from the airline, but cannot be guaranteed.</small>
+            <!--Select specific seat + opening seat map for every flight in the travel (pay for seats? more legroom)-->
+        </div>
+
+        <a href="" ng-click="formDetailsDisplay.frequentFlyerProgram = !formDetailsDisplay.frequentFlyerProgram">Frequent flyer program</a>
+        <div ng-if="formDetailsDisplay.frequentFlyerProgram">
+            <div class="form-group form-group-sm">
+                <div class="col-sm-2">
+                    <label class="control-label">Program name</label>
+                </div>
+                <div class="col-sm-3">
+                    <select ng-options="frequentFlyerProgramName.programName for frequentFlyerProgramName in ctrl.ancilliaryModel.airlinesFrequentFlyerPrograms" class="form-control" ng-model="ctrl.reservationData.travellerData.frequentFlyerProgram.programName"></select>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <div class="col-sm-2">
+                    <label class="control-label">Client number</label>
+                </div>
+                <div class="col-sm-3">
+                    <input class="form-control" type="number" ng-model="ctrl.reservationData.travellerData.frequentFlyerProgram.number">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group form-group-sm">
+            <div class="col-sm-2">
+                <label class="control-label">Special assistance needed</label>
+            </div>
+            <div class="col-sm-2">
+                <select ng-options="assistanceType for assistanceType in ctrl.specialServiceRequest.assistanceTypes" ng-model="ctrl.reservationData.travellerData.specialServiceRequest.assistanceType" class="form-control"></select>
+            </div>
+        </div>
+
+        <div class="form-group form-group-sm">
+            <div class="col-sm-2">
+                <label class="control-label">Meal preference</label>
+            </div>
+            <div class="col-sm-2">
+                <select ng-options="mealPreference for mealPreference in ctrl.specialServiceRequest.mealPreferenceTypes" ng-model="ctrl.reservationData.travellerData.specialServiceRequest.mealPreference" class="form-control"></select>
+            </div>
+        </div>
+
+        <label class="control-label">Emergency contact</label>
+        <div class="form-group form-group-sm">
+            <div class="col-sm-2">
+                <label class="control-label">First name</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <div class="col-sm-2">
+                <label class="control-label">Last Name</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-group form-group-sm OTADemoRequired">
+            <div class="col-sm-2">
+                <label for="ContactData.PhoneNumber.CountryPrefix" class="control-label">Phone</label>
+            </div>
+            <div class="col-sm-2">
+                <label class="control-label">Country prefix</label>
+                <select id="ContactData.PhoneNumber.CountryPrefix" ng-options="value.name for (key, value) in ctrl.addressModel.countries" class="form-control" ng-model="ctrl.reservationData.travellerData.travellerContact.phoneNumber.prefix"></select>
+            </div>
+            <div class="col-sm-2">
+                <label for="ContactData.PhoneNumber.Number" class="control-label">Number</label>
+                <input id="ContactData.PhoneNumber.Number" type="number" class="form-control" ng-model="ctrl.reservationData.travellerData.travellerContact.phoneNumber.number">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<button type="button" ui-sref="createReservation.paymentDetailsInput" class="btn btn-lg btn-primary center-block">
+    Proceed to payment <span class="glyphicon glyphicon-circle-arrow-right"></span>
+</button>

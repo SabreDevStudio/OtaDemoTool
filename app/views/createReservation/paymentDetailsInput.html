@@ -1,0 +1,145 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h5>Payment method</h5>
+    </div>
+
+    <div class="panel-body">
+        <div class="form-group form-group-sm OTADemoRequired">
+            <div class="col-sm-2">
+                <label class="control-label">Credit Card</label>
+            </div>
+            <div class="col-sm-1" ng-repeat="company in ctrl.paymentModel.creditCardCompanies">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="creditCardCompany" value="{{company}}" ng-model="ctrl.reservationData.paymentData.creditCard.creditCardCompany">
+                        <img ng-src="images/payment.{{company}}.png">
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group form-group-sm OTADemoRequired">
+            <div class="col-sm-2">
+                <label for="CreditCard.Number" class="control-label">Card number</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="number" minlength="16" maxlength="16" id="CreditCard.Number" required class="form-control"><!-- see lmc: input field separated dash after every 4 digits) -->
+            </div>
+        </div>
+
+        <div class="form-group form-group-sm OTADemoRequired">
+            <div class="col-sm-2">
+                <label class="control-label">Expiry</label>
+            </div>
+            <div class="col-sm-1">
+                <label for="CreditCard.ExpiryDate.Month" class="control-label">Month</label>
+                <select id="CreditCard.ExpiryDate.Month" ng-options="month for month in ctrl.calendarModel.months" required class="form-control" ng-model="ctrl.reservationData.paymentData.creditCard.expiry.month"></select>
+            </div>
+
+            <div class="col-sm-1">
+                <label for="CreditCard.ExpiryDate.Year" class="control-label">Year</label>
+                <select id="CreditCard.ExpiryDate.Year" ng-options="year for year in ctrl.calendarModel.years" required class="form-control" ng-model="ctrl.reservationData.paymentData.creditCard.expiry.year"></select>
+            </div>
+        </div>
+
+        <div class="form-group form-group-sm OTADemoRequired">
+            <div class="col-sm-2">
+                <label for="CreditCard.SecurityCode" class="control-label">Security Code</label>
+            </div>
+            <div class="col-sm-1">
+                <input id="CreditCard.SecurityCode" type="number" minlength="4" maxlength="4" class="form-control" ng-model="ctrl.reservationData.paymentData.creditCard.securityCode">
+            </div>
+        </div>
+
+        <div class="form-group form-group-sm OTADemoRequired">
+            <div class="col-sm-2">
+                <label for="CreditCard.OwnerFullName" class="control-label">Owner full name</label>
+            </div>
+            <div class="col-sm-3">
+                <input id="CreditCard.OwnerFullName" type="text" class="form-control" ng-model="ctrl.reservationData.paymentData.creditCard.ownerFullName">
+            </div>
+        </div>
+
+        <!---->
+        <!--Dane płatnika-->
+        <!--Płatnik:-->
+        <!--Osoba fizyczna-->
+
+        <!--Firma-->
+        <!--Imię:-->
+        <!--Nazwisko:-->
+        <!--Kraj:-->
+
+        <!--Polska-->
+        <!--Kod pocztowy:-->
+        <!--Miejscowość:-->
+        <!--Ulica:-->
+        <!--Nr domu / lokalu:-->
+        <a href="" ng-click="formDetailsDisplay.voucherCodesEntry = !formDetailsDisplay.voucherCodesEntry">I have vouchers</a>
+        <div class="form-group form-group-sm" ng-if="formDetailsDisplay.voucherCodesEntry">
+            <div class="col-sm-2">
+                <label for="VoucherCode" class="control-label">Voucher code</label>
+            </div>
+            <div class="col-sm-3">
+                <input id="VoucherCode" type="text" class="form-control" ng-model="ctrl.reservationData.paymentData.voucherCode">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h5>Contact data</h5>
+    </div>
+
+    <div class="panel-body">
+        <div class="form-group form-group-sm OTADemoRequired">
+            <div class="col-sm-2">
+                <label for="ContactData.PhoneNumber.CountryPrefix" class="control-label">Phone</label>
+            </div>
+            <div class="col-sm-2">
+                <label class="control-label">Country prefix</label>
+                <select id="ContactData.PhoneNumber.CountryPrefix" ng-options="value.name for (key, value) in ctrl.addressModel.countries" class="form-control" ng-model="ctrl.reservationData.buyerContactData.phoneNumber.prefix"></select>
+            </div>
+            <div class="col-sm-2">
+                <label for="ContactData.PhoneNumber.Number" class="control-label">Number</label>
+                <input id="ContactData.PhoneNumber.Number" type="number" class="form-control" ng-model="ctrl.reservationData.buyerContactData.phoneNumber.number">
+            </div>
+        </div>
+        <div class="form-group form-group-sm OTADemoRequired">
+            <div class="col-sm-2">
+                <label for="ContactData.Email" class="control-label">
+                    Email address
+                </label>
+                <div>
+                    <small>Ticket will be sent to this address</small>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <input id="ContactData.Email" type="email" required class="form-control" ng-model="ctrl.reservationData.buyerContactData.email">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <div class="checkbox">
+            <label for="PolicyConfirmation">
+                <input type="checkbox" id="PolicyConfirmation" checked ng-click="ctrl.onTryToUncheckPolicyConfirmation($event)">
+                I accept the booking conditions and accept the refund policy
+            </label>
+        </div>
+
+        <div class="checkbox">
+            <label for="MarketingDistributionAcceptance">
+                <input type="checkbox" id="MarketingDistributionAcceptance">
+                I want to receive marketing material promotions
+            </label>
+        </div>
+    </div>
+</div>
+
+<button type="button" ui-sref="createReservation.reservationConfirmation" class="btn btn-lg btn-primary center-block">
+    Pay now and book<span class="glyphicon glyphicon-circle-arrow-right"></span>
+</button>
