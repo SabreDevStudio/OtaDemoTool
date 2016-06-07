@@ -1,51 +1,47 @@
 /*jshint unused: vars */
 define([
-        'angular',
-        'controllers/main',
-        'controllers/createreservation',
-        'controllers/searchControllers']/*deps*/
-    , function (
-        angular,
-        MainCtrl,
-        CreateReservationCtrl,
-        searchControllers)/*invoke*/ {
+    'angular',
+    'angular-ui-router',
+    'search/search.mod',
+    'checkout/checkout.mod',
+    'results/results.mod',
+    'common/ui/clipboard/clipboard.mod'
+], function (
+    angular,
+    uiRouter,
+    searchModule,
+    checkoutModule,
+    resultsModule,
+    clipboardModule
+) {
   'use strict';
 
-  /**
-   * @ngdoc overview
-   * @name otademoToolApp
-   * @description
-   * # otademoToolApp
-   *
-   * Main module of the application.
-   */
   return angular
-    .module('otademoToolApp', ['otademoToolApp.controllers.MainCtrl',
-    'otademoToolApp.controllers.CreateReservationCtrl',
-    'otademoToolApp.controllers.SearchControllers',
-    'ngResource',
-    'ngSanitize',
-    'ui.router',
-    'ngTouch',
-    'sdsWidgets'
+    .module('otademoToolApp', [
+          'otademoToolApp.search',
+          'otademoToolApp.checkout',
+          'otademoToolApp.clipboard',
+          'otademoToolApp.results',
+          'ui.router',
+          'sdsWidgets'
   ])
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         $stateProvider
         .state('defaultHomePage', {
             url: '/defaultHomePage',
-            templateUrl: 'views/defaultHomePage.html',
+            templateUrl: 'src/search/defaultHomePage.tpl.html',
             controller: 'DefaultHomePageCtrl'
         }
         )
         .state('results', {
                 url: '/results',
-                templateUrl: 'views/results.html',
+                templateUrl: 'src/results/results.tpl.html',
                 controller: 'ResultsPageCtrl'
             }
         )
         .state('createReservation', {
               url: '/createReservation',
-              templateUrl: 'views/createReservation/index.html',
+              templateUrl: 'src/checkout/createReservation.index.tpl.html',
               controller: 'CreateReservationCtrl',
               controllerAs: 'ctrl'
             }
@@ -53,17 +49,23 @@ define([
         // nested states for create reservation form
         .state('createReservation.itineraryDisplay', {
               url: '/itineraryDisplay',
-              templateUrl: 'views/createReservation/itineraryDisplay.html'
+              templateUrl: 'src/checkout/itineraryDisplay.tpl.html'
             }
         )
         .state('createReservation.travellerDataInput', {
               url: '/travellerDataInput',
-              templateUrl: 'views/createReservation/travellerDataInput.html'
+              templateUrl: 'src/checkout/travellerDataInput.tpl.html'
             }
         )
         .state('createReservation.paymentDetailsInput', {
               url: '/paymentDetailsInput',
-              templateUrl: 'views/createReservation/paymentDetailsInput.html'
+              templateUrl: 'src/checkout/paymentDetailsInput.tpl.html'
+            }
+        )
+        .state('clipboard', {
+                url: '/clipboard',
+                templateUrl: 'src/common/ui/clipboard/clipboard.tpl.html',
+                controller: 'ClipboardCtrl'
             }
         );
 

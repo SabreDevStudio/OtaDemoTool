@@ -3,30 +3,35 @@ require.config({
   paths: {
     angular: '../../bower_components/angular/angular',
     'angular-mocks': '../../bower_components/angular-mocks/angular-mocks',
-    'angular-resource': '../../bower_components/angular-resource/angular-resource',
-    'ui-router': '../../bower_components/angular-ui-router/release/angular-ui-router',
     'angular-sanitize': '../../bower_components/angular-sanitize/angular-sanitize',
     'angular-touch': '../../bower_components/angular-touch/angular-touch',
+    'angular-ui-router': '../../bower_components/angular-ui-router/release/angular-ui-router',
+    ngStorage: '../../bower_components/ngstorage/ngStorage',
     bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap',
-    'sabre-dev-studio-widgets': '../../bower_components/sabre-dev-studio-widgets/dist/widgets/SDSWidgets.min',
-    'angular-ui-router': '../../bower_components/angular-ui-router/release/angular-ui-router'
+    lodash: '../../bower_components/lodash/lodash',
+    ngstorage: '../../bower_components/ngstorage/ngStorage',
+    'SDSWidgets.lib': '../../bower_components/sabre-dev-studio-widgets/dist/widgets/SDSWidgets.lib.min',
+    SDSWidgets: '../../bower_components/sabre-dev-studio-widgets/dist/widgets/SDSWidgets.min',
+    text: '../../bower_components/text/text'
   },
   shim: {
     angular: {
       exports: 'angular'
     },
-    'ui-router': [
+    'angular-ui-router': [
       'angular'
     ],
     'angular-sanitize': [
       'angular'
     ],
-    'angular-resource': [
-      'angular'
-    ],
     'angular-touch': [
       'angular'
     ],
+    ngStorage: {
+      deps: [
+        'angular'
+      ]
+    },
     'angular-mocks': {
       deps: [
         'angular'
@@ -42,37 +47,32 @@ require.config({
   ]
 });
 
-//http://code.angularjs.org/1.2.1/docs/guide/bootstrap#overview_deferred-bootstrap
-window.name = 'NG_DEFER_BOOTSTRAP!';
+////http://code.angularjs.org/1.2.1/docs/guide/bootstrap#overview_deferred-bootstrap
+//window.name = 'NG_DEFER_BOOTSTRAP!';
 
 require([
   'angular',
-  'app',
-  'ui-router',
+  'workflows/basicFlow.rt',
   'angular-sanitize',
-  'angular-resource',
   'angular-touch',
-  'sabre-dev-studio-widgets'
+  'SDSWidgets.lib',
+  'templateCacheCharger'
 ], function(
     angular,
-    app,
-    uiRouter,
+    otademoToolApp,
     ngSanitize,
-    ngResource,
     ngTouch,
-    sabreDevStudioWidgets
+    sabreDevStudioWidgets,
+    templateCacheCharger
 ) {
   'use strict';
-  /* jshint ignore:start */
-  var $html = angular.element(document.getElementsByTagName('html')[0]);
-  /* jshint ignore:end */
+  var html = angular.element(document.getElementsByTagName('html')[0]);
   angular.element().ready(function() {
-    //angular.bootstrap([app.name]);
-    angular.resumeBootstrap([app.name]);
+    angular.bootstrap(html, ['otademoToolApp']);
     var initInjector = angular.injector(["ng"]);
     var $timeout = initInjector.get("$timeout");
     $timeout(function () {
-      sabreDevStudioWidgets.parseAllStylesheetsToMakeWidgetsResponsive()
+      sabreDevStudioWidgets.parseAllStylesheetsToMakeWidgetsResponsive();
     }, 10);
   });
 

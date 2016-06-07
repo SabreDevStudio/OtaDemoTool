@@ -1,0 +1,27 @@
+<div>
+    <span class="text-info">You have {{savedCount}} saved items.</span>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">Your saved itineraries</div>
+        <div class="panel-body">
+            <ul>
+                <li ng-repeat="itin in savedItineraries">
+                    <itinerary itin="itin"></itinerary>
+                    <span class="glyphicon glyphicon-remove" ng-click="removeItinerary(itin)"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">Your recent searches</div>
+        <div class="panel-body">
+            <ul>
+                <li ng-repeat="searchCriteria in savedSearchCriteria">
+                    <search-criteria-short criteria="searchCriteria"></search-criteria-short>
+                    <span class="glyphicon glyphicon-remove" ng-click="removeSearchCriteria(searchCriteria)"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

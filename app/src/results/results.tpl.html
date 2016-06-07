@@ -1,0 +1,23 @@
+<div>
+    <div ng-if="searchInProgress" class="row text-center text-info lead">
+        <span class="glyphicon glyphicon-refresh spinning"></span>
+        Searching for flights from {{searchInProgressParams.origin | cityFullName}} to
+        {{searchInProgressParams.destination | cityFullName}}...
+    </div>
+    <div class="row">
+        <filters-panel class="col-xs-2" id="ItineraryListFilterPane"></filters-panel>
+
+        <itinerary-list class="col-xs-10" class="embeddedWidget" id="ItineraryList"
+                        active-search="true" active-search-web-service="instaflights"
+                        search-criteria="newSearchCriteria"
+                        target-on-itinerary-selected="/createReservation/itineraryDisplay"
+                        selected-itinerary-callback="itinerarySelectedCallback"
+                        search-started-callback="searchStartedCallback(searchCriteria)"
+                        search-completed-success-callback="searchCompletedSuccessCallback(itineraries)"
+                        search-completed-error-callback="searchCompletedErrorCallback(errorMessages)">
+        </itinerary-list>
+    </div>
+
+    <error-display class="embeddedWidget"></error-display>
+
+</div>

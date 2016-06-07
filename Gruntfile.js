@@ -32,7 +32,7 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+        files: ['<%= yeoman.app %>/src/{,*/}*.js'],
         tasks: ['newer:jshint:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -50,7 +50,7 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
+          '<%= yeoman.app %>/**/*.html',
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
@@ -113,20 +113,19 @@ module.exports = function (grunt) {
       }
     },
 
-    // Make sure code styles are up to par and there are no obvious mistakes
     jshint: {
       options: {
         jshintrc: '.jshintrc'
       },
       all: {
         src: [
-          '<%= yeoman.app %>/scripts/{,*/}*.js'
+          '<%= yeoman.app %>/src/{,*/}*.js'
         ]
       },
       test: {
-        options: {
-          jshintrc: 'test/.jshintrc'
-        },
+        //options: {
+        //  jshintrc: 'test/.jshintrc'
+        //},
         src: ['test/spec/{,*/}*.js']
       }
     },
@@ -153,7 +152,7 @@ module.exports = function (grunt) {
       },
       server: {
         options: {
-          map: true,
+          map: true
         },
         files: [{
           expand: true,
@@ -192,7 +191,7 @@ module.exports = function (grunt) {
         cssDir: '.tmp/styles',
         generatedImagesDir: '.tmp/images/generated',
         imagesDir: '<%= yeoman.app %>/images',
-        javascriptsDir: '<%= yeoman.app %>/scripts',
+        javascriptsDir: '<%= yeoman.app %>/src',
         fontsDir: '<%= yeoman.app %>/styles/fonts',
         importPath: './bower_components',
         httpImagesPath: '/images',
@@ -237,7 +236,7 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on filerev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
+      html: ['<%= yeoman.dist %>/**/*.html'],
       css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
       options: {
         assetsDirs: [
@@ -252,17 +251,17 @@ module.exports = function (grunt) {
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
     // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css',
-    //         '<%= yeoman.app %>/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
+    cssmin: {
+       dist: {
+         files: {
+           '<%= yeoman.dist %>/styles/main.css': [
+             '.tmp/styles/{,*/}*.css',
+             '<%= yeoman.app %>/styles/{,*/}*.css'
+           ]
+         }
+       }
+    },
+    //uglify: {
     //   dist: {
     //     files: {
     //       '<%= yeoman.dist %>/scripts/scripts.js': [
@@ -270,10 +269,10 @@ module.exports = function (grunt) {
     //       ]
     //     }
     //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
+    //},
+    concat: {
+       dist: {}
+    },
 
     // The following *-min tasks produce minified files in the dist folder
     imagemin: {
@@ -296,23 +295,23 @@ module.exports = function (grunt) {
         }]
       }
     },
-    htmlmin: {
-      dist: {
-        options: {
-          collapseWhitespace: true,
-          conservativeCollapse: true,
-          collapseBooleanAttributes: true,
-          removeCommentsFromCDATA: true,
-          removeOptionalTags: true
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.dist %>',
-          src: ['*.html', 'views/{,*/}*.html'],
-          dest: '<%= yeoman.dist %>'
-        }]
-      }
-    },
+    //htmlmin: {
+    //  dist: {
+    //    options: {
+    //      collapseWhitespace: true,
+    //      conservativeCollapse: true,
+    //      collapseBooleanAttributes: true,
+    //      removeCommentsFromCDATA: true,
+    //      removeOptionalTags: true
+    //    },
+    //    files: [{
+    //      expand: true,
+    //      cwd: '<%= yeoman.dist %>',
+    //      src: ['*.html', 'src/**/*.html'],
+    //      dest: '<%= yeoman.dist %>'
+    //    }]
+    //  }
+    //},
 
     // ng-annotate tries to make the code safe for minification automatically
     // by using the Angular long form for dependency injection.
@@ -321,7 +320,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           // cwd: '<%= yeoman.app %>/scripts',
-          src: ['<%= yeoman.app %>/scripts/**/*.js'],
+          src: ['<%= yeoman.app %>/src/**/*.js'],
           dest: '.tmp'
         }]
       }
@@ -346,7 +345,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
+            'src/**/*.html',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]
@@ -398,9 +397,9 @@ module.exports = function (grunt) {
     // Settings for grunt-bower-requirejs
     bower: {
       app: {
-        rjsConfig: '<%= yeoman.app %>/scripts/main.js',
+        rjsConfig: '<%= yeoman.app %>/src/main.js',
         options: {
-          exclude: ['requirejs', 'json3', 'es5-shim']
+          exclude: ['requirejs']
         }
       }
     },
@@ -412,7 +411,7 @@ module.exports = function (grunt) {
         replacements: [{
           from: /paths: {[^}]+}/,
           to: function() {
-            return require('fs').readFileSync(grunt.template.process('<%= yeoman.app %>') + '/scripts/main.js').toString().match(/paths: {[^}]+}/);
+            return require('fs').readFileSync(grunt.template.process('<%= yeoman.app %>') + '/src/main.js').toString().match(/paths: {[^}]+}/);
           }
         }]
       }
@@ -422,18 +421,50 @@ module.exports = function (grunt) {
     requirejs: {
       dist: {
         options: {
-          dir: '<%= yeoman.dist %>/scripts/',
+          dir: '<%= yeoman.dist %>/src/',
           modules: [{
             name: 'main'
           }],
+          paths: {
+            "SDSWidgets": "empty:",
+            "templateCacheCharger": "../../../.tmp/ngtemplates/templateCacheCharger"
+          },
           preserveLicenseComments: false, // remove all comments
           removeCombined: true,
-          baseUrl: '.tmp/<%= yeoman.app %>/scripts',
-          mainConfigFile: '.tmp/<%= yeoman.app %>/scripts/main.js',
-          optimize: 'uglify2',
+          baseUrl: '.tmp/<%= yeoman.app %>/src',
+          mainConfigFile: '.tmp/<%= yeoman.app %>/src/main.js',
+          optimize: 'none', // uglify2
           uglify2: {
             mangle: false
           }
+        }
+      }
+    },
+
+    ngtemplates: {
+      otademoToolApp: { //neccessary to have name of the angular module you bootstrap - so that the generated template cache charging script will run for the same module
+        cwd: '<%= yeoman.app %>',
+        src: 'src/**/*.html',
+        dest: '.tmp/ngtemplates/templateCacheCharger.js',
+        options: {
+          bootstrap:  function(module, templateCacheChargingScript) {
+            return 'define(["angular", "SDSWidgets.lib"], function(angular, SDSWidgets) { ' +
+                'angular.module("' + module + '").run(["$templateCache", function($templateCache) {' +
+                templateCacheChargingScript + ' ' +
+                '}]);' +
+                '});';
+          }
+          //, htmlmin: {
+          //  collapseBooleanAttributes:      true,
+          //  collapseWhitespace:             true,
+          //  removeAttributeQuotes:          true,
+          //  removeComments:                 true, // Only if you don't use comment directives!
+          //  removeEmptyAttributes:          true,
+          //  removeRedundantAttributes:      true,
+          //  removeScriptTypeAttributes:     true,
+          //  removeStyleLinkTypeAttributes:  true,
+          //  keepClosingSlash:               true // needed for HTML5 closing slashes. Also for svg <line />. Without this option the SVG is broken, see https://github.com/kangax/html-minifier/pull/122
+          //}
         }
       }
     }
@@ -454,11 +485,6 @@ module.exports = function (grunt) {
       'connect:livereload',
       'watch'
     ]);
-  });
-
-  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve:' + target]);
   });
 
   grunt.registerTask('test', [
@@ -488,8 +514,9 @@ module.exports = function (grunt) {
     // 'uglify',
     'filerev',
     'usemin',
-    'requirejs:dist',
-    'htmlmin'
+    //'htmlmin',
+    'ngtemplates',
+    'requirejs:dist'
   ]);
 
   grunt.registerTask('default', [

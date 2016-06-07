@@ -1,8 +1,11 @@
-define(['angular'], function (angular) {
+define([
+    'lodash'
+    ], function (
+    _
+) {
   'use strict';
 
-  angular.module('otademoToolApp.services.MessagingServices', [])
-      .factory('LastSelectedItineraryService', function () {
+    function LastSelectedItineraryService() {
         var _lastSelectedItinerary;
         return {
           get: function () {
@@ -12,5 +15,7 @@ define(['angular'], function (angular) {
             _lastSelectedItinerary = lastSelectedItinerary;
           }
         };
-      });
+    };
+
+    return LastSelectedItineraryService;
 });

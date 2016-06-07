@@ -18,6 +18,9 @@
   "strict": true,
   "globals": {
     "angular": true,
+    // angular-mock
+    "module": false,
+    "inject": false,
     // for requirejs
     "define": false,
     "require": false,

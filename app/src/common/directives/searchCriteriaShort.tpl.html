@@ -1,0 +1,21 @@
+<div>
+    <div>
+        From {{criteria.legs[0].origin}} to {{criteria.legs[0].destination}}
+    </div>
+    <div>
+        <span>{{criteria.getFirstLeg().departureDateTime.format('ddd, DD MMM')}}</span>
+        <span ng-if="criteria.isRoundTripTravel()">
+            -
+            {{criteria.getSecondLeg().departureDateTime.format('ddd, DD MMM')}}
+            Return
+        </span>
+        <span>
+            {{criteria.getTotalPassengerCount()}} passengers
+        </span>
+        <span>{{criteria.preferredCabin.name}}</span>
+        <span ng-repeat="airline in criteria.getPreferredAirlines">{{airline}}</span>
+    </div>
+    <div>
+
+    </div>
+</div>

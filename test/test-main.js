@@ -15,10 +15,16 @@ requirejs.config({
     paths: {
     angular: '../../bower_components/angular/angular',
     'angular-mocks': '../../bower_components/angular-mocks/angular-mocks',
-    'angular-resource': '../../bower_components/angular-resource/angular-resource',
     'angular-sanitize': '../../bower_components/angular-sanitize/angular-sanitize',
     'angular-touch': '../../bower_components/angular-touch/angular-touch',
-    bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap'
+    'angular-ui-router': '../../bower_components/angular-ui-router/release/angular-ui-router',
+    ngStorage: '../../bower_components/ngstorage/ngStorage',
+    bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap',
+    lodash: '../../bower_components/lodash/lodash',
+    ngstorage: '../../bower_components/ngstorage/ngStorage',
+    'SDSWidgets.lib': '../../bower_components/sabre-dev-studio-widgets/dist/widgets/SDSWidgets.lib.min',
+    SDSWidgets: '../../bower_components/sabre-dev-studio-widgets/dist/widgets/SDSWidgets.min',
+    text: '../../bower_components/text/text'
   },
 
     shim: {

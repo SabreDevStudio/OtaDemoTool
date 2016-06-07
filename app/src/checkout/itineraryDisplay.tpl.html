@@ -3,10 +3,12 @@
         <h5>Booked trip</h5>
     </div>
     <div class="panel-body">
-        <itinerary itin="ctrl.selectedItinerary" flight-details-always-shown="true" price-details-always-shown="true"></itinerary>
+        <itinerary itin="ctrl.selectedItinerary" flight-details-always-shown="true" price-details-always-shown="true" hide-itinerary-select-button="true"></itinerary>
         <div>
             Credit Card fees not included.
-            Baggage allowance <a>details</a> TODO show modal here.
+        </div>
+        <div>
+            Baggage and optional charges <a ng-click="ctrl.baggageAndOptionalChargesLinkClicked()">details</a>.
         </div>
     </div>
 </div>
