@@ -1,0 +1,37 @@
+{
+  "dir": "dist/src/",
+  "modules": [{
+    "name": "main"
+  }],
+  "paths": {
+    "SDSWidgets": "empty:",
+    "templates.mod": "../../../.tmp/ngtemplates/templates.mod"
+  },
+  "removeCombined": true,
+  "baseUrl": ".tmp/app/src",
+  "mainConfigFile": ".tmp/<%= yeoman.app %>/src/main.js",
+  "optimize": "uglify2",
+  "mangle": true,
+  "optimize": "none",
+  "uglify2": {
+      "compress": {
+        "screw_ie8": true,
+        "sequences": true,
+        "properties": true,
+        "dead_code": true,
+        "drop_debugger": true,
+        "comparisons": true,
+        "conditionals": true,
+        "evaluate": true,
+        "booleans": true,
+        "loops": true,
+        "unused": true,
+        "hoist_funs": true,
+        "if_return": true,
+        "join_vars": true,
+        "cascade": true,
+        "negate_iife": true,
+        "drop_console": true
+      }
+  }
+}

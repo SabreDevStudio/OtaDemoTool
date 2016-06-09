@@ -261,15 +261,6 @@ module.exports = function (grunt) {
          }
        }
     },
-    //uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    //},
     concat: {
        dist: {}
     },
@@ -323,13 +314,6 @@ module.exports = function (grunt) {
           src: ['<%= yeoman.app %>/src/**/*.js'],
           dest: '.tmp'
         }]
-      }
-    },
-
-    // Replace Google CDN references
-    cdnify: {
-      dist: {
-        html: ['<%= yeoman.dist %>/*.html']
       }
     },
 
@@ -417,59 +401,40 @@ module.exports = function (grunt) {
       }
     },
 
-    // r.js compile config
     requirejs: {
       dist: {
-        options: {
-          dir: '<%= yeoman.dist %>/src/',
-          modules: [{
-            name: 'main'
-          }],
-          paths: {
-            "SDSWidgets": "empty:",
-            "templateCacheCharger": "../../../.tmp/ngtemplates/templateCacheCharger"
-          },
-          preserveLicenseComments: false, // remove all comments
-          removeCombined: true,
-          baseUrl: '.tmp/<%= yeoman.app %>/src',
-          mainConfigFile: '.tmp/<%= yeoman.app %>/src/main.js',
-          optimize: 'none', // uglify2
-          uglify2: {
-            mangle: false
-          }
-        }
+        options: grunt.file.readJSON('r.compiler.options.json')
       }
     },
 
     ngtemplates: {
-      otademoToolApp: { //neccessary to have name of the angular module you bootstrap - so that the generated template cache charging script will run for the same module
+      'otademoToolApp.templates': {
         cwd: '<%= yeoman.app %>',
         src: 'src/**/*.html',
-        dest: '.tmp/ngtemplates/templateCacheCharger.js',
+        dest: '.tmp/ngtemplates/templates.mod.js',
         options: {
           bootstrap:  function(module, templateCacheChargingScript) {
-            return 'define(["angular", "SDSWidgets.lib"], function(angular, SDSWidgets) { ' +
-                'angular.module("' + module + '").run(["$templateCache", function($templateCache) {' +
+            return 'define(["angular"], function(angular) { ' +
+                'angular.module("' + module + '", []).run(["$templateCache", function($templateCache) {' +
                 templateCacheChargingScript + ' ' +
                 '}]);' +
                 '});';
           }
-          //, htmlmin: {
-          //  collapseBooleanAttributes:      true,
-          //  collapseWhitespace:             true,
-          //  removeAttributeQuotes:          true,
-          //  removeComments:                 true, // Only if you don't use comment directives!
-          //  removeEmptyAttributes:          true,
-          //  removeRedundantAttributes:      true,
-          //  removeScriptTypeAttributes:     true,
-          //  removeStyleLinkTypeAttributes:  true,
-          //  keepClosingSlash:               true // needed for HTML5 closing slashes. Also for svg <line />. Without this option the SVG is broken, see https://github.com/kangax/html-minifier/pull/122
-          //}
+          , htmlmin: {
+            collapseBooleanAttributes:      true,
+            collapseWhitespace:             true,
+            removeAttributeQuotes:          true,
+            removeComments:                 true, // Only if you don't use comment directives!
+            removeEmptyAttributes:          true,
+            removeRedundantAttributes:      true,
+            removeScriptTypeAttributes:     true,
+            removeStyleLinkTypeAttributes:  true,
+            keepClosingSlash:               true // needed for HTML5 closing slashes. Also for svg <line />. Without this option the SVG is broken, see https://github.com/kangax/html-minifier/pull/122
+          }
         }
       }
     }
   });
-
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -486,6 +451,13 @@ module.exports = function (grunt) {
       'watch'
     ]);
   });
+
+  grunt.registerTask('serve-fast', [
+      'clean:server',
+      //'concurrent:server',
+      'connect:livereload',
+      'watch'
+    ]);
 
   grunt.registerTask('test', [
     'clean:server',
@@ -508,10 +480,7 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
-    'cdnify',
     'cssmin',
-    // Below task commented out as r.js (via grunt-contrib-requirejs) will take care of this
-    // 'uglify',
     'filerev',
     'usemin',
     //'htmlmin',

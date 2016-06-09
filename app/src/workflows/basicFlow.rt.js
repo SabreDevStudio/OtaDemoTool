@@ -5,14 +5,16 @@ define([
     'search/search.mod',
     'checkout/checkout.mod',
     'results/results.mod',
-    'common/ui/clipboard/clipboard.mod'
+    'common/ui/clipboard/clipboard.mod',
+    'templates.mod'
 ], function (
     angular,
     uiRouter,
     searchModule,
     checkoutModule,
     resultsModule,
-    clipboardModule
+    clipboardModule,
+    templatesModule
 ) {
   'use strict';
 
@@ -23,7 +25,8 @@ define([
           'otademoToolApp.clipboard',
           'otademoToolApp.results',
           'ui.router',
-          'sdsWidgets'
+          'sdsWidgets',
+          'otademoToolApp.templates'
   ])
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         $stateProvider

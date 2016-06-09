@@ -47,7 +47,7 @@ require.config({
   ]
 });
 
-////http://code.angularjs.org/1.2.1/docs/guide/bootstrap#overview_deferred-bootstrap
+//http://code.angularjs.org/1.2.1/docs/guide/bootstrap#overview_deferred-bootstrap
 //window.name = 'NG_DEFER_BOOTSTRAP!';
 
 require([
@@ -55,25 +55,21 @@ require([
   'workflows/basicFlow.rt',
   'angular-sanitize',
   'angular-touch',
-  'SDSWidgets.lib',
-  'templateCacheCharger'
+  'SDSWidgets.lib'
 ], function(
     angular,
     otademoToolApp,
     ngSanitize,
     ngTouch,
-    sabreDevStudioWidgets,
-    templateCacheCharger
+    sabreDevStudioWidgets
 ) {
   'use strict';
+
   var html = angular.element(document.getElementsByTagName('html')[0]);
   angular.element().ready(function() {
-    angular.bootstrap(html, ['otademoToolApp']);
-    var initInjector = angular.injector(["ng"]);
-    var $timeout = initInjector.get("$timeout");
-    $timeout(function () {
-      sabreDevStudioWidgets.parseAllStylesheetsToMakeWidgetsResponsive();
-    }, 10);
+    angular.bootstrap(html, ['otademoToolApp'], {
+      strictDi: true
+    });
   });
 
 });
