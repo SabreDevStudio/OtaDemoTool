@@ -6,7 +6,7 @@ define([], function () {
             scope: {
                 criteria: '='
             },
-            templateUrl: 'views/directives/SearchCriteriaShort.tpl.html'
+            templateUrl: 'src/common/directives/searchCriteriaShort.tpl.html'
         }
     };
 });

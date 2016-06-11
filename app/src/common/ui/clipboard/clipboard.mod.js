@@ -1,7 +1,8 @@
 define([
     'angular',
     'common/ui/clipboard/clipboard.ctr',
-    'common/services/commonServices.mod'
+    'common/services/commonServices.mod',
+    'common/directives/commonDirectives.mod'
 ], function (
     angular,
     ClipboardCtrl,
@@ -9,6 +10,10 @@ define([
 ) {
     'use strict';
 
-    angular.module('otademoToolApp.clipboard', ['otademoToolApp.commonServices'])
+    angular.module('otademoToolApp.clipboard', [
+        'otademoToolApp.commonServices',
+        'otademoToolApp.commonDirectives',
+        'SDSWidgets.SerializationServices'
+    ])
         .controller('ClipboardCtrl', ClipboardCtrl);
 });

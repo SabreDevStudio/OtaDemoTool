@@ -7,6 +7,6 @@ define([
 ) {
     'use strict';
 
-    angular.module('otademoToolApp.commonServices', [])
-        .directive('SearchCriteriaShort', SearchCriteriaShort);
+    angular.module('otademoToolApp.commonDirectives', [])
+        .directive('searchCriteriaShort', SearchCriteriaShort);
 });

@@ -1,19 +1,18 @@
 <div>
     <div>
-        From {{criteria.legs[0].origin}} to {{criteria.legs[0].destination}}
+        From {{criteria.origin | cityFullName}} to {{criteria.destination | cityFullName}}
     </div>
     <div>
-        <span>{{criteria.getFirstLeg().departureDateTime.format('ddd, DD MMM')}}</span>
-        <span ng-if="criteria.isRoundTripTravel()">
+        <span>{{criteria.outboundDepartureDateTime | date: 'EEE d MMM'}}</span>
+        <span ng-if="criteria.inboundDepartureDateTime">
             -
-            {{criteria.getSecondLeg().departureDateTime.format('ddd, DD MMM')}}
-            Return
+            {{criteria.inboundDepartureDateTime | date: 'EEE d MMM'}},
         </span>
         <span>
-            {{criteria.getTotalPassengerCount()}} passengers
+            <ng-pluralize count="criteria.totalPassengerCount" when="{'one': '{} passenger', 'other': '{} passengers'}"></ng-pluralize>,
         </span>
-        <span>{{criteria.preferredCabin.name}}</span>
-        <span ng-repeat="airline in criteria.getPreferredAirlines">{{airline}}</span>
+        <span>{{criteria.preferredCabin}}</span>
+        <span ng-repeat="airline in criteria.preferredAirlines">{{airline}}</span>
     </div>
     <div>
 

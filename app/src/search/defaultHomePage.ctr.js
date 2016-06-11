@@ -6,7 +6,18 @@ define([], function () {
 
         $scope.newSearchCriteriaCallback = function (searchCriteria) {
             LastSearchCriteriaService.set(searchCriteria);
-            ClipboardService.add('searchCriteria', searchCriteria);
+            var simplifiedSearchCriteria = {
+                origin: searchCriteria.getFirstLeg().origin,
+                destination: searchCriteria.getFirstLeg().destination,
+                outboundDepartureDateTime: searchCriteria.getFirstLeg().departureDateTime.toDate(),
+                inboundDepartureDateTime: searchCriteria.getSecondLeg().departureDateTime.toDate(),
+                totalPassengerCount: searchCriteria.getTotalPassengerCount(),
+                preferredCabin: searchCriteria.preferredCabin.name,
+                preferredAirlines: searchCriteria.getPreferredAirlines()
+            };
+            if (!ClipboardService.contains('searchCriteria', simplifiedSearchCriteria)) {
+                ClipboardService.add('searchCriteria', simplifiedSearchCriteria);
+            }
             //TODO and route to next state here, not in widget! Same for selected itin
         };
     }
