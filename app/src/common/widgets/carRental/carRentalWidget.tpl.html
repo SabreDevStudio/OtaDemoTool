@@ -1,0 +1,14 @@
+<div class="SDSWidgetsCarRental">
+    <h5>Pick up {{pickupDateTime | date:"MMM d HH:mm"}}, {{pickupLocation | cityFullName}}, Return: {{returnDateTime | date:"MMM d HH:mm"}}, same location.</h5>
+    <div ng-if="carSelected">
+        <car car="carSelected" hide-select-button="true"></car>
+        <button type="button" class="pull-right btn btn-sm btn-primary" ng-click="removeSelection()">Remove selection</button>
+        <div class="clearfix"></div>
+    </div>
+
+    <ul class="list-unstyled" ng-if="!carSelected">
+        <li ng-repeat="car in carsOffer">
+            <car car="car" car-selected-callback="selectCar(car)"></car>
+        </li>
+    </ul>
+</div>

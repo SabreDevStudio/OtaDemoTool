@@ -1,0 +1,70 @@
+<div class="panel-group">
+    <h4>Booking confirmation</h4>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            Itinerary
+        </div>
+        <div class="panel-body">
+            <itinerary itin="itinerary" price-details-always-shown="true" hide-itinerary-select-button="true" standalone-widget="true"></itinerary>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            Traveller
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                {{reservationData.travellerData.travellerGender | title}} {{reservationData.travellerData.travellerFirstName}} {{reservationData.travellerData.travellerLastName}}
+            </div>
+            <div class="row">
+                Born: {{reservationData.travellerData.travellerDateOfBirth | date:"mediumDate"}}
+            </div>
+            <div class="row" ng-if="reservationData.travellerData.frequentFlyerProgram">
+                Frequent flyer number: {{reservationData.travellerData.frequentFlyerProgram.number}}
+                at
+                {{reservationData.travellerData.frequentFlyerProgram.programName.programName}} ({{reservationData.travellerData.frequentFlyerProgram.programName.airlineCode | airlineFullName}})
+            </div>
+            <div class="row">
+                Contact ++{{reservationData.travellerData.travellerContact.phoneNumber.prefix.code}} {{reservationData.travellerData.travellerContact.phoneNumber.number}}
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-info" ng-if="anySpecialServiceRequestDefined()">
+        <div class="panel-heading">
+            Special service requests
+        </div>
+        <div class="panel-body">
+            <ul class="list-unstyled">
+                <li ng-if="reservationData.travellerData.specialServiceRequest.mealPreference">
+                    Meal preference: {{reservationData.travellerData.specialServiceRequest.mealPreference}}
+                </li>
+                <li ng-if="reservationData.travellerData.specialServiceRequest.assistanceType">
+                    Special assistance: {{reservationData.travellerData.specialServiceRequest.assistanceType}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            Payment details
+        </div>
+        <div class="panel-body">
+            Payment by credit card {{reservationData.paymentData.creditCardCompany}}.
+            Owner {{reservationData.paymentData.ownerFullName}}.
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            Contact information
+        </div>
+        <div class="panel-body">
+            Email: {{reservationData.buyerContactData.email}}.
+            Phone: ++{{reservationData.buyerContactData.phoneNumber.prefix.code}} {{reservationData.travellerData.travellerContact.phoneNumber.number}}
+        </div>
+    </div>
+</div>

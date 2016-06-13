@@ -1,11 +1,13 @@
 define([
     'angular',
     'results/results.ctr',
-    'common/services/commonServices.mod'
+    'common/services/commonServices.mod',
+    'SDSWidgets.lib'
 ], function (
     angular,
     ResultsPageCtrl,
-    commonServicesModule
+    commonServicesModule,
+    sabreDevStudioWidgets
 ) {
     'use strict';
 

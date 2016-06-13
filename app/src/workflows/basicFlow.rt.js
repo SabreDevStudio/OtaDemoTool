@@ -65,6 +65,16 @@ define([
               templateUrl: 'src/checkout/paymentDetailsInput.tpl.html'
             }
         )
+        .state('reservationConfirmation', {
+                url: '/reservationConfirmation',
+                params: {
+                    reservationData: undefined,
+                    itinerary: undefined
+                },
+                templateUrl: 'src/checkout/reservationConfirmation.tpl.html',
+                controller: 'ReservationConfirmationCtrl'
+            }
+        )
         .state('clipboard', {
                 url: '/clipboard',
                 templateUrl: 'src/common/ui/clipboard/clipboard.tpl.html',

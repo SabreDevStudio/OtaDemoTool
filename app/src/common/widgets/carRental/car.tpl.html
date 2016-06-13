@@ -1,0 +1,20 @@
+<ul class="list-inline">
+    <li>
+        <img ng-src="images/carRental/{{car.img}}">
+    </li>
+    <li>
+        <h4>{{car.brand}} {{car.model}} <small>or similar</small></h4>
+        <ul class="list-unstyled">
+            <li>Class: {{car.class}}</li>
+            <li>Seats: {{car.seats}}</li>
+            <li>Doors: {{car.doors}}</li>
+            <li>Air Conditioning: {{car.airConditioning}}</li>
+            <li>Transmission: {{car.transmission}}</li>
+        </ul>
+    </li>
+    <li class="pull-right">
+        <span>Price: <strike>{{car.price| currency: car.currency}}</strike>, <h4>{{car.priceWithDiscount | currency: car.currency}}</h4></span>
+        <button ng-if="!hideSelectButton" type="button" class="btn btn-sm btn-primary" ng-click="selectCar(car)">Add car</button>
+    </li>
+    <div class="clearfix"></div>
+</ul>

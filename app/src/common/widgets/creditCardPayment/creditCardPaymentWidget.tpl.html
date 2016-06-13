@@ -1,0 +1,57 @@
+<form>
+    <div class="form-group form-group-sm OTADemoRequired">
+        <div class="col-sm-2">
+            <label class="control-label">Credit Card</label>
+        </div>
+        <div class="col-sm-1" ng-repeat="company in creditCardCompanies">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="creditCardCompany" value="{{company}}" ng-model="paymentData.creditCardCompany">
+                    <img ng-src="images/creditCardLogos/payment.{{company}}.png">
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm OTADemoRequired">
+        <div class="col-sm-2">
+            <label for="CreditCard.Number" class="control-label">Card number</label>
+        </div>
+        <div class="col-sm-3">
+            <input type="number" minlength="16" maxlength="16" id="CreditCard.Number" required class="form-control"><!-- see lmc: input field separated dash after every 4 digits) -->
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm OTADemoRequired">
+        <div class="col-sm-2">
+            <label class="control-label">Expiry</label>
+        </div>
+        <div class="col-sm-1">
+            <label for="CreditCard.ExpiryDate.Month" class="control-label">Month</label>
+            <select id="CreditCard.ExpiryDate.Month" ng-options="month.seqNumber as month.name for month in calendarModel.months" required class="form-control" ng-model="paymentData.expiry.month"></select>
+        </div>
+
+        <div class="col-sm-2">
+            <label for="CreditCard.ExpiryDate.Year" class="control-label">Year</label>
+            <select id="CreditCard.ExpiryDate.Year" ng-options="year for year in calendarModel.years" required class="form-control" ng-model="paymentData.expiry.year"></select>
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm OTADemoRequired">
+        <div class="col-sm-2">
+            <label for="CreditCard.SecurityCode" class="control-label">Security Code</label>
+        </div>
+        <div class="col-sm-1">
+            <input id="CreditCard.SecurityCode" type="number" pattern=".{4}" required class="form-control" ng-model="paymentData.securityCode">
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm OTADemoRequired">
+        <div class="col-sm-2">
+            <label for="CreditCard.OwnerFullName" class="control-label">Owner full name</label>
+        </div>
+        <div class="col-sm-3">
+            <input id="CreditCard.OwnerFullName" type="text" class="form-control" ng-model="paymentData.ownerFullName">
+        </div>
+    </div>
+</form>

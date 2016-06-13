@@ -1,82 +1,15 @@
 define([], function () {
   'use strict';
 
-    CreateReservationCtrl.$inject = ['ArrayUtils', '$locale', '$window', 'LastSelectedItineraryService'];
+    CreateReservationCtrl.$inject = ['calendarModel', 'LastSelectedItineraryService', '$state'];
     function CreateReservationCtrl(
-        ArrayUtils,
-        $locale,
-        $window,
-        LastSelectedItineraryService
+        calendarModel,
+        LastSelectedItineraryService,
+        $state
         ) {
           this.selectedItinerary = LastSelectedItineraryService.get();
 
-          this.baggageAndOptionalChargesLinkClicked = function () {
-              $window.open("views-static/baggageAndOptionalCharges.html");
-          };
-
-          this.calendarModel = {};
-          this.calendarModel.years = ArrayUtils.generateSequence(1940, 2015);
-          this.calendarModel.months = $locale.DATETIME_FORMATS.SHORTMONTH;
-          this.calendarModel.monthDays = ArrayUtils.generateSequence(1, 31);
-
-          this.addressModel = {};
-          this.addressModel.countries = {
-              "PL": {
-                  "name": "Poland",
-                  "iso2": "PL",
-                  "code": "48"
-              },
-              "DE": {
-                  "name": "Germany",
-                  "iso2": "DE",
-                  "code": "49"
-              },
-              "AT": {
-                  "name": "Austria",
-                  "iso2": "AT",
-                  "code": "43"
-              },
-              "US": {
-                  "name": "United States",
-                  "iso2": "US",
-                  "code": "1"
-              },
-              "GB": {
-                  "name": "United Kingdom",
-                  "iso2": "GB",
-                  "code": "1 473"
-              }
-          };
-
-          this.ancilliaryModel = {};
-          this.ancilliaryModel.seatTypes = ['Any Seat', 'Aisle Seat', 'Window Seat'];
-
-          this.ancilliaryModel.airlinesFrequentFlyerPrograms = [ // : dropdown at Expd page + number input program number
-              {
-                  airlineCode: 'LH',
-                  programName: 'Miles&More'
-              },
-              {
-                  airlineCode: 'AA',
-                  programName: 'AAdvantage'
-              },
-              {
-                  airlineCode: 'AF',
-                  programName: 'Flying Blue'
-              },
-              {
-                  airlineCode: 'BA',
-                  programName: 'Executive Club'
-              }
-          ];
-
-          this.paymentModel = {
-              creditCardCompanies: ['Visa', 'MasterCard', 'AmericanExpress', 'Maestro', 'Discover', 'JCB']
-          };
-
-          this.specialServiceRequest = {};
-          this.specialServiceRequest.assistanceTypes = ['None', 'Blind', 'Deaf', 'Wheelchair'];
-          this.specialServiceRequest.mealPreferenceTypes = ['No preference', 'Vegetarian', 'Child', 'Diabetic', 'Gluten-intolerant', 'Low fat', 'Kosher'];
+          this.calendarModel = calendarModel.generate(1940, 2015);
 
           // presets
           this.reservationData = {
@@ -84,7 +17,7 @@ define([], function () {
                     travellerFirstName: undefined
                   , travellerMiddleName: undefined
                   , travellerLastName: undefined
-                  , travellerGender: 'F'
+                  , travellerGender: 'M'
                   , travellerDateOfBirth: {
                         day: undefined
                       , month: undefined
@@ -100,24 +33,13 @@ define([], function () {
                           , number: undefined
                         }
                   }
-                  , preferredSeatType: this.ancilliaryModel.seatTypes[0]
+                  , preferredSeatType: undefined
                   , specialServiceRequest: {
-                      mealPreference: this.specialServiceRequest.mealPreferenceTypes[0],
-                      assistanceType: this.specialServiceRequest.assistanceTypes[0]
+                      mealPreference: undefined,
+                      assistanceType: undefined
                   }
               },
-              paymentData: {
-                  creditCard: {
-                        creditCardCompany: this.paymentModel.creditCardCompanies[0]
-                      , expiry: {
-                            year: undefined
-                          , month: undefined
-                      }
-                      , securityCode: undefined
-                      , ownerFullName: undefined
-                  }
-                  , voucherCode: undefined
-              },
+              paymentData: {},
               buyerContactData: {
                   phoneNumber: {
                         prefix: undefined
@@ -125,7 +47,6 @@ define([], function () {
                   }
                   , email: undefined
               }
-
           };
 
           this.onTryToUncheckPolicyConfirmation = function (ev) {
@@ -134,9 +55,18 @@ define([], function () {
               //TODO invalidate form state and present small message in danger: 'Cannot make reservation without accepting booking policy'], 'Error'
           };
 
+          this.insuranceIncluded = false;
+
+          var that = this;
           this.commitReservation = function () {
-              console.log(this.reservationData);
+              var reservationData = that.reservationData;
+              reservationData.travellerData.travellerDateOfBirth = new Date(reservationData.travellerData.travellerDateOfBirth.year, reservationData.travellerData.travellerDateOfBirth.month, reservationData.travellerData.travellerDateOfBirth.day);
+              $state.go('reservationConfirmation', {
+                  reservationData: reservationData,
+                  itinerary: that.selectedItinerary
+              });
           }
+
         }
     return CreateReservationCtrl;
 });
