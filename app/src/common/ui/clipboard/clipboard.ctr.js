@@ -18,7 +18,7 @@ define([], function () {
 
         $scope.checkoutItinerary = function (itinerary) {
             LastSelectedItineraryService.set(itinerary);
-            $state.go('createReservation.itineraryDisplay');
+            $state.go('createReservation.optionalServices');
         };
 
         $scope.removeAllItineraries = function () {

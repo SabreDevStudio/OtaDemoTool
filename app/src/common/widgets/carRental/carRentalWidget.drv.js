@@ -9,18 +9,23 @@ define([
             scope: {
                 pickupLocation: '@', // 3 letter airport/city code
                 pickupDateTime: '=', // plain Date object
-                returnDateTime: '=' // plain Date object
+                returnDateTime: '=', // plain Date object
+                carReservation: '=' // output obj
             },
             templateUrl: 'src/common/widgets/carRental/carRentalWidget.tpl.html',
             link: function (scope) {
-                scope.carSelected = undefined;
 
                 scope.selectCar = function (car) {
-                    scope.carSelected = car;
+                    scope.carReservation = {
+                        carSelected: car,
+                        pickupLocation: scope.pickupLocation,
+                        pickupDateTime: scope.pickupDateTime,
+                        returnDateTime: scope.returnDateTime
+                    };
                 };
 
                 scope.removeSelection = function () {
-                    scope.carSelected = undefined;
+                    scope.carReservation = undefined;
                 };
 
                 scope.carsOffer = [

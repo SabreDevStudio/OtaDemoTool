@@ -5,78 +5,7 @@
         </div>
 
         <div class="panel-body">
-            <credit-card-payment-widget payment-data="ctrl.reservationData.paymentData"></credit-card-payment-widget>
-
-            <a href="" ng-click="formDetailsDisplay.voucherCodesEntry = !formDetailsDisplay.voucherCodesEntry">I have vouchers</a>
-            <div class="form-group form-group-sm" ng-if="formDetailsDisplay.voucherCodesEntry">
-                <div class="col-sm-2">
-                    <label for="VoucherCode" class="control-label">Voucher code</label>
-                </div>
-                <div class="col-sm-3">
-                    <input id="VoucherCode" type="text" class="form-control" ng-model="ctrl.reservationData.paymentData.voucherCode">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h5>Contact data</h5>
-        </div>
-
-        <div class="panel-body">
-            <div class="form-group form-group-sm OTADemoRequired">
-                <div class="col-sm-2">
-                    <label for="ContactData.PhoneNumber.CountryPrefix" class="control-label">Phone</label>
-                </div>
-                <div class="col-sm-2">
-                    <label class="control-label">Country prefix</label>
-                    <select-country-phone-prefix class="form-control" selected="ctrl.reservationData.buyerContactData.phoneNumber.prefix" id="ContactData.PhoneNumber.CountryPrefix"></select-country-phone-prefix>
-                </div>
-                <div class="col-sm-2">
-                    <label for="ContactData.PhoneNumber.Number" class="control-label">Number</label>
-                    <input id="ContactData.PhoneNumber.Number" type="number" class="form-control" ng-model="ctrl.reservationData.buyerContactData.phoneNumber.number">
-                </div>
-            </div>
-            <div class="form-group form-group-sm OTADemoRequired">
-                <div class="col-sm-2">
-                    <label for="ContactData.Email" class="control-label">
-                        Email address
-                    </label>
-                    <div>
-                        <small>Ticket will be sent to this address</small>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <input id="ContactData.Email" type="email" required class="form-control" ng-model="ctrl.reservationData.buyerContactData.email">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="panel panel-info">
-        <div class="panel-body">
-            <div class="checkbox">
-                <label for="PolicyConfirmation">
-                    <input type="checkbox" id="PolicyConfirmation" checked ng-click="ctrl.onTryToUncheckPolicyConfirmation($event)">
-                    I accept the booking conditions and accept the refund policy
-                </label>
-            </div>
-
-            <div class="checkbox">
-                <label for="MarketingDistributionAcceptance">
-                    <input type="checkbox" id="MarketingDistributionAcceptance">
-                    I want to receive marketing material promotions
-                </label>
-            </div>
-        </div>
-    </div>
-
-    <div class="panel">
-        <div class="panel-body">
-            <button type="submit" class="btn btn-sm btn-primary center-block">
-                Pay now and book<span class="glyphicon glyphicon-circle-arrow-right"></span>
-            </button>
+            <credit-card-payment-widget payment-complete-callback="paymentCompleteCallback(paymentData)"></credit-card-payment-widget>
         </div>
     </div>
 </div>

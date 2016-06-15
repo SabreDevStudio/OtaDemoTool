@@ -32,6 +32,9 @@ require.config({
         'angular'
       ]
     },
+    'angular-modal-service': [
+      'angular'
+    ],
     'angular-mocks': {
       deps: [
         'angular'

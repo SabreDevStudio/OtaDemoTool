@@ -11,7 +11,7 @@ define([], function () {
             templateUrl: 'src/common/directives/formsInput/specialServiceRequestAssistance.tpl.html',
             link: function ($scope) {
                 $scope.assistanceTypes = ['None', 'Blind', 'Deaf', 'Wheelchair'];
-                $scope.selected = $scope.assistanceTypes[0];
+                $scope.selected = $scope.selected || $scope.assistanceTypes[0];
             }
         };
     }

@@ -1,1 +1,1 @@
-<select ng-options="frequentFlyerProgramName.programName for frequentFlyerProgramName in airlinesFrequentFlyerPrograms" ng-model="selected"></select>
+<select ng-options="program as program.programName for program in airlinesFrequentFlyerPrograms track by program.airlineCode" ng-model="selected"></select>

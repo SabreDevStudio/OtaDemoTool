@@ -1,57 +1,97 @@
-<form>
-    <div class="form-group form-group-sm OTADemoRequired">
+<form name="OTADemoCreditCardPaymentWidgetForm" novalidate ng-submit="OTADemoCreditCardPaymentWidgetForm.$valid && paymentCompleteCallback({paymentData: paymentData})" class="form-horizontal">
+    <div class="form-group form-group-sm OTADemoRequired" ng-class="{'has-error':OTADemoCreditCardPaymentWidgetForm.$submitted && OTADemoCreditCardPaymentWidgetForm.creditCardCompany.$invalid}">
         <div class="col-sm-2">
             <label class="control-label">Credit Card</label>
         </div>
         <div class="col-sm-1" ng-repeat="company in creditCardCompanies">
             <div class="radio">
                 <label>
-                    <input type="radio" name="creditCardCompany" value="{{company}}" ng-model="paymentData.creditCardCompany">
+                    <input type="radio" name="creditCardCompany" value="{{company}}" ng-model="paymentData.creditCardCompany" required>
                     <img ng-src="images/creditCardLogos/payment.{{company}}.png">
                 </label>
             </div>
         </div>
     </div>
+    <div ng-show="OTADemoCreditCardPaymentWidgetForm.$submitted" class="has-error col-sm-offset-2">
+        <small ng-show="OTADemoCreditCardPaymentWidgetForm.creditCardCompany.$error.required" class="help-block">Please select your credit card type</small>
+    </div>
 
-    <div class="form-group form-group-sm OTADemoRequired">
+    <div class="form-group form-group-sm OTADemoRequired" ng-class="{'has-error':OTADemoCreditCardPaymentWidgetForm.$submitted && OTADemoCreditCardPaymentWidgetForm.CreditCard_Number.$invalid}">
         <div class="col-sm-2">
-            <label for="CreditCard.Number" class="control-label">Card number</label>
+            <label for="CreditCard_Number" class="control-label">Card number</label>
         </div>
         <div class="col-sm-3">
-            <input type="number" minlength="16" maxlength="16" id="CreditCard.Number" required class="form-control"><!-- see lmc: input field separated dash after every 4 digits) -->
+            <input type="number" ng-pattern="/^[0-9]+$/" ng-minlength="15" ng-maxlength="19" name="CreditCard_Number" required class="form-control" ng-model="paymentData.creditCardNumber"><!-- see lmc: input field separated dash after every 4 digits) -->
         </div>
+    </div>
+    <div ng-show="OTADemoCreditCardPaymentWidgetForm.$submitted && OTADemoCreditCardPaymentWidgetForm.CreditCard_Number.$invalid" class="has-error col-sm-offset-2">
+        <small ng-show="OTADemoCreditCardPaymentWidgetForm.CreditCard_Number.$error.required" class="help-block">Enter credit card number</small>
+        <small ng-show="OTADemoCreditCardPaymentWidgetForm.CreditCard_Number.$error.pattern" class="help-block">Credit card number must consist of only numbers</small>
+        <small ng-show="OTADemoCreditCardPaymentWidgetForm.CreditCard_Number.$error.minlength || OTADemoCreditCardPaymentWidgetForm.CreditCard_Number.$error.maxlength" class="help-block">Credit card must be 15-19 digits</small>
     </div>
 
     <div class="form-group form-group-sm OTADemoRequired">
         <div class="col-sm-2">
             <label class="control-label">Expiry</label>
         </div>
-        <div class="col-sm-1">
-            <label for="CreditCard.ExpiryDate.Month" class="control-label">Month</label>
-            <select id="CreditCard.ExpiryDate.Month" ng-options="month.seqNumber as month.name for month in calendarModel.months" required class="form-control" ng-model="paymentData.expiry.month"></select>
+        <div class="col-sm-1" ng-class="{'has-error':OTADemoCreditCardPaymentWidgetForm.$submitted && OTADemoCreditCardPaymentWidgetForm.CreditCard_ExpiryDate_Month.$invalid}">
+            <label for="CreditCard_ExpiryDate_Month" class="control-label">Month</label>
+            <select name="CreditCard_ExpiryDate_Month" ng-options="month.seqNumber as month.name for month in calendarModel.months" required class="form-control" ng-model="paymentData.expiry.month"></select>
         </div>
 
-        <div class="col-sm-2">
-            <label for="CreditCard.ExpiryDate.Year" class="control-label">Year</label>
-            <select id="CreditCard.ExpiryDate.Year" ng-options="year for year in calendarModel.years" required class="form-control" ng-model="paymentData.expiry.year"></select>
+        <div class="col-sm-2" ng-class="{'has-error':OTADemoCreditCardPaymentWidgetForm.$submitted && OTADemoCreditCardPaymentWidgetForm.CreditCard_ExpiryDate_Year.$invalid}">
+            <label for="CreditCard_ExpiryDate_Year" class="control-label">Year</label>
+            <select name="CreditCard_ExpiryDate_Year" ng-options="year for year in calendarModel.years" required class="form-control" ng-model="paymentData.expiry.year"></select>
         </div>
     </div>
-
-    <div class="form-group form-group-sm OTADemoRequired">
-        <div class="col-sm-2">
-            <label for="CreditCard.SecurityCode" class="control-label">Security Code</label>
-        </div>
-        <div class="col-sm-1">
-            <input id="CreditCard.SecurityCode" type="number" pattern=".{4}" required class="form-control" ng-model="paymentData.securityCode">
-        </div>
+    <div ng-show="OTADemoCreditCardPaymentWidgetForm.$submitted && OTADemoCreditCardPaymentWidgetForm.CreditCard_ExpiryDate_Month.$invalid" class="has-error col-sm-offset-2">
+        <small ng-show="OTADemoCreditCardPaymentWidgetForm.CreditCard_ExpiryDate_Month.$error.required" class="help-block">Expiry month required</small>
+    </div>
+    <div ng-show="OTADemoCreditCardPaymentWidgetForm.$submitted && OTADemoCreditCardPaymentWidgetForm.CreditCard_ExpiryDate_Year.$invalid" class="has-error col-sm-offset-2">
+        <small ng-show="OTADemoCreditCardPaymentWidgetForm.CreditCard_ExpiryDate_Year.$error.required" class="help-block">Expiry year required</small>
     </div>
 
-    <div class="form-group form-group-sm OTADemoRequired">
+    <div class="form-group form-group-sm OTADemoRequired" ng-class="{'has-error':OTADemoCreditCardPaymentWidgetForm.$submitted && OTADemoCreditCardPaymentWidgetForm.CreditCard_SecurityCode.$invalid}">
         <div class="col-sm-2">
-            <label for="CreditCard.OwnerFullName" class="control-label">Owner full name</label>
+            <label for="CreditCard_SecurityCode" class="control-label">Security Code</label>
+        </div>
+        <div class="col-sm-1">
+            <input name="CreditCard_SecurityCode" type="number" ng-pattern="/^[0-9]{4}$/" required class="form-control" ng-model="paymentData.securityCode">
+        </div>
+    </div>
+    <div ng-show="OTADemoCreditCardPaymentWidgetForm.$submitted && OTADemoCreditCardPaymentWidgetForm.CreditCard_SecurityCode.$invalid" class="has-error col-sm-offset-2">
+        <small ng-show="OTADemoCreditCardPaymentWidgetForm.CreditCard_SecurityCode.$error.required" class="help-block">Security code required</small>
+        <small ng-show="OTADemoCreditCardPaymentWidgetForm.CreditCard_SecurityCode.$error.pattern" class="help-block">Security must be 4 digits</small>
+    </div>
+
+    <div class="form-group form-group-sm OTADemoRequired" ng-class="{'has-error':OTADemoCreditCardPaymentWidgetForm.$submitted && OTADemoCreditCardPaymentWidgetForm.CreditCard_OwnerFullName.$invalid}">
+        <div class="col-sm-2">
+            <label for="CreditCard_OwnerFullName" class="control-label">Owner full name</label>
         </div>
         <div class="col-sm-3">
-            <input id="CreditCard.OwnerFullName" type="text" class="form-control" ng-model="paymentData.ownerFullName">
+            <input name="CreditCard_OwnerFullName" type="text" class="form-control" ng-model="paymentData.ownerFullName" required>
         </div>
     </div>
+    <div ng-show="OTADemoCreditCardPaymentWidgetForm.$submitted && OTADemoCreditCardPaymentWidgetForm.CreditCard_OwnerFullName.$invalid" class="has-error col-sm-offset-2">
+        <small ng-show="OTADemoCreditCardPaymentWidgetForm.CreditCard_OwnerFullName.$error.required" class="help-block">Owner full name required</small>
+    </div>
+
+    <a href="" ng-click="formDetailsDisplay.voucherCodesEntry = !formDetailsDisplay.voucherCodesEntry">I have vouchers</a>
+    <div class="form-group form-group-sm" ng-if="formDetailsDisplay.voucherCodesEntry">
+        <div class="col-sm-2">
+            <label for="VoucherCode" class="control-label">Voucher code</label>
+        </div>
+        <div class="col-sm-3">
+            <input name="VoucherCode" type="text" class="form-control" ng-model="reservationData.paymentData.voucherCode">
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="panel-body">
+            <button type="submit" class="btn btn-sm btn-primary center-block">
+                Pay now and book<span class="glyphicon glyphicon-circle-arrow-right"></span>
+            </button>
+        </div>
+    </div>
+
 </form>

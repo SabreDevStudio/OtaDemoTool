@@ -1,166 +1,263 @@
-<div class="panel-group">
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h5>Passengers data</h5>
-        </div><!-- TODO: repeat this section for every traveller -->
+<form name="OTADemoCheckoutForm_TravellerData" novalidate ng-submit="OTADemoCheckoutForm_TravellerData.$valid && travellerDataInputComplete()" class="form-horizontal">
+    <div class="panel-group">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h5>Passengers data</h5>
+            </div><!-- TODO: repeat this section for every traveller -->
 
-        <div class="panel-body">
+            <div class="panel-body">
 
-            <div class="form-group form-group-sm OTADemoRequired">
-                <div class="col-sm-2">
-                    <label for="travellerFirstName" class="control-label">First name</label>
-                </div>
-                <div class="col-sm-3">
-                    <input type="text" id="travellerFirstName" required class="form-control" ng-model="ctrl.reservationData.travellerData.travellerFirstName">
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm">
-                <div class="col-sm-2">
-                    <label for="travellerMiddleName" class="control-label">Second name</label>
-                </div>
-                <div class="col-sm-3">
-                    <input type="text" id="travellerMiddleName" required class="form-control" ng-model="ctrl.reservationData.travellerData.travellerMiddleName">
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm OTADemoRequired">
-                <div class="col-sm-2">
-                    <label for="travellerLastName" class="control-label">Last name</label>
-                </div>
-                <div class="col-sm-3">
-                    <input type="text" id="travellerLastName" required class="form-control" ng-model="ctrl.reservationData.travellerData.travellerLastName">
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm OTADemoRequired">
-                <div class="col-sm-2">
-                    <label class="control-label">Gender</label>
-                </div>
-                <div class="col-sm-1">
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="travellerGender" value="F" ng-model="ctrl.reservationData.travellerData.travellerGender">
-                            Female
-                        </label>
-                    </div>
-                </div>
-                <div class="col-sm-1">
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="travellerGender" value="M" ng-model="ctrl.reservationData.travellerData.travellerGender">
-                            Male
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group form-group-sm OTADemoRequired">
-                <div class="col-sm-2">
-                    <label class="control-label">Date of birth</label>
-                </div>
-                <div class="col-sm-1">
-                    <label for="travellerDateOfBirth.Day" class="control-label">Day</label>
-                    <select id="travellerDateOfBirth.Day" ng-options="day for day in ctrl.calendarModel.monthDays" ng-model="ctrl.reservationData.travellerData.travellerDateOfBirth.day" required class="form-control"></select>
-                </div>
-                <div class="col-sm-1">
-                    <label for="travellerDateOfBirth.Month" class="control-label">Month</label>
-                    <select id="travellerDateOfBirth.Month" ng-options="month.seqNumber as month.name for month in ctrl.calendarModel.months" ng-model="ctrl.reservationData.travellerData.travellerDateOfBirth.month" required class="form-control"></select>
-                </div>
-                <div class="col-sm-2">
-                    <label for="travellerDateOfBirth.Year" class="control-label">Year</label>
-                    <select id="travellerDateOfBirth.Year" ng-options="year for year in ctrl.calendarModel.years" ng-model="ctrl.reservationData.travellerData.travellerDateOfBirth.year" required class="form-control"></select>
-                </div>
-            </div>
-
-            <div>
-                <a href="" ng-click="formDetailsDisplay.seatPreference = !formDetailsDisplay.seatPreference">Seat preference</a>
-            </div>
-            <div class="form-group form-group-sm" ng-if="formDetailsDisplay.seatPreference">
-                <div class="col-sm-2">
-                    <select-seat-type selected="ctrl.reservationData.travellerData.preferredSeatType" class="form-control"></select-seat-type>
-                </div>
-                <small>Seat selections are requested from the airline, but cannot be guaranteed.</small>
-                <!--Select specific seat + opening seat map for every flight in the travel (pay for seats? more legroom)-->
-            </div>
-
-            <a href="" ng-click="formDetailsDisplay.frequentFlyerProgram = !formDetailsDisplay.frequentFlyerProgram">Frequent flyer program</a>
-            <div ng-if="formDetailsDisplay.frequentFlyerProgram">
-                <div class="form-group form-group-sm">
+                <div class="form-group form-group-sm OTADemoRequired" ng-class="{'has-error':OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.travellerFirstName.$invalid}">
                     <div class="col-sm-2">
-                        <label class="control-label">Program name</label>
+                        <label for="travellerFirstName" class="control-label">First name</label>
                     </div>
                     <div class="col-sm-3">
-                        <select-frequent-flyer-program class="form-control" selected="ctrl.reservationData.travellerData.frequentFlyerProgram.programName"></select-frequent-flyer-program>
+                        <input type="text" name="travellerFirstName" required class="form-control" ng-model="reservationData.travellerData.travellerFirstName" ng-pattern="/^[a-zA-Z]+$/">
+                    </div>
+                </div>
+                <div ng-show="OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.travellerFirstName.$invalid" class="has-error col-sm-offset-2">
+                    <small class="help-block" ng-show="OTADemoCheckoutForm_TravellerData.travellerFirstName.$error.required">Enter traveller first name</small>
+                    <small class="help-block" ng-show="OTADemoCheckoutForm_TravellerData.travellerFirstName.$error.pattern">Traveller first name can be letters only</small>
+                </div>
+
+                <div class="form-group form-group-sm">
+                    <div class="col-sm-2">
+                        <label for="travellerMiddleName" class="control-label">Second name</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" name="travellerMiddleName" class="form-control" ng-model="reservationData.travellerData.travellerMiddleName">
+                    </div>
+                </div>
+
+                <div class="form-group form-group-sm OTADemoRequired" ng-class="{'has-error':OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.travellerLastName.$invalid}">
+                    <div class="col-sm-2">
+                        <label for="travellerLastName" class="control-label">Last name</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" name="travellerLastName" required class="form-control" ng-model="reservationData.travellerData.travellerLastName" ng-pattern="/^[a-zA-Z]+$/">
+                    </div>
+                </div>
+                <div ng-show="OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.travellerLastName.$invalid" class="has-error col-sm-offset-2">
+                    <small class="help-block" ng-show="OTADemoCheckoutForm_TravellerData.travellerLastName.$error.required">Enter traveller last name</small>
+                    <small class="help-block" ng-show="OTADemoCheckoutForm_TravellerData.travellerLastName.$error.pattern">Traveller last name can be letters only</small>
+                </div>
+
+                <div class="form-group form-group-sm OTADemoRequired">
+                    <div class="col-sm-2">
+                        <label class="control-label">Gender</label>
+                    </div>
+                    <div class="col-sm-1">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="travellerGender" value="F" ng-model="reservationData.travellerData.travellerGender">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-1">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="travellerGender" value="M" ng-model="reservationData.travellerData.travellerGender">
+                                Male
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-sm OTADemoRequired">
+                    <div class="col-sm-2">
+                        <label class="control-label">Date of birth</label>
+                    </div>
+                    <div class="col-sm-1" ng-class="{'has-error':OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.travellerBirthDay.$invalid}">
+                        <label for="travellerBirthDay" class="control-label">Day</label>
+                        <select name="travellerBirthDay" ng-options="day for day in calendarModel.monthDays" ng-model="reservationData.travellerData.travellerDateOfBirth.day" required class="form-control"></select>
+                    </div>
+                    <div class="col-sm-1" ng-class="{'has-error':OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.travellerBirthMonth.$invalid}">
+                        <label for="travellerBirthMonth" class="control-label">Month</label>
+                        <select name="travellerBirthMonth" ng-options="month.seqNumber as month.name for month in calendarModel.months" ng-model="reservationData.travellerData.travellerDateOfBirth.month" required class="form-control"></select>
+                    </div>
+                    <div class="col-sm-2" ng-class="{'has-error':OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.travellerBirthYear.$invalid}">
+                        <label for="travellerBirthYear" class="control-label">Year</label>
+                        <select name="travellerBirthYear" ng-options="year for year in calendarModel.years" ng-model="reservationData.travellerData.travellerDateOfBirth.year" required class="form-control"></select>
+                    </div>
+                </div>
+                <div ng-show="OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.travellerBirthDay.$invalid" class="has-error col-sm-offset-2">
+                    <small class="help-block" ng-show="OTADemoCheckoutForm_TravellerData.travellerBirthDay.$error.required">Enter date of birth day</small>
+                </div>
+                <div ng-show="OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.travellerBirthMonth.$invalid" class="has-error col-sm-offset-2">
+                    <small class="help-block" ng-show="OTADemoCheckoutForm_TravellerData.travellerBirthMonth.$error.required">Enter date of birth month</small>
+                </div>
+                <div ng-show="OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.travellerBirthYear.$invalid" class="has-error col-sm-offset-2">
+                    <small class="help-block" ng-show="OTADemoCheckoutForm_TravellerData.travellerBirthYear.$error.required">Enter date of birth year</small>
+                </div>
+
+                <div>
+                    <a href="" ng-click="formDetailsDisplay.seatPreference = !formDetailsDisplay.seatPreference">Seat preference</a>
+                </div>
+                <div class="form-group form-group-sm" ng-if="formDetailsDisplay.seatPreference">
+                    <div class="col-sm-2">
+                        <label class="control-label">Preferred seat</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <select-seat-type selected="reservationData.travellerData.preferredSeatType" class="form-control"></select-seat-type>
+                    </div>
+                    <small>Seat selections are requested from the airline, but cannot be guaranteed.</small>
+                    <!--Select specific seat + opening seat map for every flight in the travel (pay for seats? more legroom)-->
+                </div>
+                <div class="SDSBottomBuffer-sm"></div>
+
+                <a href="" ng-click="formDetailsDisplay.frequentFlyerProgram = !formDetailsDisplay.frequentFlyerProgram">Frequent flyer program</a>
+                <div ng-if="formDetailsDisplay.frequentFlyerProgram">
+                    <div class="form-group form-group-sm">
+                        <div class="col-sm-2">
+                            <label class="control-label">Program name</label>
+                        </div>
+                        <div class="col-sm-3">
+                            <select-frequent-flyer-program class="form-control" selected="reservationData.travellerData.frequentFlyerProgram.programName"></select-frequent-flyer-program>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm">
+                        <div class="col-sm-2">
+                            <label class="control-label">Client number</label>
+                        </div>
+                        <div class="col-sm-3">
+                            <input class="form-control" type="number" ng-model="reservationData.travellerData.frequentFlyerProgram.number">
+                        </div>
+                    </div>
+                </div>
+                <div class="SDSBottomBuffer-sm"></div>
+
+                <div class="form-group form-group-sm">
+                    <div class="col-sm-2">
+                        <label class="control-label">Special assistance needed</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <special-service-request-assistance selected="reservationData.travellerData.specialServiceRequest.assistanceType" class="form-control"></special-service-request-assistance>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-sm">
+                    <div class="col-sm-2">
+                        <label class="control-label">Meal preference</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <select-meal-preference selected="reservationData.travellerData.specialServiceRequest.mealPreference" class="form-control"></select-meal-preference>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h5>Emergency contact</h5>
+            </div>
+            <div class="panel-body">
+                <div class="form-group form-group-sm">
+                    <div class="col-sm-2">
+                        <label class="control-label">First name</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control">
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
                     <div class="col-sm-2">
-                        <label class="control-label">Client number</label>
+                        <label class="control-label">Last Name</label>
                     </div>
                     <div class="col-sm-3">
-                        <input class="form-control" type="number" ng-model="ctrl.reservationData.travellerData.frequentFlyerProgram.number">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group form-group-sm">
+                    <div class="col-sm-2">
+                        <label for="ContactData.PhoneNumber.CountryPrefix" class="control-label">Phone</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="control-label" for="EmergencyContact_ContactData_PhoneNumber_CountryPrefix">Country prefix</label>
+                        <select-country-phone-prefix class="form-control" selected="reservationData.travellerData.travellerContact.phoneNumber.prefix" name="EmergencyContact_ContactData_PhoneNumber_CountryPrefix"></select-country-phone-prefix>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="EmergencyContact_ContactData_PhoneNumber_Number" class="control-label">Number</label>
+                        <input name="EmergencyContact_ContactData_PhoneNumber_Number" type="number" class="form-control" ng-model="reservationData.travellerData.travellerContact.phoneNumber.number">
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="form-group form-group-sm">
-                <div class="col-sm-2">
-                    <label class="control-label">Special assistance needed</label>
-                </div>
-                <div class="col-sm-2">
-                    <special-service-request-assistance selected="ctrl.reservationData.travellerData.specialServiceRequest.assistanceType" class="form-control"></special-service-request-assistance>
-                </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h5>Contact data</h5>
             </div>
 
-            <div class="form-group form-group-sm">
-                <div class="col-sm-2">
-                    <label class="control-label">Meal preference</label>
+            <div class="panel-body">
+                <div class="form-group form-group-sm OTADemoRequired">
+                    <div class="col-sm-2">
+                        <label for="ContactData_PhoneNumber_CountryPrefix" class="control-label">Phone</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="control-label" for="ContactData_PhoneNumber_CountryPrefix">Country prefix</label>
+                        <select-country-phone-prefix class="form-control" selected="reservationData.buyerContactData.phoneNumber.prefix" name="ContactData_PhoneNumber_CountryPrefix"></select-country-phone-prefix>
+                    </div>
+                    <div class="col-sm-2" ng-class="{'has-error':OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.ContactData_PhoneNumber_Number.$invalid}">
+                        <label for="ContactData_PhoneNumber_Number" class="control-label">Number</label>
+                        <input name="ContactData_PhoneNumber_Number" required type="number" class="form-control" ng-model="reservationData.buyerContactData.phoneNumber.number">
+                    </div>
                 </div>
-                <div class="col-sm-2">
-                    <select-meal-preference selected="ctrl.reservationData.travellerData.specialServiceRequest.mealPreference" class="form-control"></select-meal-preference>
+                <div ng-show="OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.ContactData_PhoneNumber_Number.$invalid" class="has-error col-sm-offset-2">
+                    <small ng-show="OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.ContactData_PhoneNumber_Number.$error.required" class="help-block">We need your phone number in case of last minute changes. Please enter your phone number</small>
+                    <small ng-show="OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.ContactData_PhoneNumber_Number.$error.number" class="help-block">Phone number can consist only of digits</small>
                 </div>
-            </div>
 
-            <label class="control-label">Emergency contact</label>
-            <div class="form-group form-group-sm">
-                <div class="col-sm-2">
-                    <label class="control-label">First name</label>
-                </div>
-                <div class="col-sm-3">
-                    <input type="text" class="form-control">
-                </div>
-            </div>
-            <div class="form-group form-group-sm">
-                <div class="col-sm-2">
-                    <label class="control-label">Last Name</label>
-                </div>
-                <div class="col-sm-3">
-                    <input type="text" class="form-control">
-                </div>
-            </div>
-            <div class="form-group form-group-sm OTADemoRequired">
-                <div class="col-sm-2">
-                    <label for="ContactData.PhoneNumber.CountryPrefix" class="control-label">Phone</label>
-                </div>
-                <div class="col-sm-2">
-                    <label class="control-label">Country prefix</label>
-                    <select-country-phone-prefix class="form-control" selected="ctrl.reservationData.travellerData.travellerContact.phoneNumber.prefix" id="ContactData.PhoneNumber.CountryPrefix"></select-country-phone-prefix>
-                </div>
-                <div class="col-sm-2">
-                    <label for="ContactData.PhoneNumber.Number" class="control-label">Number</label>
-                    <input id="ContactData.PhoneNumber.Number" type="number" class="form-control" ng-model="ctrl.reservationData.travellerData.travellerContact.phoneNumber.number">
+                <div class="form-group form-group-sm OTADemoRequired" ng-class="{'has-error':OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.ContactData_Email.$invalid}">
+                    <div class="col-sm-2">
+                        <label for="ContactData_Email" class="control-label">
+                            Email address
+                        </label>
+                        <div>
+                            <small>Ticket will be sent to this address</small>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <input name="ContactData_Email" type="email" required class="form-control" ng-model="reservationData.buyerContactData.email">
+                        <div ng-show="OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.ContactData_Email.$invalid" class="has-error">
+                            <small ng-show="OTADemoCheckoutForm_TravellerData.ContactData_Email.$error.required" class="help-block">We need your email to send you the tickets</small>
+                            <small ng-show="OTADemoCheckoutForm_TravellerData.ContactData_Email.$error.email" class="help-block">You have entered invalid email address</small>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
 
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                Terms and conditions
+            </div>
+            <div class="panel-body">
+                <div class="checkbox" ng-class="{'has-error':OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.PolicyConfirmation.$invalid}">
+                    <label for="PolicyConfirmation">
+                        <input type="checkbox" name="PolicyConfirmation" checked required ng-model="policyConfirmed">
+                        I accept the booking conditions and accept the refund policy
+                    </label>
+                </div>
+                <div ng-show="OTADemoCheckoutForm_TravellerData.PolicyConfirmation.$invalid" class="has-error">
+                    <small ng-show="OTADemoCheckoutForm_TravellerData.PolicyConfirmation.$error.required" class="help-block">You have to accept the conditions to proceed.</small>
+                </div>
+
+                <div class="checkbox">
+                    <label for="MarketingDistributionAcceptance">
+                        <input type="checkbox" name="MarketingDistributionAcceptance">
+                        I want to receive marketing material promotions
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-body">
+                <button type="submit" class="btn btn-sm btn-primary center-block">
+                    Proceed to payment <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                </button>
+            </div>
         </div>
     </div>
-
-    <div class="panel">
-        <div class="panel-body">
-            <button type="button" ui-sref="createReservation.paymentDetailsInput" class="btn btn-sm btn-primary center-block">
-                Proceed to payment <span class="glyphicon glyphicon-circle-arrow-right"></span>
-            </button>
-        </div>
-    </div>
-</div>
+</form>

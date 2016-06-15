@@ -11,7 +11,7 @@ define([], function () {
             templateUrl: 'src/common/directives/formsInput/selectSeatType.tpl.html',
             link: function ($scope) {
                 $scope.seatTypes = ['Any Seat', 'Aisle Seat', 'Window Seat'];
-                $scope.selected = $scope.seatTypes[0];
+                $scope.selected = $scope.selected || $scope.seatTypes[0];
             }
         };
     }

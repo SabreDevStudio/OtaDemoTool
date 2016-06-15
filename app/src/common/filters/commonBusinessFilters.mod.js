@@ -14,5 +14,14 @@ define([
                     default: return '';
                 }
             };
+        })
+        .filter('phoneCountryPrefix', function () {
+            return function (prefix) {
+                if (_.isUndefined(prefix) || prefix.length === 0) {
+                    return;
+                }
+                return '++' + prefix
+            };
         });
+
 });

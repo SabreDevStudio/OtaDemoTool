@@ -1,71 +1,99 @@
 define([], function () {
   'use strict';
 
-    CreateReservationCtrl.$inject = ['calendarModel', 'LastSelectedItineraryService', '$state'];
+    CreateReservationCtrl.$inject = ['$scope', 'calendarModel', 'LastSelectedItineraryService', '$state'];
     function CreateReservationCtrl(
+        $scope,
         calendarModel,
         LastSelectedItineraryService,
         $state
         ) {
-          this.selectedItinerary = LastSelectedItineraryService.get();
+        $scope.$state = $state;
 
-          this.calendarModel = calendarModel.generate(1940, 2015);
+        $scope.selectedItinerary = LastSelectedItineraryService.get();
 
-          // presets
-          this.reservationData = {
-              travellerData: {
-                    travellerFirstName: undefined
-                  , travellerMiddleName: undefined
-                  , travellerLastName: undefined
-                  , travellerGender: 'M'
-                  , travellerDateOfBirth: {
-                        day: undefined
-                      , month: undefined
-                      , year: undefined
-                  }
-                  , frequentFlyerProgram: {
-                        programName: undefined
-                      , number: undefined
-                  }
-                  , travellerContact: {
-                        phoneNumber: {
-                            prefix: undefined
-                          , number: undefined
-                        }
-                  }
-                  , preferredSeatType: undefined
-                  , specialServiceRequest: {
-                      mealPreference: undefined,
-                      assistanceType: undefined
-                  }
-              },
-              paymentData: {},
-              buyerContactData: {
-                  phoneNumber: {
-                        prefix: undefined
-                      , number: undefined
-                  }
-                  , email: undefined
-              }
-          };
+        $scope.calendarModel = calendarModel.generate(1940, 2015);
 
-          this.onTryToUncheckPolicyConfirmation = function (ev) {
-              ev.preventDefault();
-              ev.stopPropagation();
-              //TODO invalidate form state and present small message in danger: 'Cannot make reservation without accepting booking policy'], 'Error'
-          };
+        $scope.reservationData = initializeEmptyReservationData();
 
-          this.insuranceIncluded = false;
+        $scope.policyConfirmed = true;
 
-          var that = this;
-          this.commitReservation = function () {
-              var reservationData = that.reservationData;
-              reservationData.travellerData.travellerDateOfBirth = new Date(reservationData.travellerData.travellerDateOfBirth.year, reservationData.travellerData.travellerDateOfBirth.month, reservationData.travellerData.travellerDateOfBirth.day);
-              $state.go('reservationConfirmation', {
+        $scope.paymentCompleteCallback = function (paymentData) {
+            $scope.reservationData.paymentData = paymentData;
+            var reservationData = $scope.reservationData;
+            reservationData.travellerData.travellerDateOfBirth = new Date(reservationData.travellerData.travellerDateOfBirth.year, reservationData.travellerData.travellerDateOfBirth.month, reservationData.travellerData.travellerDateOfBirth.day);
+            $state.go('reservationConfirmation', {
                   reservationData: reservationData,
-                  itinerary: that.selectedItinerary
-              });
-          }
+                  itinerary: $scope.selectedItinerary
+            });
+          };
+
+        $scope.optionalServicesCheckoutComplete = function () {
+            $state.go('createReservation.travellerDataInput');
+        };
+
+        $scope.travellerDataInputComplete = function () {
+            $state.go('createReservation.paymentDetailsInput');
+        };
+
+        function initializeEmptyReservationData() {
+            var travellerData = {
+                travellerFirstName: undefined
+                , travellerMiddleName: undefined
+                , travellerLastName: undefined
+                , travellerGender: 'M'
+                , travellerDateOfBirth: {
+                    day: undefined
+                    , month: undefined
+                    , year: undefined
+                }
+                , frequentFlyerProgram: {
+                    programName: undefined
+                    , number: undefined
+                }
+                , travellerContact: {
+                    phoneNumber: {
+                        prefix: undefined
+                        , number: undefined
+                    }
+                }
+                , preferredSeatType: undefined
+                , specialServiceRequest: {
+                    mealPreference: undefined,
+                    assistanceType: undefined
+                }
+            };
+
+            var buyerContactData = {
+                phoneNumber: {
+                    prefix: undefined
+                    , number: undefined
+                }
+                , email: undefined
+            };
+
+            var ancillaries = {
+                insurance: {
+                    included: false,
+                    protectionPlan: 'Full protection',
+                    price: 30.00,
+                    currency: 'EUR'
+                },
+                car: {
+                    carSelected: undefined,
+                    pickupLocation: undefined,
+                    pickupDateTime: undefined,
+                    returnDateTime: undefined
+                }
+            };
+
+            return {
+                travellerData: travellerData,
+                paymentData: {},
+                buyerContactData: buyerContactData,
+                ancillaries: ancillaries
+            };
+        }
 
         }
     return CreateReservationCtrl;

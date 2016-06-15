@@ -45,14 +45,13 @@ define([
         .state('createReservation', {
               url: '/createReservation',
               templateUrl: 'src/checkout/createReservation.index.tpl.html',
-              controller: 'CreateReservationCtrl',
-              controllerAs: 'ctrl'
+              controller: 'CreateReservationCtrl'
             }
         )
         // nested states for create reservation form
-        .state('createReservation.itineraryDisplay', {
-              url: '/itineraryDisplay',
-              templateUrl: 'src/checkout/itineraryDisplay.tpl.html'
+        .state('createReservation.optionalServices', {
+              url: '/optionalServices',
+              templateUrl: 'src/checkout/optionalServices.tpl.html'
             }
         )
         .state('createReservation.travellerDataInput', {

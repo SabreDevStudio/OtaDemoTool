@@ -1,0 +1,65 @@
+<form name="OTADemoCreateReservationForm_OptionalServices" novalidate ng-submit="optionalServicesCheckoutComplete()">
+    <div class="panel-group">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                Booked trip
+            </div>
+            <div class="panel-body">
+                <itinerary itin="selectedItinerary" flight-details-always-shown="true" price-details-always-shown="true" hide-itinerary-select-button="true" standalone-widget="true"></itinerary>
+                <div>
+                    Credit Card fees not included.
+                </div>
+                <div>
+                    Baggage and optional charges <a href="views-static/baggageAndOptionalCharges.html" new-window>Details</a>.
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                Travel protection
+            </div>
+            <div class="panel-body">
+                <form>
+                    <div class="checkbox">
+                        <label class="input-md" for="OtaDemoTool_Checkout_insuranceIncluded">
+                            <input type="checkbox" name="insuranceIncluded" name="OtaDemoTool_Checkout_insuranceIncluded" ng-model="reservationData.ancillaries.insurance.included">
+                            <div>
+                                I want to buy travel insurance: {{reservationData.ancillaries.insurance.price | currency:reservationData.ancillaries.insurance.currency}}. <a href="views-static/insuranceDetails.html" new-window>Details.</a>
+                            </div>
+                        </label>
+                    </div>
+                    Protection covers
+                    <ul>
+                        <li>Full ticket refund if your travel plans change</li>
+                        <li>Baggage and belongings insured against theft, damage and loss up to 1000 EUR</li>
+                        <li>Flight delays</li>
+                        <li>Emergency medical care and medical evacuation all costs covered</li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                Car rental
+            </div>
+            <div class="panel-body">
+                <car-rental-widget
+                        car-reservation="reservationData.ancillaries.car"
+                        pickup-location="{{selectedItinerary.getFirstLegArrivalAirport()}}"
+                        pickup-date-time="selectedItinerary.getOutboundArrivalDateTime().toDate()"
+                        return-date-time="selectedItinerary.getInboundDepartureDateTime().toDate()">
+                </car-rental-widget>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-body">
+                <button type="submit" class="btn btn-sm btn-primary center-block">
+                    Input traveller data <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

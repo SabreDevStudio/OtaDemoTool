@@ -11,7 +11,7 @@ define([], function () {
             templateUrl: 'src/common/directives/formsInput/selectMealPreference.tpl.html',
             link: function ($scope) {
                 $scope.mealPreferenceTypes = ['No preference', 'Vegetarian', 'Child', 'Diabetic', 'Gluten-intolerant', 'Low fat', 'Kosher'];
-                $scope.selected = $scope.mealPreferenceTypes[0];
+                $scope.selected = $scope.selected || $scope.mealPreferenceTypes[0];
             }
         };
     }

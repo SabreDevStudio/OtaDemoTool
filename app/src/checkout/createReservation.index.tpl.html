@@ -1,20 +1,12 @@
 <div>
     <div class="container">
-
-        <ul class="nav nav-pills nav-justified">
-            <li ui-sref-active="active" ui-sref=".itineraryDisplay" role="presentation">
-                <a>Configure itinerary</a>
-            </li>
-            <li ui-sref-active="active" ui-sref=".travellerDataInput" role="presentation">
-                <a>Input traveller data</a>
-            </li>
-            <li ui-sref-active="active" ui-sref=".paymentDetailsInput" role="presentation">
-                <a>Choose payment method</a>
-            </li>
+        
+        <ul class="list-unstyled list-inline">
+            <li ng-class="{'text-primary': $state.includes('createReservation.optionalServices')}">Step 1: Optional services</li>
+            <li ng-class="{'text-primary': $state.includes('createReservation.travellerDataInput')}">Step 2. Input traveller data</li>
+            <li ng-class="{'text-primary': $state.includes('createReservation.paymentDetailsInput')}">Step 3. Choose payment method</li>
         </ul>
 
-        <form name="OTADemoTravellerDataInput" ng-submit="ctrl.commitReservation()" class="form-horizontal">
-            <div ui-view></div>
-        </form>
+        <div ui-view></div>
     </div>
 </div>
