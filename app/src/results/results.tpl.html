@@ -1,4 +1,4 @@
-<div>
+<div ng-class="{'SDSSearchInProgressUponClicked': searchInProgress}">
     <div ng-if="searchInProgress" class="row text-center text-info lead">
         <span class="glyphicon glyphicon-refresh spinning"></span>
         Searching for flights from {{searchInProgressParams.origin | cityFullName}} to

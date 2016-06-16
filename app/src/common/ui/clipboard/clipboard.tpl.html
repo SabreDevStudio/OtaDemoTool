@@ -6,7 +6,7 @@
             <div class="panel-heading">Your saved itineraries</div>
             <div class="panel-body">
                 <ul class="list-unstyled">
-                    <li ng-repeat="itin in savedItineraries">
+                    <li ng-repeat="itin in savedItineraries" class="OTADemoItineraryListElement">
                         <itinerary itin="itin" hide-itinerary-select-button="true" standalone-widget="true"></itinerary>
                         <div class="SDSBottomBuffer-xs"></div>
                         <div class="pull-right">
@@ -26,7 +26,7 @@
             <div class="panel-heading">Your recent searches</div>
             <div class="panel-body">
                 <ul class="list-unstyled">
-                    <li ng-repeat="searchCriteria in savedSearchCriteria.slice().reverse() track by $index">
+                    <li ng-repeat="searchCriteria in savedSearchCriteria.slice().reverse() track by $index" class="OTADemoSearchCriteriaShortElement">
                         <div class="row">
                             <search-criteria-short class="col-xs-9 col-sm-6 col-md-4 col-lg-3" criteria="searchCriteria"></search-criteria-short>
                             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">

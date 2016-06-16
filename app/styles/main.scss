@@ -1,3 +1,6 @@
+$itemsSeparatingLineColor: #D2DDE4;
+$itemsSeparatingLineStyle: solid #D2DDE4 1px;
+
 // asterisk for bootstrap forms required fields
 .form-group.OTADemoRequired .control-label:after {
   content:"*";
@@ -27,4 +30,20 @@ input[type=number]::-webkit-outer-spin-button {
 
   display: flex;
   align-items: center;
+}
+
+.OTADemoItineraryListElement {
+  border: $itemsSeparatingLineStyle;
+  border-radius: 0.5em;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  padding: 0.8em 0.5em;
+}
+
+.OTADemoSearchCriteriaShortElement {
+  border: $itemsSeparatingLineStyle;
+  border-radius: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 0.5em 0.3em;
 }

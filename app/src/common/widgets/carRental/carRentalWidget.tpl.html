@@ -1,4 +1,4 @@
-<div class="SDSWidgetsCarRental">
+<div>
     <h5>Pick up {{pickupDateTime | date:"MMM d HH:mm"}}, {{pickupLocation | cityFullName}}, Return: {{returnDateTime | date:"MMM d HH:mm"}}, same location.</h5>
     <div ng-if="carReservation.carSelected">
         <car car="carReservation.carSelected" hide-select-button="true"></car>
