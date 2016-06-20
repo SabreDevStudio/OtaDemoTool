@@ -13,7 +13,6 @@ define([
         };
 
         $scope.reservationData = $stateParams.reservationData;
-        console.log($scope.reservationData);
         $scope.itinerary = $stateParams.itinerary;
     }
     return ReservationConfirmationCtrl;

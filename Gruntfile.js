@@ -19,6 +19,10 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+  var properties = {
+    cdnBase: 'http://analytics.sabre.com/sdsdemo/dslab/otademotool/static'
+  };
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -266,43 +270,47 @@ module.exports = function (grunt) {
     },
 
     // The following *-min tasks produce minified files in the dist folder
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-    //htmlmin: {
+    //imagemin: {
     //  dist: {
-    //    options: {
-    //      collapseWhitespace: true,
-    //      conservativeCollapse: true,
-    //      collapseBooleanAttributes: true,
-    //      removeCommentsFromCDATA: true,
-    //      removeOptionalTags: true
-    //    },
     //    files: [{
     //      expand: true,
-    //      cwd: '<%= yeoman.dist %>',
-    //      src: ['*.html', 'src/**/*.html'],
-    //      dest: '<%= yeoman.dist %>'
+    //      cwd: '<%= yeoman.app %>/images',
+    //      src: '{,*/}*.{png,jpg,jpeg,gif}',
+    //      dest: '<%= yeoman.dist %>/images'
     //    }]
     //  }
     //},
+    //svgmin: {
+    //  dist: {
+    //    files: [{
+    //      expand: true,
+    //      cwd: '<%= yeoman.app %>/images',
+    //      src: '{,*/}*.svg',
+    //      dest: '<%= yeoman.dist %>/images'
+    //    }]
+    //  }
+    //},
+
+    cdnify: {
+      img: {
+        options: {
+          html: {
+            'img[ng-src]': 'ng-src'
+          },
+          rewriter: function (url) {
+            return url
+                .replace('images/creditCardLogos/', properties.cdnBase + '/creditCardLogos/')
+                .replace('images/carRental/', properties.cdnBase + '/carRental/');
+          }
+        },
+        files: [{
+          cwd: '<%= yeoman.app %>',
+          expand: true,
+          src: 'src/**/*.html',
+          dest: '.tmp/imagesCdnified'
+        }]
+      }
+    },
 
     // ng-annotate tries to make the code safe for minification automatically
     // by using the Angular long form for dependency injection.
@@ -372,9 +380,9 @@ module.exports = function (grunt) {
         'compass'
       ],
       dist: [
-        'compass:dist',
-        'imagemin',
-        'svgmin'
+        'compass:dist'
+        //'imagemin',
+        //'svgmin'
       ]
     },
 
@@ -409,7 +417,7 @@ module.exports = function (grunt) {
 
     ngtemplates: {
       'otademoToolApp.templates': {
-        cwd: '<%= yeoman.app %>',
+        cwd: '.tmp/imagesCdnified',
         src: 'src/**/*.html',
         dest: '.tmp/ngtemplates/templates.mod.js',
         options: {
@@ -483,7 +491,7 @@ module.exports = function (grunt) {
     'cssmin',
     'filerev',
     'usemin',
-    //'htmlmin',
+    'cdnify:img',
     'ngtemplates',
     'requirejs:dist'
   ]);
