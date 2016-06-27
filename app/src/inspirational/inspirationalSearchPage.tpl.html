@@ -1,5 +1,4 @@
 <div class="container">
-    <search-form class="embeddedWidget" submit-target="/results" new-search-criteria-callback="newSearchCriteriaCallback(searchCriteria)"></search-form>
 
     <div class="panel panel-default">
         <div class="panel-heading text-center">
@@ -7,8 +6,11 @@
         </div>
         <div class="panel-body">
             <travel-themes-selection-bar></travel-themes-selection-bar>
+            <map-themed-destination-finder class="embeddedWidget" closest-airport="FRA"></map-themed-destination-finder>
             <tiles-themed-destination-finder class="embeddedWidget" closest-airport="FRA"></tiles-themed-destination-finder>
         </div>
     </div>
+
+    <error-display class="embeddedWidget"></error-display>
 
 </div>

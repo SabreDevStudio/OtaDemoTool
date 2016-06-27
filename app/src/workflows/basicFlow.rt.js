@@ -91,6 +91,19 @@ define([
                         }
                     }
                 })
+
+                .state('inspirationalSearchPage', {
+                    url: '/inspirationalSearch',
+                    views: {
+                        'header': {
+                            templateUrl: 'src/header.tpl.html'
+                        },
+                        'content': {
+                            templateUrl: 'src/inspirational/inspirationalSearchPage.tpl.html'
+                        }
+                    }
+                })
+
                 .state('clipboard', {
                     url: '/clipboard',
                     views: {
