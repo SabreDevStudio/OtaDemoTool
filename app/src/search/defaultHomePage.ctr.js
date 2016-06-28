@@ -6,11 +6,11 @@ define([], function () {
 
         $scope.newSearchCriteriaCallback = function (searchCriteria) {
             LastSearchCriteriaService.set(searchCriteria);
-            var simplifiedSearchCriteria = {
+            var simplifiedSearchCriteria  = {
                 origin: searchCriteria.getFirstLeg().origin,
                 destination: searchCriteria.getFirstLeg().destination,
-                outboundDepartureDateTime: searchCriteria.getFirstLeg().departureDateTime.toDate(),
-                inboundDepartureDateTime: searchCriteria.getSecondLeg().departureDateTime.toDate(),
+                outboundDepartureDateTime: searchCriteria.getFirstLeg().departureDateTime.format(),
+                inboundDepartureDateTime: searchCriteria.getSecondLeg().departureDateTime.format(),
                 totalPassengerCount: searchCriteria.getTotalPassengerCount(),
                 preferredCabin: searchCriteria.preferredCabin.name,
                 preferredAirlines: searchCriteria.getPreferredAirlines()
