@@ -11,6 +11,16 @@
         <div class="col-xs-2">
             <div class="panel panel-default" ng-if="searchCompletedSuccessful">
                 <div class="panel-body">
+
+                    <low-fare-history ng-if="searchCompletedSuccessful"
+                                      class="embeddedWidget" hide-chart-labels="true" hide-header="true"
+                                      origin="{{lastSuccessfulSearchCriteria.getTripOrigin()}}"
+                                      show-chart-labels="false"
+                                      destination="{{lastSuccessfulSearchCriteria.getTripDestination()}}"
+                                      departure-date="{{lastSuccessfulSearchCriteria.getTripDepartureDateTime().format()}}"
+                                      return-date="{{lastSuccessfulSearchCriteria.getTripReturnDateTime().format()}}">
+                    </low-fare-history>
+
                     <div class="text-center">
                         <fare-nabber type="button" class="btn btn-primary btn-sm"
                                     origin="{{lastSuccessfulSearchCriteria.getTripOrigin()}}"
