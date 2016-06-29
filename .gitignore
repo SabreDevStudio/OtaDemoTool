@@ -4,4 +4,6 @@
 /.tmp
 /.sass-cache
 /bower_components
+*.css
+*.css.map
 TODO
