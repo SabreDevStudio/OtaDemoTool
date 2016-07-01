@@ -6,8 +6,10 @@
         </div>
         <div class="panel-body">
             <travel-themes-selection-bar></travel-themes-selection-bar>
-            <map-themed-destination-finder class="embeddedWidget" closest-airport="FRA"></map-themed-destination-finder>
-            <tiles-themed-destination-finder class="embeddedWidget" closest-airport="FRA"></tiles-themed-destination-finder>
+            <map-themed-destination-finder class="embeddedWidget" closest-airport="FRA" search-offer-clicked="searchOfferClicked(searchCriteria)">
+            </map-themed-destination-finder>
+            <tiles-themed-destination-finder class="embeddedWidget" closest-airport="FRA" search-offer-clicked="searchOfferClicked(searchCriteria)">
+            </tiles-themed-destination-finder>
         </div>
     </div>
 

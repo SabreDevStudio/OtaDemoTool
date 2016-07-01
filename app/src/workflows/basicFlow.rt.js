@@ -6,6 +6,7 @@ define([
     'checkout/checkout.mod',
     'results/results.mod',
     'common/ui/clipboard/clipboard.mod',
+    'inspirational/inspirational.mod',
     'templates.mod'
 ], function (angular,
              uiRouter,
@@ -13,6 +14,7 @@ define([
              checkoutModule,
              resultsModule,
              clipboardModule,
+             inspirationalModule,
              templatesModule) {
     'use strict';
 
@@ -22,6 +24,7 @@ define([
             'otademoToolApp.checkout',
             'otademoToolApp.clipboard',
             'otademoToolApp.results',
+            'otademoToolApp.inspirationalSearch',
             'ui.router',
             'sdsWidgets',
             'otademoToolApp.templates'
@@ -99,7 +102,8 @@ define([
                             templateUrl: 'src/header.tpl.html'
                         },
                         'content': {
-                            templateUrl: 'src/inspirational/inspirationalSearchPage.tpl.html'
+                            templateUrl: 'src/inspirational/inspirationalSearchPage.tpl.html',
+                            controller: 'InspirationalSearchPageCtrl'
                         }
                     }
                 })

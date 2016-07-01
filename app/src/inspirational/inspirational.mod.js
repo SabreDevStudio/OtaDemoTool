@@ -1,14 +1,14 @@
 define([
     'angular',
-    //'inspirational/InspirationalSearchPage.ctr',
+    'inspirational/InspirationalSearchPage.ctr',
     'SDSWidgets.lib'
 ], function (
     angular,
-    //InspirationalSearchPageCtrl,
+    InspirationalSearchPageCtrl,
     sabreDevStudioWidgets
 ) {
     'use strict';
 
-    angular.module('otademoToolApp.inspirationalSearch', ['sdsWidgets.inspirationalWidgets']);
-        //.controller('InspirationalSearchPage', InspirationalSearchPage);
+    angular.module('otademoToolApp.inspirationalSearch', ['sdsWidgets.inspirationalWidgets'])
+        .controller('InspirationalSearchPageCtrl', InspirationalSearchPageCtrl);
 });
