@@ -10,16 +10,28 @@
 
         <div class="col-xs-2">
             <div class="panel panel-default" ng-if="searchCompletedSuccessful">
+                <div class="panel-heading">
+                    <h5 class="panel-title">Price trends</h5>
+                </div>
                 <div class="panel-body">
 
-                    <low-fare-history ng-if="searchCompletedSuccessful"
-                                      class="embeddedWidget" hide-chart-labels="true" hide-header="true"
-                                      origin="{{lastSuccessfulSearchCriteria.getTripOrigin()}}"
+                    <low-fare-history class="embeddedWidget"
+                                      hide-chart-labels="true"
+                                      hide-header="true"
+                                      min-days-data-required="8"
                                       show-chart-labels="false"
+                                      origin="{{lastSuccessfulSearchCriteria.getTripOrigin()}}"
                                       destination="{{lastSuccessfulSearchCriteria.getTripDestination()}}"
                                       departure-date="{{lastSuccessfulSearchCriteria.getTripDepartureDateTime().format()}}"
                                       return-date="{{lastSuccessfulSearchCriteria.getTripReturnDateTime().format()}}">
                     </low-fare-history>
+
+                    <fare-forecast class="embeddedWidget"
+                                   origin="{{lastSuccessfulSearchCriteria.getTripOrigin()}}"
+                                   destination="{{lastSuccessfulSearchCriteria.getTripDestination()}}"
+                                   departure-date="{{lastSuccessfulSearchCriteria.getTripDepartureDateTime().format()}}"
+                                   return-date="{{lastSuccessfulSearchCriteria.getTripReturnDateTime().format()}}">
+                    </fare-forecast>
 
                     <div class="text-center">
                         <fare-nabber type="button" class="btn btn-primary btn-sm"
@@ -29,13 +41,13 @@
                                     return-date="{{lastSuccessfulSearchCriteria.getTripReturnDateTime().format()}}"
                                     passenger-type="ADT"
                                     passenger-count="{{lastSuccessfulSearchCriteria.getTotalPassengerCount()}}"
-                                    maximum-acceptable-price="{{latestLeadPrice.price}}" maximum-acceptable-price-currency="{{latestLeadPrice.currency}}">
+                                    maximum-acceptable-price="{{latestLeadPrice.price}}"
+                                    maximum-acceptable-price-currency="{{latestLeadPrice.currency}}">
                             Subscribe for price alerts
                         </fare-nabber>
                     </div>
                 </div>
             </div>
-
 
             <filters-panel id="ItineraryListFilterPane" ng-if="searchCompletedSuccessful"></filters-panel>
         </div>
