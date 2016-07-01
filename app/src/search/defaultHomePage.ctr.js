@@ -7,9 +7,7 @@ define([], function () {
         $scope.newSearchCriteriaCallback = function (searchCriteria) {
             LastSearchCriteriaService.set(searchCriteria);
             var serializedSearchCriteria  = SearchCriteriaSerializer.serialize(searchCriteria);
-            if (!ClipboardService.contains('searchCriteria', serializedSearchCriteria)) {
-                ClipboardService.add('searchCriteria', serializedSearchCriteria);
-            }
+            ClipboardService.addIfAbsent('searchCriteria', serializedSearchCriteria);
             //TODO and route to next state here, not in widget! Same for selected itin
         };
     }

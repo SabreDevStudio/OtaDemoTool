@@ -11,13 +11,26 @@ define([
             }
             return $localStorage['ClipboardService'];
         })();
-        return {
-            add: function (type, item) {
-                if (_.isUndefined(storage[type])) {
-                    storage[type] = [];
+
+        function add(type, item) {
+            if (_.isUndefined(storage[type])) {
+                storage[type] = [];
+            }
+            storage[type].push(item);
+        }
+
+        function contains(type, item, comparator) {
+            if (_.isUndefined(storage[type])) {
+                return false;
+            }
+            var comparator = comparator || function (element) {
+                    return _.isEqual(item, element);
                 }
-                storage[type].push(item);
-            },
+            return _.some(storage[type], comparator);
+        }
+
+        return {
+            add: add,
             remove: function (type, item, comparator) {
                 if (_.isUndefined(storage[type])) {
                     return;
@@ -39,14 +52,11 @@ define([
             size: function () {
                 return _.flatten(_.values(storage)).length || 0;
             },
-            contains: function (type, item, comparator) {
-                if (_.isUndefined(storage[type])) {
-                    return false;
+            contains: contains,
+            addIfAbsent: function (type, item) {
+                if (!contains(type, item)) {
+                    add(type, item);
                 }
-                var comparator = comparator || function (element) {
-                        return _.isEqual(item, element);
-                }
-                return _.some(storage[type], comparator);
             }
         };
     };
