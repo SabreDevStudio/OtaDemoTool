@@ -42,4 +42,10 @@ input[type=number]::-webkit-outer-spin-button {
 .OTADemoSiteLogo {
   margin: 0.5em; }
 
+low-fare-history .panel-body {
+  padding: 5px; }
+
+fare-forecast .panel {
+  margin-bottom: 5px; }
+
 /*# sourceMappingURL=main.css.map */
