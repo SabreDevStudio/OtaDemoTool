@@ -12,8 +12,8 @@ define([
             var searchCriteria = SearchCriteriaSerializer.deserialize({
                 origin: simplifiedSearchCriteria.origin,
                 destination: simplifiedSearchCriteria.destination,
-                outboundDepartureDateTime: simplifiedSearchCriteria.departureDateTime.format(),
-                inboundDepartureDateTime: simplifiedSearchCriteria.returnDateTime.format()
+                outboundDepartureDateTime: simplifiedSearchCriteria.departureDateTime.toISOString(),
+                inboundDepartureDateTime: simplifiedSearchCriteria.returnDateTime.toISOString()
             });
             LastSearchCriteriaService.set(searchCriteria);
             $state.go('results');
