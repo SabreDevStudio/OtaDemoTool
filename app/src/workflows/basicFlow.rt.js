@@ -38,8 +38,15 @@ define([
                             templateUrl: 'src/header.tpl.html'
                         },
                         'content': {
-                            templateUrl: 'src/search/defaultHomePage.tpl.html',
+                            templateUrl: 'src/search/defaultHomePage.tpl.html'
+                        },
+                        'searchForm@defaultHomePage': {
+                            templateUrl: 'src/search/searchForm.tpl.html',
                             controller: 'DefaultHomePageCtrl'
+                        },
+                        'inspirationalSuggestions@defaultHomePage': {
+                            templateUrl: 'src/inspirational/inspirationalSuggestions.tpl.html',
+                            controller: 'InspirationalSearchPageCtrl'
                         }
                     }
                 })

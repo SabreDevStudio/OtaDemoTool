@@ -1,14 +1,6 @@
 <div class="container">
-    <search-form class="embeddedWidget" new-search-criteria-callback="newSearchCriteriaCallback(searchCriteria)"></search-form>
-
-    <div class="panel panel-default">
-        <div class="panel-heading text-center">
-            <h4 class="panel-title">Best offers</h4>
-        </div>
-        <div class="panel-body">
-            <travel-themes-selection-bar></travel-themes-selection-bar>
-            <tiles-themed-destination-finder class="embeddedWidget" closest-airport="FRA"></tiles-themed-destination-finder>
-        </div>
+    <div ui-view="searchForm">
     </div>
-
+    <div ui-view="inspirationalSuggestions">
+    </div>
 </div>
