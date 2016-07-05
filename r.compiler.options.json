@@ -1,15 +1,15 @@
 {
-  "dir": "dist/src/",
-  "modules": [{
-    "name": "main"
-  }],
+  "name": "../../../bower_components/almond/almond",
   "paths": {
     "SDSWidgets": "empty:",
     "templates.mod": "../../../.tmp/ngtemplates/templates.mod"
   },
-  "removeCombined": true,
+  "wrap": true,
   "baseUrl": ".tmp/app/src",
   "mainConfigFile": ".tmp/<%= yeoman.app %>/src/main.js",
+  "out": "dist/otademotool.min.js",
+  "include": ["main"],
+  "insertRequire": ["main"],
   "mangle": true,
   "optimize": "uglify2",
   "uglify2": {

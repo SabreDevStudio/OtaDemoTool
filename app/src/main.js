@@ -12,7 +12,8 @@ require.config({
     'SDSWidgets.lib': '../../bower_components/sabre-dev-studio-widgets/dist/widgets/SDSWidgets.lib.min',
     SDSWidgets: '../../bower_components/sabre-dev-studio-widgets/dist/widgets/SDSWidgets.min',
     text: '../../bower_components/text/text',
-    ngstorage: '../../bower_components/ngstorage/ngStorage'
+    ngstorage: '../../bower_components/ngstorage/ngStorage',
+    almond: '../../bower_components/almond/almond'
   },
   shim: {
     angular: {

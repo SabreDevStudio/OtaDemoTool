@@ -337,7 +337,6 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'src/**/*.html',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]
@@ -346,11 +345,6 @@ module.exports = function (grunt) {
           cwd: '.',
           dest: '.tmp',
           src: ['bower_components/**/*']
-        }, {
-          expand: true,
-          cwd: '.',
-          dest: '<%= yeoman.dist %>',
-          src: ['bower_components/requirejs/*']
         }, {
           expand: true,
           cwd: '.tmp/images',
@@ -406,6 +400,16 @@ module.exports = function (grunt) {
             return require('fs').readFileSync(grunt.template.process('<%= yeoman.app %>') + '/src/main.js').toString().match(/paths: {[^}]+}/);
           }
         }]
+      },
+      linkToOptimizedJs: {
+        src: 'dist/index.html',
+        overwrite: true,
+        replacements: [
+          {
+            from: /<script.*src=\".*require.js\".*<\/script>/g,
+            to: '<script async src="otademotool.min.js"></script>'
+          }
+        ]
       }
     },
 
@@ -493,7 +497,8 @@ module.exports = function (grunt) {
     'usemin',
     'cdnify:img',
     'ngtemplates',
-    'requirejs:dist'
+    'requirejs:dist',
+    'replace:linkToOptimizedJs'
   ]);
 
   grunt.registerTask('default', [
