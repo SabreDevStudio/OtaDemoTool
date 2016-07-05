@@ -6,12 +6,12 @@ define([], function () {
             restrict: 'E',
             replace: true,
             scope: {
-                selected: '='
+                type: '='
             },
             templateUrl: 'src/common/directives/formsInput/selectSeatType.tpl.html',
             link: function ($scope) {
                 $scope.seatTypes = ['Any Seat', 'Aisle Seat', 'Window Seat'];
-                $scope.selected = $scope.selected || $scope.seatTypes[0];
+                $scope.type = $scope.type || $scope.seatTypes[0];
             }
         };
     }

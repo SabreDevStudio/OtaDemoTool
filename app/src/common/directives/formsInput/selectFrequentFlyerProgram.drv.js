@@ -6,7 +6,7 @@ define([], function () {
             restrict: 'E',
             replace: true,
             scope: {
-                selected: '='
+                program: '='
             },
             templateUrl: 'src/common/directives/formsInput/selectFrequentFlyerProgram.tpl.html',
             link: function ($scope) {

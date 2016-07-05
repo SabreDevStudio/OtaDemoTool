@@ -6,7 +6,7 @@ define([], function () {
             restrict: 'E',
             replace: true,
             scope: {
-                selected: '='
+                prefix: '='
             },
             templateUrl: 'src/common/directives/formsInput/selectCountryPhonePrefix.tpl.html',
             link: function ($scope) {

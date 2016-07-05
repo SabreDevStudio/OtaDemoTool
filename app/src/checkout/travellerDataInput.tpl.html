@@ -99,7 +99,7 @@
                         <label class="control-label">Preferred seat</label>
                     </div>
                     <div class="col-sm-2">
-                        <select-seat-type selected="reservationData.travellerData.preferredSeatType" class="form-control"></select-seat-type>
+                        <select-seat-type type="reservationData.travellerData.preferredSeatType" class="form-control"></select-seat-type>
                     </div>
                     <small>Seat selections are requested from the airline, but cannot be guaranteed.</small>
                     <!--Select specific seat + opening seat map for every flight in the travel (pay for seats? more legroom)-->
@@ -113,7 +113,7 @@
                             <label class="control-label">Program name</label>
                         </div>
                         <div class="col-sm-3">
-                            <select-frequent-flyer-program class="form-control" selected="reservationData.travellerData.frequentFlyerProgram.programName"></select-frequent-flyer-program>
+                            <select-frequent-flyer-program class="form-control" program="reservationData.travellerData.frequentFlyerProgram.programName"></select-frequent-flyer-program>
                         </div>
                     </div>
                     <div class="form-group form-group-sm">
@@ -132,7 +132,7 @@
                         <label class="control-label">Special assistance needed</label>
                     </div>
                     <div class="col-sm-2">
-                        <special-service-request-assistance selected="reservationData.travellerData.specialServiceRequest.assistanceType" class="form-control"></special-service-request-assistance>
+                        <special-service-request-assistance assistance="reservationData.travellerData.specialServiceRequest.assistanceType" class="form-control"></special-service-request-assistance>
                     </div>
                 </div>
 
@@ -141,7 +141,7 @@
                         <label class="control-label">Meal preference</label>
                     </div>
                     <div class="col-sm-2">
-                        <select-meal-preference selected="reservationData.travellerData.specialServiceRequest.mealPreference" class="form-control"></select-meal-preference>
+                        <select-meal-preference preference="reservationData.travellerData.specialServiceRequest.mealPreference" class="form-control"></select-meal-preference>
                     </div>
                 </div>
             </div>
@@ -174,7 +174,7 @@
                     </div>
                     <div class="col-sm-2">
                         <label class="control-label" for="EmergencyContact_ContactData_PhoneNumber_CountryPrefix">Country prefix</label>
-                        <select-country-phone-prefix class="form-control" selected="reservationData.travellerData.travellerContact.phoneNumber.prefix" name="EmergencyContact_ContactData_PhoneNumber_CountryPrefix"></select-country-phone-prefix>
+                        <select-country-phone-prefix class="form-control" prefix="reservationData.travellerData.travellerContact.phoneNumber.prefix" name="EmergencyContact_ContactData_PhoneNumber_CountryPrefix"></select-country-phone-prefix>
                     </div>
                     <div class="col-sm-2">
                         <label for="EmergencyContact_ContactData_PhoneNumber_Number" class="control-label">Number</label>
@@ -196,7 +196,7 @@
                     </div>
                     <div class="col-sm-2">
                         <label class="control-label" for="ContactData_PhoneNumber_CountryPrefix">Country prefix</label>
-                        <select-country-phone-prefix class="form-control" selected="reservationData.buyerContactData.phoneNumber.prefix" name="ContactData_PhoneNumber_CountryPrefix"></select-country-phone-prefix>
+                        <select-country-phone-prefix class="form-control" prefix="reservationData.buyerContactData.phoneNumber.prefix" name="ContactData_PhoneNumber_CountryPrefix"></select-country-phone-prefix>
                     </div>
                     <div class="col-sm-2" ng-class="{'has-error':OTADemoCheckoutForm_TravellerData.$submitted && OTADemoCheckoutForm_TravellerData.ContactData_PhoneNumber_Number.$invalid}">
                         <label for="ContactData_PhoneNumber_Number" class="control-label">Number</label>

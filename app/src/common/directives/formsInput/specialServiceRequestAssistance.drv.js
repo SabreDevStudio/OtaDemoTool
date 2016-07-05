@@ -6,12 +6,12 @@ define([], function () {
             restrict: 'E',
             replace: true,
             scope: {
-                selected: '='
+                assistance: '='
             },
             templateUrl: 'src/common/directives/formsInput/specialServiceRequestAssistance.tpl.html',
             link: function ($scope) {
                 $scope.assistanceTypes = ['None', 'Blind', 'Deaf', 'Wheelchair'];
-                $scope.selected = $scope.selected || $scope.assistanceTypes[0];
+                $scope.assistance = $scope.assistance || $scope.assistanceTypes[0];
             }
         };
     }
