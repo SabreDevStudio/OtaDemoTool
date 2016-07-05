@@ -56,8 +56,8 @@
             <itinerary-list class="embeddedWidget" id="ItineraryList"
                             active-search="true" active-search-web-service="instaflights-updated-with-bfm"
                             search-criteria="newSearchCriteria"
-                            target-on-itinerary-selected="/createReservation/optionalServices"
-                            selected-itinerary-callback="itinerarySelectedCallback"
+                            selected-itinerary-callback="itinerarySelectedCallback(itinerary)"
+                            enable-itinerary-select-button="true"
                             search-started-callback="searchStartedCallback(searchCriteria)"
                             search-completed-success-callback="searchCompletedSuccessCallback(itineraries, searchCriteria)"
                             search-completed-error-callback="searchCompletedErrorCallback(errorMessages, searchCriteria)">
