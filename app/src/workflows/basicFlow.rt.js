@@ -102,6 +102,19 @@ define([
                     }
                 })
 
+                .state('landingPage', {
+                    url: '/flights/:origin/:destination/:outboundDepartureDateTime/:inboundDepartureDateTime',
+                    views: {
+                        'header': {
+                            templateUrl: 'src/header.tpl.html'
+                        },
+                        'content': {
+                            templateUrl: 'src/results/results.tpl.html',
+                            controller: 'LandingPageCtrl'
+                        }
+                    }
+                })
+
                 .state('inspirationalSearchPage', {
                     url: '/inspirationalSearch',
                     views: {
@@ -114,7 +127,6 @@ define([
                         }
                     }
                 })
-
                 .state('clipboard', {
                     url: '/clipboard',
                     views: {

@@ -5,9 +5,10 @@ define([
 ) {
     'use strict';
 
-    ResultsPageCtrl.$inject = ['$scope', '$state', 'LastSearchCriteriaService', 'LastSelectedItineraryService', 'ClipboardService'];
-    function ResultsPageCtrl($scope, $state, LastSearchCriteriaService, LastSelectedItineraryService, ClipboardService) {
-        $scope.newSearchCriteria = LastSearchCriteriaService.get();
+    function ResultsPageCtrl($scope, $state, SearchCriteriaService, LastSelectedItineraryService, ClipboardService, searchStrategy) {
+        $scope.searchStrategy = searchStrategy;
+
+        $scope.newSearchCriteria = SearchCriteriaService.get();
 
         $scope.itinerarySelectedCallback = function (itin) {
             LastSelectedItineraryService.set(itin);
