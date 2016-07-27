@@ -102,8 +102,20 @@ define([
                     }
                 })
 
-                .state('landingPage', {
+                .state('landingPageRoundTrip', {
                     url: '/flights/:origin/:destination/:outboundDepartureDateTime/:inboundDepartureDateTime',
+                    views: {
+                        'header': {
+                            templateUrl: 'src/header.tpl.html'
+                        },
+                        'content': {
+                            templateUrl: 'src/results/results.tpl.html',
+                            controller: 'LandingPageCtrl'
+                        }
+                    }
+                })
+                .state('landingPageOneWay', {
+                    url: '/flights/:origin/:destination/:outboundDepartureDateTime',
                     views: {
                         'header': {
                             templateUrl: 'src/header.tpl.html'
