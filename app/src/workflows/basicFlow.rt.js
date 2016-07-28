@@ -126,6 +126,18 @@ define([
                         }
                     }
                 })
+                .state('landingPageRouteKnown', {
+                    url: '/flights/:origin/:destination',
+                    views: {
+                        'header': {
+                            templateUrl: 'src/header.tpl.html'
+                        },
+                        'content': {
+                            templateUrl: 'src/results/inspirationalRouteKnown.tpl.html',
+                            controller: 'LandingPageCtrl'
+                        }
+                    }
+                })
 
                 .state('inspirationalSearchPage', {
                     url: '/inspirationalSearch',
