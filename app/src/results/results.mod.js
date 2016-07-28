@@ -1,11 +1,13 @@
 define([
     'angular',
     'results/results.ctr',
+    'results/landingPageFlightsTo.ctr',
     'common/services/commonServices.mod',
     'SDSWidgets.lib'
 ], function (
     angular,
     ResultsPageCtrl,
+    LandingPageFlightsToCtrl,
     commonServicesModule,
     sabreDevStudioWidgets
 ) {
@@ -31,5 +33,13 @@ define([
             'ClipboardService',
             'searchStrategyForLandingPage',
             ResultsPageCtrl
+        ])
+        .controller('LandingPageFlightsToCtrl', [
+            '$scope',
+            '$state',
+            '$stateParams',
+            'SearchCriteriaSerializer',
+            'LastSearchCriteriaService',
+            LandingPageFlightsToCtrl
         ]);
 });

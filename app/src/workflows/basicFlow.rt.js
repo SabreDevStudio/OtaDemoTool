@@ -138,6 +138,18 @@ define([
                         }
                     }
                 })
+                .state('landingPageFlightsTo', {
+                    url: '/flights-to/:destination',
+                    views: {
+                        'header': {
+                            templateUrl: 'src/header.tpl.html'
+                        },
+                        'content': {
+                            templateUrl: 'src/results/inspirationalFlightsTo.tpl.html',
+                            controller: 'LandingPageFlightsToCtrl'
+                        }
+                    }
+                })
 
                 .state('inspirationalSearchPage', {
                     url: '/inspirationalSearch',

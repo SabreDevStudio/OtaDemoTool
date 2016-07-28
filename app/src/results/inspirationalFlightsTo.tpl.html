@@ -1,0 +1,16 @@
+<div ng-class="{'SDSSearchInProgressUponClicked': searchInProgress}">
+
+    <div class="row">
+        <div class="center-block" style="max-width: 800px">
+            <travel-seasonality class="embeddedWidget" destination="{{destination}}" chart-height="120px"/>
+        </div>
+    </div>
+
+    <destination-pricer class="embeddedWidget"
+                        destination="{{destination}}"
+                        search-link-enabled="true"
+                        offer-clicked="offerClicked(searchCriteria)"/>
+
+    <errors-display/>
+
+</div>
