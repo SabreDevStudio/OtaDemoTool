@@ -6,7 +6,7 @@
 
     <div class="row">
 
-        <div class="col-xs-2">
+        <div class="col-lg-2 hidden-xs hidden-sm hidden-md">
             <div class="panel panel-default" ng-if="searchStatus.searchCompletedSuccessful">
                 <div class="panel-heading">
                     <h5 class="panel-title">Price trends</h5>
@@ -50,7 +50,7 @@
             <filters-panel id="ItineraryListFilterPane" ng-if="searchStatus.searchCompletedSuccessful"></filters-panel>
         </div>
 
-        <div class="col-xs-10">
+        <div class="col-lg-10">
             <itinerary-list class="embeddedWidget" id="ItineraryList"
                             active-search="true" active-search-web-service="{{searchStrategy}}"
                             search-criteria="newSearchCriteria"
