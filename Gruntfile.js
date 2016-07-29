@@ -20,7 +20,7 @@ module.exports = function (grunt) {
   };
 
   var properties = {
-    cdnBase: 'http://analytics.sabre.com/sdsdemo/dslab/otademotool/static'
+    cdnBase: 'http://analytics.sabre.com/sdsdemo/dslab/otademotool_static'
   };
 
   // Define the configuration for all the tasks
