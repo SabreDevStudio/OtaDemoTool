@@ -20,8 +20,7 @@ define([
             '$scope',
             '$state',
             'LastSearchCriteriaService',
-            'LastSelectedItineraryService',
-            'ClipboardService',
+            'PersistenceLastSelectedItineraryService',
             'searchStrategyForSearch',
             ResultsPageCtrl
         ])
@@ -29,8 +28,7 @@ define([
             '$scope',
             '$state',
             'QueryParamsSearchCriteriaService',
-            'LastSelectedItineraryService',
-            'ClipboardService',
+            'PersistenceLastSelectedItineraryService',
             'searchStrategyForLandingPage',
             ResultsPageCtrl
         ])

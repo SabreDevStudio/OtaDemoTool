@@ -1,13 +1,11 @@
 define([], function () {
     'use strict';
 
-    DefaultHomePageCtrl.$inject = ['$scope', '$state', 'LastSearchCriteriaService', 'ClipboardService', 'SearchCriteriaSerializer'];
-    function DefaultHomePageCtrl($scope, $state, LastSearchCriteriaService, ClipboardService, SearchCriteriaSerializer) {
+    DefaultHomePageCtrl.$inject = ['$scope', '$state', 'PersistenceLastSearchCriteriaService'];
+    function DefaultHomePageCtrl($scope, $state, LastSearchCriteriaService) {
 
         $scope.newSearchCriteriaCallback = function (searchCriteria) {
             LastSearchCriteriaService.set(searchCriteria);
-            var serializedSearchCriteria  = SearchCriteriaSerializer.serialize(searchCriteria);
-            ClipboardService.addIfAbsent('searchCriteria', serializedSearchCriteria);
             $state.go('results');
         };
     }

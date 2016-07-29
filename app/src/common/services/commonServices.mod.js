@@ -5,7 +5,9 @@ define([
     'common/services/lastSelectedItinerary.srv',
     'common/services/lastSearchCriteria.srv',
     'common/services/inspirationalTravelDates.srv',
-    'common/services/queryParamsSearchCriteria.srv'
+    'common/services/queryParamsSearchCriteria.srv',
+    'common/services/persistenceLastSearchCriteria.srv',
+    'common/services/persistenceLastSelectedItinerary.srv'
 ], function (
     angular,
     ngStorage,
@@ -13,7 +15,9 @@ define([
     LastSelectedItineraryService,
     LastSearchCriteriaService,
     InspirationalTravelDatesService,
-    QueryParamsSearchCriteriaSource
+    QueryParamsSearchCriteriaSource,
+    PersistenceLastSearchCriteriaService,
+    PersistenceLastSelectedItineraryService
 ) {
     'use strict';
 
@@ -22,11 +26,21 @@ define([
         .factory('LastSelectedItineraryService', LastSelectedItineraryService)
         .service('LastSearchCriteriaService', LastSearchCriteriaService)
         .service('InspirationalTravelDatesService', InspirationalTravelDatesService)
-        .service('QueryParamsSearchCriteriaService', [
+        .service('PersistenceLastSearchCriteriaService', [
             'LastSearchCriteriaService',
-            '$stateParams',
             'SearchCriteriaSerializer',
             'ClipboardService',
+            PersistenceLastSearchCriteriaService
+        ])
+        .service('PersistenceLastSelectedItineraryService', [
+            'LastSelectedItineraryService',
+            'ClipboardService',
+            PersistenceLastSelectedItineraryService
+        ])
+        .service('QueryParamsSearchCriteriaService', [
+            'PersistenceLastSearchCriteriaService',
+            '$stateParams',
+            'SearchCriteriaSerializer',
             'InspirationalTravelDatesService',
             QueryParamsSearchCriteriaSource
         ]);
