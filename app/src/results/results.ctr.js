@@ -16,22 +16,24 @@ define([
             $state.go('createReservation.optionalServices');
         };
         $scope.searchStartedCallback = function(searchCriteria) {
-            $scope.searchCompletedSuccessful = undefined;
-            $scope.searchInProgress = true;
-            $scope.searchInProgressParams = {
+            $scope.searchStatus = {
+                searchInProgress: true,
+                searchCompletedSuccessful: undefined
+            };
+            $scope.searchParams = {
                 origin: searchCriteria.getFirstLeg().origin,
                 destination: searchCriteria.getFirstLeg().destination
             };
         };
         $scope.searchCompletedSuccessCallback = function(itins, searchCriteria) {
-            $scope.searchCompletedSuccessful = true;
-            $scope.searchInProgress = false;
+            $scope.searchStatus.searchInProgress = false;
+            $scope.searchStatus.searchCompletedSuccessful = true;
             $scope.lastSuccessfulSearchCriteria =  searchCriteria;
             $scope.latestLeadPrice = itins.getLeadPrice();
         };
         $scope.searchCompletedErrorCallback = function(errMessages, searchCriteria) {
-            $scope.searchCompletedSuccessful = false;
-            $scope.searchInProgress = false;
+            $scope.searchStatus.searchCompletedSuccessful = false;
+            $scope.searchStatus.searchInProgress = false;
         }
     }
     return ResultsPageCtrl;

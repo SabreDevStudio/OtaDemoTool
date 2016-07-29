@@ -18,7 +18,25 @@ define([
             });
             LastSearchCriteriaService.set(searchCriteria);
             $state.go('results');
-        }
+        };
+
+        $scope.searchStartedCallback = function(searchCriteria) {
+            $scope.searchStatus = {
+                searchInProgress: true,
+                searchCompletedSuccessful: undefined
+            };
+            $scope.searchParams = {
+                origin: searchCriteria.origin
+            };
+        };
+        $scope.searchCompletedSuccessCallback = function() {
+            $scope.searchStatus.searchInProgress = false;
+            $scope.searchStatus.searchCompletedSuccessful = true;
+        };
+        $scope.searchCompletedErrorCallback = function() {
+            $scope.searchStatus.searchCompletedSuccessful = false;
+            $scope.searchStatus.searchInProgress = false;
+        };
     }
     return InspirationalSearchPageCtrl;
 });

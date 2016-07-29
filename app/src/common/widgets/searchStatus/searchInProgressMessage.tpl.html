@@ -1,0 +1,6 @@
+<div class="text-center text-info lead">
+    <span class="glyphicon glyphicon-refresh spinning"></span>
+    Searching for offers
+    <span ng-if="searchParams.origin"> from {{searchParams.origin | cityFullName}}</span>
+    <span ng-if="searchParams.destination"> to {{searchParams.destination | cityFullName}}...</span>
+</div>

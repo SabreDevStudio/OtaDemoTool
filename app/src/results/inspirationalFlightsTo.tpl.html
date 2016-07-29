@@ -6,11 +6,21 @@
         </div>
     </div>
 
+    <div ng-if="searchStatus.searchInProgress" class="row">
+        <search-in-progress-message search-params="searchParams"/>
+    </div>
+
     <destination-pricer class="embeddedWidget"
                         destination="{{destination}}"
                         search-link-enabled="true"
-                        offer-clicked="offerClicked(searchCriteria)"/>
+                        offer-clicked="offerClicked(searchCriteria)"
+                        search-started-callback="searchStartedCallback(searchCriteria)"
+                        search-completed-success-callback="searchCompletedSuccessCallback()"
+                        search-completed-error-callback="searchCompletedErrorCallback()"
+            />
 
-    <errors-display/>
+    <div ng-if="!searchStatus.searchInProgress && !searchStatus.searchCompletedSuccessful" class="row">
+        <search-error-message search-params="searchParams"/>
+    </div>
 
 </div>

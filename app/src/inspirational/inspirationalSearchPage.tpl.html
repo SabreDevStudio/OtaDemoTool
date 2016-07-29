@@ -1,5 +1,9 @@
 <div class="container">
 
+    <div ng-if="searchStatus.searchInProgress" class="row">
+        <search-in-progress-message search-params="searchParams"/>
+    </div>
+
     <div class="panel panel-default">
         <div class="panel-heading text-center">
             <h4 class="panel-title">Best offers</h4>
@@ -12,11 +16,19 @@
             <map-themed-destination-finder class="embeddedWidget" closest-airport="{{::closestAirport}}" search-offer-clicked="searchOfferClicked(searchCriteria)">
             </map-themed-destination-finder>
 
-            <tiles-themed-destination-finder class="embeddedWidget" closest-airport="{{::closestAirport}}" search-offer-clicked="searchOfferClicked(searchCriteria)">
+            <tiles-themed-destination-finder class="embeddedWidget"
+                                             closest-airport="{{::closestAirport}}"
+                                             search-offer-clicked="searchOfferClicked(searchCriteria)"
+                                             search-started-callback="searchStartedCallback(searchCriteria)"
+                                             search-completed-success-callback="searchCompletedSuccessCallback()"
+                                             search-completed-error-callback="searchCompletedErrorCallback()">
             </tiles-themed-destination-finder>
+
         </div>
     </div>
 
-    <error-display class="embeddedWidget"></error-display>
+    <div ng-if="!searchStatus.searchInProgress && !searchStatus.searchCompletedSuccessful" class="row">
+        <search-error-message search-params="searchParams"/>
+    </div>
 
 </div>
