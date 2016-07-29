@@ -7,7 +7,9 @@ define([
     'common/services/inspirationalTravelDates.srv',
     'common/services/queryParamsSearchCriteria.srv',
     'common/services/persistenceLastSearchCriteria.srv',
-    'common/services/persistenceLastSelectedItinerary.srv'
+    'common/services/persistenceLastSelectedItinerary.srv',
+    'common/services/predefinedAirportClosestAirportService.srv',
+    'common/services/queryParamsClosestAirportService.srv'
 ], function (
     angular,
     ngStorage,
@@ -17,7 +19,9 @@ define([
     InspirationalTravelDatesService,
     QueryParamsSearchCriteriaSource,
     PersistenceLastSearchCriteriaService,
-    PersistenceLastSelectedItineraryService
+    PersistenceLastSelectedItineraryService,
+    PredefinedAirportClosestAirportService,
+    QueryParamsClosestAirportService
 ) {
     'use strict';
 
@@ -43,5 +47,10 @@ define([
             'SearchCriteriaSerializer',
             'InspirationalTravelDatesService',
             QueryParamsSearchCriteriaSource
+        ])
+        .service('PredefinedAirportClosestAirportService', PredefinedAirportClosestAirportService)
+        .service('QueryParamsClosestAirportService', [
+            '$stateParams',
+            QueryParamsClosestAirportService
         ]);
 });

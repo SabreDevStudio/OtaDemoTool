@@ -10,5 +10,20 @@ define([
     'use strict';
 
     angular.module('otademoToolApp.inspirationalSearch', ['sdsWidgets.inspirationalWidgets'])
-        .controller('InspirationalSearchPageCtrl', InspirationalSearchPageCtrl);
+        .controller('InspirationalSearchPageCtrl', [
+            '$scope',
+            '$state',
+            'LastSearchCriteriaService',
+            'SearchCriteriaSerializer',
+            'PredefinedAirportClosestAirportService',
+            InspirationalSearchPageCtrl
+        ])
+        .controller('LandingPageFlightsFromCtrl', [
+            '$scope',
+            '$state',
+            'LastSearchCriteriaService',
+            'SearchCriteriaSerializer',
+            'QueryParamsClosestAirportService',
+            InspirationalSearchPageCtrl
+        ]);
 });

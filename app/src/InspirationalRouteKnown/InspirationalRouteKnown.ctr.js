@@ -5,9 +5,8 @@ define([
 ) {
     'use strict';
 
-    function InspirationalSearchPageCtrl($scope, $state, LastSearchCriteriaService, SearchCriteriaSerializer, ClosestAirportService) {
-
-        $scope.closestAirport = ClosestAirportService.get();
+    InspirationalSearchPageCtrl.$inject = ['$scope', '$state', 'LastSearchCriteriaService', 'SearchCriteriaSerializer'];
+    function InspirationalSearchPageCtrl($scope, $state, LastSearchCriteriaService, SearchCriteriaSerializer) {
 
         $scope.searchOfferClicked = function (simplifiedSearchCriteria) {
             var searchCriteria = SearchCriteriaSerializer.deserialize({

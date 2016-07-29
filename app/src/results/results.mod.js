@@ -13,7 +13,10 @@ define([
 ) {
     'use strict';
 
-    angular.module('otademoToolApp.results', ['otademoToolApp.commonServices', 'sDSLookups'])
+    angular.module('otademoToolApp.results', [
+        'otademoToolApp.commonServices',
+        'sDSLookups'
+    ])
         .constant('searchStrategyForSearch', 'instaflights-updated-with-bfm')
         .constant('searchStrategyForLandingPage', 'first-instaflights-on-errors-bfm')
         .controller('ResultsPageCtrl', [

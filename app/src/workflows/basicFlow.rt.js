@@ -150,6 +150,18 @@ define([
                         }
                     }
                 })
+                .state('landingPageFlightsFrom', {
+                    url: '/flights-from/:origin',
+                    views: {
+                        'header': {
+                            templateUrl: 'src/header.tpl.html'
+                        },
+                        'content': {
+                            templateUrl: 'src/inspirational/inspirationalSearchPage.tpl.html',
+                            controller: 'LandingPageFlightsFromCtrl'
+                        }
+                    }
+                })
 
                 .state('inspirationalSearchPage', {
                     url: '/inspirationalSearch',
