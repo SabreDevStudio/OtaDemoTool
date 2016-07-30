@@ -2,7 +2,6 @@
 require.config({
   paths: {
     angular: '../../bower_components/angular/angular',
-    'angular-mocks': '../../bower_components/angular-mocks/angular-mocks',
     'angular-sanitize': '../../bower_components/angular-sanitize/angular-sanitize',
     'angular-touch': '../../bower_components/angular-touch/angular-touch',
     'angular-ui-router': '../../bower_components/angular-ui-router/release/angular-ui-router',
@@ -10,10 +9,10 @@ require.config({
     bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap',
     lodash: '../../bower_components/lodash/lodash',
     'SDSWidgets.lib': '../../bower_components/sabre-dev-studio-widgets/dist/widgets/SDSWidgets.lib.min',
-    SDSWidgets: '../../bower_components/sabre-dev-studio-widgets/dist/widgets/SDSWidgets.min',
     text: '../../bower_components/text/text',
     ngstorage: '../../bower_components/ngstorage/ngStorage',
-    almond: '../../bower_components/almond/almond'
+    almond: '../../bower_components/almond/almond',
+    SDSWidgets: '../../bower_components/sabre-dev-studio-widgets/dist/widgets/SDSWidgets.min'
   },
   shim: {
     angular: {
@@ -32,12 +31,6 @@ require.config({
       deps: [
         'angular'
       ]
-    },
-    'angular-mocks': {
-      deps: [
-        'angular'
-      ],
-      exports: 'angular.mock'
     }
   },
   priority: [

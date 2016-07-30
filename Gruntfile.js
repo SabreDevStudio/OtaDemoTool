@@ -75,7 +75,6 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               connect.static('.tmp'),
-              connect.static('test'),
               connect().use(
                 '/bower_components',
                 connect.static('./bower_components')
@@ -87,22 +86,6 @@ module.exports = function (grunt) {
               connect().use(
                   '/widgets/img/airlineLogos',
                   connect.static('./bower_components/sabre-dev-studio-widgets/dist/widgets/img/airlineLogos')
-              ),
-              connect.static(appConfig.app)
-            ];
-          }
-        }
-      },
-      test: {
-        options: {
-          port: 9001,
-          middleware: function (connect) {
-            return [
-              connect.static('.tmp'),
-              connect.static('test'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
               ),
               connect.static(appConfig.app)
             ];
@@ -125,12 +108,6 @@ module.exports = function (grunt) {
         src: [
           '<%= yeoman.app %>/src/{,*/}*.js'
         ]
-      },
-      test: {
-        //options: {
-        //  jshintrc: 'test/.jshintrc'
-        //},
-        src: ['test/spec/{,*/}*.js']
       }
     },
 
@@ -269,28 +246,6 @@ module.exports = function (grunt) {
        dist: {}
     },
 
-    // The following *-min tasks produce minified files in the dist folder
-    //imagemin: {
-    //  dist: {
-    //    files: [{
-    //      expand: true,
-    //      cwd: '<%= yeoman.app %>/images',
-    //      src: '{,*/}*.{png,jpg,jpeg,gif}',
-    //      dest: '<%= yeoman.dist %>/images'
-    //    }]
-    //  }
-    //},
-    //svgmin: {
-    //  dist: {
-    //    files: [{
-    //      expand: true,
-    //      cwd: '<%= yeoman.app %>/images',
-    //      src: '{,*/}*.svg',
-    //      dest: '<%= yeoman.dist %>/images'
-    //    }]
-    //  }
-    //},
-
     cdnify: {
       img: {
         options: {
@@ -370,13 +325,8 @@ module.exports = function (grunt) {
       server: [
         'compass:server'
       ],
-      test: [
-        'compass'
-      ],
       dist: [
         'compass:dist'
-        //'imagemin',
-        //'svgmin'
       ]
     },
 
@@ -391,16 +341,6 @@ module.exports = function (grunt) {
     },
 
     replace: {
-      test: {
-        src: '<%= yeoman.app %>/../test/test-main.js',
-        overwrite: true,
-        replacements: [{
-          from: /paths: {[^}]+}/,
-          to: function() {
-            return require('fs').readFileSync(grunt.template.process('<%= yeoman.app %>') + '/src/main.js').toString().match(/paths: {[^}]+}/);
-          }
-        }]
-      },
       linkToOptimizedJs: {
         src: 'dist/index.html',
         overwrite: true,
@@ -471,21 +411,10 @@ module.exports = function (grunt) {
       'watch'
     ]);
 
-  grunt.registerTask('test', [
-    'clean:server',
-    'bower:app',
-    'replace:test',
-    'wiredep',
-    'concurrent:test',
-    'autoprefixer',
-    'connect:test'
-  ]);
-
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
     'bower:app',
-    'replace:test',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
@@ -503,7 +432,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'test',
     'build'
   ]);
 };

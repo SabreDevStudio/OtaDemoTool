@@ -18,25 +18,16 @@
   "strict": true,
   "globals": {
     "angular": true,
-    // angular-mock
-    "module": false,
-    "inject": false,
     // for requirejs
     "define": false,
     "require": false,
     "console": true,
-    // jasmine
-    "spyOn": false,
-    "spyOnEvent": false,
-    "xit": false,
-    "xdescribe": false,
     "performance": true
   },
   "maxcomplexity": 5,
   "maxdepth": 3,
   "browser": true,
   "jquery": true,
-  "jasmine": true,
   // WARN: relaxing options:
   "asi": true,
   "funcscope": true
