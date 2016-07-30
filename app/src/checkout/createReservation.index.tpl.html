@@ -1,11 +1,28 @@
 <div>
     <div class="container">
-        
-        <ul class="list-unstyled list-inline">
-            <li ng-class="{'text-primary': $state.includes('createReservation.optionalServices')}">Step 1: Optional services</li>
-            <li ng-class="{'text-primary': $state.includes('createReservation.travellerDataInput')}">Step 2. Input traveller data</li>
-            <li ng-class="{'text-primary': $state.includes('createReservation.paymentDetailsInput')}">Step 3. Choose payment method</li>
-        </ul>
+
+        <div class="SDSStepWizard center-block">
+            <div class="SDSStepWizardRow">
+                <div class="SDSStepWizardStep">
+                    <a type="button" class="btn btn-circle"
+                       ng-class="$state.includes('createReservation.optionalServices')? 'btn-primary': 'btn-default'"
+                       ng-disabled="!$state.includes('createReservation.optionalServices')">1</a>
+                    <p>Optional services</p>
+                </div>
+                <div class="SDSStepWizardStep">
+                    <a type="button" class="btn btn-circle"
+                       ng-class="$state.includes('createReservation.travellerDataInput')? 'btn-primary': 'btn-default'"
+                       ng-disabled="!$state.includes('createReservation.travellerDataInput')">2</a>
+                    <p>Traveller data</p>
+                </div>
+                <div class="SDSStepWizardStep">
+                    <a type="button" class="btn btn-circle"
+                       ng-class="$state.includes('createReservation.paymentDetailsInput')? 'btn-primary': 'btn-default'"
+                       ng-disabled="!$state.includes('createReservation.paymentDetailsInput')">3</a>
+                    <p>Payment method</p>
+                </div>
+            </div>
+        </div>
 
         <div ui-view></div>
     </div>
