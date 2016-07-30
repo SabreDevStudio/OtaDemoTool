@@ -40,6 +40,13 @@ define([
                     };
                 _.remove(storage[type], comparator);
             },
+            removeAt: function (type, itemIndex, itemsToRemove) {
+                var itemsToRemove = itemsToRemove || 1;
+                if (_.isUndefined(storage[type])) {
+                    return;
+                }
+                storage[type].splice(itemIndex, itemsToRemove);
+            },
             removeAll: function (type) {
                 if (_.isUndefined(storage[type])) {
                     return;
@@ -49,7 +56,10 @@ define([
             getAll: function (type) {
                 return storage[type] || [];
             },
-            size: function () {
+            size: function (type) {
+                if (type) {
+                    return (_.isUndefined(storage[type]))? 0: storage[type].length;
+                }
                 return _.flatten(_.values(storage)).length || 0;
             },
             contains: contains,

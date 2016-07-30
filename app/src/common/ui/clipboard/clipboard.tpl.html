@@ -6,7 +6,7 @@
             <div class="panel-heading">Your saved itineraries</div>
             <div class="panel-body">
                 <ul class="list-unstyled">
-                    <li ng-repeat="itin in savedItineraries" class="OTADemoItineraryListElement">
+                    <li ng-repeat="itin in savedItineraries.slice().reverse()" class="OTADemoItineraryListElement">
                         <itinerary itin="itin" hide-itinerary-select-button="true" standalone-widget="{{$last}}"></itinerary>
                         <!-- standalone-widget="{{$last}}" is a performance optimisation not to trigger element queries on rendering every itinerary. It is enough to trigger for the last one, and it will work for all widgets in view -->
                         <div class="SDSBottomBuffer-xs"></div>

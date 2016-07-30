@@ -1,7 +1,7 @@
 define([], function () {
     'use strict';
 
-    ClipboardCtrl.$inject = ['$scope','ClipboardService', 'ItinerarySerializer', 'SearchCriteriaSerializer', '$state', 'LastSelectedItineraryService', 'LastSearchCriteriaService'];
+    ClipboardCtrl.$inject = ['$scope','ClipboardLRUServiceDecorator', 'ItinerarySerializer', 'SearchCriteriaSerializer', '$state', 'LastSelectedItineraryService', 'LastSearchCriteriaService'];
     function ClipboardCtrl($scope, ClipboardService, ItinerarySerializer, SearchCriteriaSerializer, $state, LastSelectedItineraryService, LastSearchCriteriaService) {
          $scope.savedItineraries = fetchItineraries();
          $scope.savedSearchCriteria = ClipboardService.getAll('searchCriteria');

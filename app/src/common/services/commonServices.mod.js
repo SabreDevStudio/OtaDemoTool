@@ -2,6 +2,7 @@ define([
     'angular',
     'ngStorage',
     'common/services/clipboard.srv',
+    'common/services/clipboardLRU.srv',
     'common/services/lastSelectedItinerary.srv',
     'common/services/lastSearchCriteria.srv',
     'common/services/inspirationalTravelDates.srv',
@@ -14,6 +15,7 @@ define([
     angular,
     ngStorage,
     ClipboardService,
+    ClipboardLRUServiceDecorator,
     LastSelectedItineraryService,
     LastSearchCriteriaService,
     InspirationalTravelDatesService,
@@ -26,19 +28,25 @@ define([
     'use strict';
 
     angular.module('otademoToolApp.commonServices', ['ngStorage'])
+        .constant('maxItemsInClipboard', 10)
         .factory('ClipboardService', ClipboardService)
+        .factory('ClipboardLRUServiceDecorator', [
+            'ClipboardService',
+            'maxItemsInClipboard',
+            ClipboardLRUServiceDecorator
+        ])
         .factory('LastSelectedItineraryService', LastSelectedItineraryService)
         .service('LastSearchCriteriaService', LastSearchCriteriaService)
         .service('InspirationalTravelDatesService', InspirationalTravelDatesService)
         .service('PersistenceLastSearchCriteriaService', [
             'LastSearchCriteriaService',
             'SearchCriteriaSerializer',
-            'ClipboardService',
+            'ClipboardLRUServiceDecorator',
             PersistenceLastSearchCriteriaService
         ])
         .service('PersistenceLastSelectedItineraryService', [
             'LastSelectedItineraryService',
-            'ClipboardService',
+            'ClipboardLRUServiceDecorator',
             PersistenceLastSelectedItineraryService
         ])
         .service('QueryParamsSearchCriteriaService', [
