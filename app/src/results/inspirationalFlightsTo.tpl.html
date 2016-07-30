@@ -1,5 +1,9 @@
 <div ng-class="{'SDSSearchInProgressUponClicked': searchInProgress}">
 
+    <div class="row text-center text-info lead" ng-if="searchStatus.searchCompletedSuccessful">
+        <span>Flights to {{::destination | cityFullName}}</span>
+    </div>
+
     <div class="row">
         <div class="center-block" style="max-width: 800px">
             <travel-seasonality class="embeddedWidget" destination="{{destination}}" chart-height="120px"/>
