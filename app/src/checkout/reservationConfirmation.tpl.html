@@ -2,19 +2,19 @@
     <h4>Booking confirmation</h4>
 
     <div class="panel panel-info">
-        <div class="panel-heading">
+        <div class="panel-heading SDS-panel-heading">
             Itinerary
         </div>
-        <div class="panel-body">
+        <div class="panel-body SDS-panel-body">
             <itinerary itin="itinerary" price-details-always-shown="true" hide-itinerary-select-button="true" standalone-widget="true"></itinerary>
         </div>
     </div>
 
     <div class="panel panel-info">
-        <div class="panel-heading">
+        <div class="panel-heading SDS-panel-heading">
             Traveller
         </div>
-        <div class="panel-body">
+        <div class="panel-body SDS-panel-body">
             <ul class="list-unstyled">
                 <li>
                     {{reservationData.travellerData.travellerGender | title}} {{reservationData.travellerData.travellerFirstName}} {{reservationData.travellerData.travellerLastName}}
@@ -35,10 +35,10 @@
     </div>
 
     <div class="panel panel-info" ng-if="anySpecialServiceRequestDefined()">
-        <div class="panel-heading">
+        <div class="panel-heading SDS-panel-heading">
             Special service requests
         </div>
-        <div class="panel-body">
+        <div class="panel-body SDS-panel-body">
             <ul class="list-unstyled">
                 <li ng-if="reservationData.travellerData.specialServiceRequest.mealPreference">
                     Meal preference: {{reservationData.travellerData.specialServiceRequest.mealPreference}}
@@ -51,10 +51,10 @@
     </div>
 
     <div class="panel panel-info" ng-if="reservationData.ancillaries.insurance.included || reservationData.ancillaries.car.carSelected">
-        <div class="panel-heading">
+        <div class="panel-heading SDS-panel-heading">
             Optional services
         </div>
-        <div class="panel-body">
+        <div class="panel-body SDS-panel-body">
             <ul class="list-unstyled">
                 <li ng-if="reservationData.ancillaries.insurance.included">
                     Insurance. Option {{reservationData.ancillaries.insurance.protectionPlan}}. <a href="views-static/insuranceDetails.html" new-window>Details.</a>.
@@ -70,10 +70,10 @@
     </div>
 
     <div class="panel panel-info">
-        <div class="panel-heading">
+        <div class="panel-heading SDS-panel-heading">
             Payment details
         </div>
-        <div class="panel-body">
+        <div class="panel-body SDS-panel-body">
             <ul class="list-unstyled">
                 <li>Payment by credit card {{reservationData.paymentData.creditCardCompany}}.</li>
                 <li>Owner {{reservationData.paymentData.ownerFullName}}.</li>
@@ -82,10 +82,10 @@
     </div>
 
     <div class="panel panel-info">
-        <div class="panel-heading">
+        <div class="panel-heading SDS-panel-heading">
             Contact information
         </div>
-        <div class="panel-body">
+        <div class="panel-body SDS-panel-body">
             <ul class="list-unstyled">
                 <li ng-if="reservationData.buyerContactData.email">Email: {{reservationData.buyerContactData.email}}.</li>
                 <li ng-if="reservationData.buyerContactData.phoneNumber.number">

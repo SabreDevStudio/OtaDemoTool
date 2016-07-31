@@ -1,10 +1,10 @@
 <form name="OTADemoCreateReservationForm_OptionalServices" novalidate ng-submit="optionalServicesCheckoutComplete()">
     <div class="panel-group">
         <div class="panel panel-info">
-            <div class="panel-heading">
+            <div class="panel-heading SDS-panel-heading">
                 Trip booked
             </div>
-            <div class="panel-body">
+            <div class="panel-body SDS-panel-body">
                 <div class="OTADemoItineraryListElement">
                     <itinerary itin="selectedItinerary" flight-details-always-shown="true" price-details-always-shown="true" hide-itinerary-select-button="true" standalone-widget="true"></itinerary>
                 </div>
@@ -19,10 +19,10 @@
         </div>
 
         <div class="panel panel-info">
-            <div class="panel-heading">
+            <div class="panel-heading SDS-panel-heading">
                 Travel protection
             </div>
-            <div class="panel-body">
+            <div class="panel-body SDS-panel-body">
                 <form>
                     <div class="checkbox">
                         <label class="input-md" for="OtaDemoTool_Checkout_insuranceIncluded">
@@ -44,10 +44,10 @@
         </div>
 
         <div class="panel panel-info">
-            <div class="panel-heading">
+            <div class="panel-heading SDS-panel-heading">
                 Car rental
             </div>
-            <div class="panel-body">
+            <div class="panel-body SDS-panel-body">
                 <car-rental-widget
                         car-reservation="reservationData.ancillaries.car"
                         pickup-location="{{selectedItinerary.getFirstLegArrivalAirport()}}"
@@ -58,7 +58,7 @@
         </div>
 
         <div class="panel">
-            <div class="panel-body">
+            <div class="panel-body SDS-panel-body">
                 <button type="submit" class="btn btn-sm btn-primary center-block">
                     Input traveller data <span class="glyphicon glyphicon-circle-arrow-right"></span>
                 </button>

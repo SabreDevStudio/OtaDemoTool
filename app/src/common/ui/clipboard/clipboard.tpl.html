@@ -3,8 +3,8 @@
         <h5 class="text-info">You have {{savedCount}} saved items.</h5>
 
         <div class="panel panel-info" ng-if="savedItineraries.length>0">
-            <div class="panel-heading">Your saved itineraries</div>
-            <div class="panel-body">
+            <div class="panel-heading SDS-panel-heading">Your saved itineraries</div>
+            <div class="panel-body SDS-panel-body">
                 <ul class="list-unstyled">
                     <li ng-repeat="itin in savedItineraries.slice().reverse()" class="OTADemoItineraryListElement">
                         <itinerary itin="itin" hide-itinerary-select-button="true" standalone-widget="{{$last}}"></itinerary>
@@ -24,8 +24,8 @@
         </div>
 
         <div class="panel panel-info" ng-if="savedSearchCriteria.length>0">
-            <div class="panel-heading">Your recent searches</div>
-            <div class="panel-body">
+            <div class="panel-heading SDS-panel-heading">Your recent searches</div>
+            <div class="panel-body SDS-panel-body">
                 <ul class="list-unstyled">
                     <li ng-repeat="searchCriteria in savedSearchCriteria.slice().reverse() track by $index" class="OTADemoSearchCriteriaShortElement">
                         <div class="row">
