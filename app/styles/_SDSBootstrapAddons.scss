@@ -57,3 +57,13 @@
     padding-left: 10px;
   }
 }
+
+.SDS-navbar {
+  margin-bottom: 4px;
+  @media (min-width: 600px) {
+    margin-bottom: 10px;
+  }
+  @media (min-width: 800px) {
+    margin-bottom: 20px;
+  }
+}
