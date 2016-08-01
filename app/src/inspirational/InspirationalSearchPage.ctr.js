@@ -29,11 +29,11 @@ define([
                 origin: searchCriteria.origin
             };
         };
-        $scope.searchCompletedSuccessCallback = function() {
+        $scope.searchSuccessCallback = function() {
             $scope.searchStatus.searchInProgress = false;
             $scope.searchStatus.searchCompletedSuccessful = true;
         };
-        $scope.searchCompletedErrorCallback = function() {
+        $scope.searchErrorCallback = function() {
             $scope.searchStatus.searchCompletedSuccessful = false;
             $scope.searchStatus.searchInProgress = false;
         };

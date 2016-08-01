@@ -1,4 +1,4 @@
-<div ng-class="{'SDSSearchInProgressUponClicked': searchInProgress}">
+<div ng-class="{'SDSSearchInProgressUponClicked': searchStatus.searchInProgress}">
 
     <div class="row">
         <div class="center-block" style="max-width: 800px">
@@ -14,14 +14,15 @@
         <search-in-progress-message search-params="searchParams"/>
     </div>
 
-    <itinerary-list class="embeddedWidget" id="ItineraryList"
+    <itinerary-list class="embeddedWidget"
                     active-search="true" active-search-web-service="first-advancedCalendar-on-errors-bfm"
                     search-criteria="newSearchCriteria"
                     selected-itinerary-callback="itinerarySelectedCallback(itinerary)"
                     enable-itinerary-select-button="true"
                     search-started-callback="searchStartedCallback(searchCriteria)"
-                    search-completed-success-callback="searchCompletedSuccessCallback(itineraries, searchCriteria)"
-                    search-completed-error-callback="searchCompletedErrorCallback(errorMessages, searchCriteria)"/>
+                    search-success-callback="searchSuccessCallback(itineraries, searchCriteria)"
+                    search-error-callback="searchErrorCallback(errorMessages, searchCriteria)"
+                    all-searches-complete="searchEnd()"/>
 
     <div ng-if="!searchStatus.searchInProgress && !searchStatus.searchCompletedSuccessful" class="row">
         <search-error-message search-params="searchParams"/>

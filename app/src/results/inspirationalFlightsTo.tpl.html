@@ -1,4 +1,4 @@
-<div ng-class="{'SDSSearchInProgressUponClicked': searchInProgress}">
+<div ng-class="{'SDSSearchInProgressUponClicked': searchStatus.searchInProgress}">
 
     <div class="row text-center text-info lead" ng-if="searchStatus.searchCompletedSuccessful">
         <span>Flights to {{::destination | cityFullName}}</span>
@@ -19,8 +19,8 @@
                         search-link-enabled="true"
                         offer-clicked="offerClicked(searchCriteria)"
                         search-started-callback="searchStartedCallback(searchCriteria)"
-                        search-completed-success-callback="searchCompletedSuccessCallback()"
-                        search-completed-error-callback="searchCompletedErrorCallback()"
+                        search-success-callback="searchSuccessCallback()"
+                        search-error-callback="searchErrorCallback()"
             />
 
     <div ng-if="!searchStatus.searchInProgress && !searchStatus.searchCompletedSuccessful" class="row">

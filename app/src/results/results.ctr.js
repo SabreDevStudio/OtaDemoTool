@@ -25,14 +25,16 @@ define([
                 destination: searchCriteria.getFirstLeg().destination
             };
         };
-        $scope.searchCompletedSuccessCallback = function(itins, searchCriteria) {
-            $scope.searchStatus.searchInProgress = false;
+        $scope.searchSuccessCallback = function(itins, searchCriteria) {
             $scope.searchStatus.searchCompletedSuccessful = true;
             $scope.lastSuccessfulSearchCriteria =  searchCriteria;
             $scope.latestLeadPrice = itins.getLeadPrice();
         };
-        $scope.searchCompletedErrorCallback = function(errMessages, searchCriteria) {
+        $scope.searchErrorCallback = function(errMessages, searchCriteria) {
             $scope.searchStatus.searchCompletedSuccessful = false;
+        };
+
+        $scope.searchEnd = function () {
             $scope.searchStatus.searchInProgress = false;
         };
 
