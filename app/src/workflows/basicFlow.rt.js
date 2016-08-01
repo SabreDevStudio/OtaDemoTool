@@ -7,7 +7,8 @@ define([
     'results/results.mod',
     'common/ui/clipboard/clipboard.mod',
     'inspirational/inspirational.mod',
-    'templates.mod'
+    'templates.mod',
+    'common/responsiveUtils/responsiveUtils.mod'
 ], function (angular,
              uiRouter,
              searchModule,
@@ -15,7 +16,8 @@ define([
              resultsModule,
              clipboardModule,
              inspirationalModule,
-             templatesModule) {
+             templatesModule,
+             responsiveUtilsModule) {
     'use strict';
 
     return angular
@@ -27,7 +29,8 @@ define([
             'otademoToolApp.inspirationalSearch',
             'ui.router',
             'sdsWidgets',
-            'otademoToolApp.templates'
+            'otademoToolApp.templates',
+            'otademoToolApp.responsiveUtils'
         ])
         .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             $stateProvider
