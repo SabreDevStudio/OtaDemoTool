@@ -34,6 +34,10 @@ define([
         $scope.searchCompletedErrorCallback = function(errMessages, searchCriteria) {
             $scope.searchStatus.searchCompletedSuccessful = false;
             $scope.searchStatus.searchInProgress = false;
+        };
+
+        $scope.priceTrendsSearchCompleteSuccessful = function (searchResults, searchCriteria) {
+            $scope.priceTrendsSearchCompletedSuccessful = true;
         }
     }
     return ResultsPageCtrl;

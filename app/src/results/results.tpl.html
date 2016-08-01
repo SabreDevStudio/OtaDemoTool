@@ -6,8 +6,8 @@
 
     <div class="row">
 
-        <div class="col-lg-2" visible-lg>
-            <div class="panel panel-default" ng-if="searchStatus.searchCompletedSuccessful">
+        <div class="col-lg-2" ng-if="::searchStatus.searchCompletedSuccessful" visible-lg>
+            <div class="panel panel-default" ng-show="priceTrendsSearchCompletedSuccessful">
                 <div class="panel-heading SDS-panel-heading">
                     <h5 class="panel-title text-center">Price trends</h5>
                 </div>
@@ -21,33 +21,39 @@
                                       origin="{{lastSuccessfulSearchCriteria.getTripOrigin()}}"
                                       destination="{{lastSuccessfulSearchCriteria.getTripDestination()}}"
                                       departure-date="{{lastSuccessfulSearchCriteria.getTripDepartureDateTime().format()}}"
-                                      return-date="{{lastSuccessfulSearchCriteria.getTripReturnDateTime().format()}}">
+                                      return-date="{{lastSuccessfulSearchCriteria.getTripReturnDateTime().format()}}"
+                                      search-completed-success-callback="priceTrendsSearchCompleteSuccessful(searchResults, searchCriteria)">
                     </low-fare-history>
 
                     <fare-forecast class="embeddedWidget"
                                    origin="{{lastSuccessfulSearchCriteria.getTripOrigin()}}"
                                    destination="{{lastSuccessfulSearchCriteria.getTripDestination()}}"
                                    departure-date="{{lastSuccessfulSearchCriteria.getTripDepartureDateTime().format()}}"
-                                   return-date="{{lastSuccessfulSearchCriteria.getTripReturnDateTime().format()}}">
+                                   return-date="{{lastSuccessfulSearchCriteria.getTripReturnDateTime().format()}}"
+                                   search-completed-success-callback="priceTrendsSearchCompleteSuccessful(searchResults, searchCriteria)">
                     </fare-forecast>
+                </div>
+            </div>
 
+            <div class="panel panel-default">
+                <div class="panel-body SDS-panel-body">
                     <div class="text-center">
                         <fare-nabber type="button" class="btn btn-primary btn-sm"
-                                    origin="{{lastSuccessfulSearchCriteria.getTripOrigin()}}"
-                                    destination="{{lastSuccessfulSearchCriteria.getTripDestination()}}"
-                                    departure-date="{{lastSuccessfulSearchCriteria.getTripDepartureDateTime().format()}}"
-                                    return-date="{{lastSuccessfulSearchCriteria.getTripReturnDateTime().format()}}"
-                                    passenger-type="ADT"
-                                    passenger-count="{{lastSuccessfulSearchCriteria.getTotalPassengerCount()}}"
-                                    maximum-acceptable-price="{{latestLeadPrice.price}}"
-                                    maximum-acceptable-price-currency="{{latestLeadPrice.currency}}">
+                                     origin="{{lastSuccessfulSearchCriteria.getTripOrigin()}}"
+                                     destination="{{lastSuccessfulSearchCriteria.getTripDestination()}}"
+                                     departure-date="{{lastSuccessfulSearchCriteria.getTripDepartureDateTime().format()}}"
+                                     return-date="{{lastSuccessfulSearchCriteria.getTripReturnDateTime().format()}}"
+                                     passenger-type="ADT"
+                                     passenger-count="{{lastSuccessfulSearchCriteria.getTotalPassengerCount()}}"
+                                     maximum-acceptable-price="{{latestLeadPrice.price}}"
+                                     maximum-acceptable-price-currency="{{latestLeadPrice.currency}}">
                             Subscribe for price alerts
                         </fare-nabber>
                     </div>
                 </div>
             </div>
 
-            <filters-panel id="ItineraryListFilterPane" ng-if="searchStatus.searchCompletedSuccessful"></filters-panel>
+            <filters-panel id="ItineraryListFilterPane"></filters-panel>
         </div>
 
         <div class="col-lg-10 small-padding">
