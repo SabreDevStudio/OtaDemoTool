@@ -1,1 +1,19 @@
-<rent-a-guide-tours predefined-location-id="{{newSearchCriteriaLocationId}}"></rent-a-guide-tours>
+<div ng-class="{'SDSSearchInProgressUponClicked': searchStatus.searchInProgress}">
+
+        <div ng-if="searchStatus.searchInProgress" class="row">
+                <search-in-progress-message search-params="searchParams"/>
+        </div>
+
+        <div class="row">
+                <div class="col-lg-12 small-padding">
+                        <rent-a-guide-tours
+                                predefined-location-id="{{newSearchCriteriaLocationId}}"
+                                tour-selected-callback="tourSelectedCallback(tour)"
+                                search-started-callback="searchStartedCallback(searchCriteria)"
+                                search-success-callback="searchSuccessCallback(tours, searchCriteria)"
+                                search-error-callback="searchErrorCallback(errMessages, searchCriteria)"
+                                all-searches-complete="searchEnd()">
+                        </rent-a-guide-tours>
+                </div>
+        </div>
+</div>

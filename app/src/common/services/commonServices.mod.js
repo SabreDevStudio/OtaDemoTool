@@ -3,7 +3,7 @@ define([
     'ngStorage',
     'common/services/clipboard.srv',
     'common/services/clipboardLRU.srv',
-    'common/services/lastSelectedItinerary.srv',
+    'common/services/lastSelectedItem.srv',
     'common/services/lastSearchCriteria.srv',
     'common/services/inspirationalTravelDates.srv',
     'common/services/queryParamsSearchCriteria.srv',
@@ -16,7 +16,7 @@ define([
     ngStorage,
     ClipboardService,
     ClipboardLRUServiceDecorator,
-    LastSelectedItineraryService,
+    LastSelectedItemService,
     LastSearchCriteriaService,
     InspirationalTravelDatesService,
     QueryParamsSearchCriteriaSource,
@@ -35,7 +35,7 @@ define([
             'maxItemsInClipboard',
             ClipboardLRUServiceDecorator
         ])
-        .factory('LastSelectedItineraryService', LastSelectedItineraryService)
+        .factory('LastSelectedItineraryService', LastSelectedItemService)
         .service('LastSearchCriteriaService', LastSearchCriteriaService)
         .service('InspirationalTravelDatesService', InspirationalTravelDatesService)
         .service('PersistenceLastSearchCriteriaService', [

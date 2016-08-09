@@ -3,28 +3,39 @@ define([
     'tours/toursSearchPage.ctr',
     'RentAGuideWidgets.lib',
     'common/services/lastSearchCriteria.srv',
-    'tours/toursResultPage.ctr'
+    'common/services/lastSelectedItem.srv',
+    'tours/tourList.ctr',
+    'tours/tourDetails.ctr'
 ], function (
     angular,
     ToursSearchPageCtrl,
     RentAGuideWidgets,
     LastSearchCriteriaService,
-    ToursResultPageCtrl
+    LastSelectedItemService,
+    ToursListCtrl,
+    TourDetailsCtrl
 ) {
     'use strict';
 
     angular.module('otademoToolApp.tours', [])
         .service('LastToursSearchCriteriaService', LastSearchCriteriaService)
+        .factory('LastSelectedTourService', LastSelectedItemService)
         .controller('ToursSearchPageCtrl', [
             '$scope',
             '$state',
             'LastToursSearchCriteriaService',
             ToursSearchPageCtrl
         ])
-        .controller('ToursResultPageCtrl', [
+        .controller('ToursListCtrl', [
             '$scope',
             '$state',
             'LastToursSearchCriteriaService',
-            ToursResultPageCtrl
-        ]);
+            'LastSelectedTourService',
+            ToursListCtrl
+        ])
+        .controller('TourDetailsCtrl', [
+            '$scope',
+            'LastSelectedTourService',
+            TourDetailsCtrl
+        ])
 });
