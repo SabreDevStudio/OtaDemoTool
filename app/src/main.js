@@ -12,7 +12,9 @@ require.config({
     text: '../../bower_components/text/text',
     ngstorage: '../../bower_components/ngstorage/ngStorage',
     almond: '../../bower_components/almond/almond',
-    SDSWidgets: '../../bower_components/sabre-dev-studio-widgets/dist/widgets/SDSWidgets.min'
+    SDSWidgets: '../../bower_components/sabre-dev-studio-widgets/dist/widgets/SDSWidgets.min',
+    RentAGuideWidgets: '../../bower_components/RentAGuideWidgets/dist/RentAGuideWidgets.min',
+    'RentAGuideWidgets.lib': '../../bower_components/RentAGuideWidgets/dist/RentAGuideWidgets.lib.min'
   },
   shim: {
     angular: {
@@ -46,16 +48,18 @@ require.config({
 
 require([
   'angular',
-  'workflows/basicFlow.rt',
+  'routes/app.mod',
   'angular-sanitize',
   'angular-touch',
-  'SDSWidgets.lib'
+  'SDSWidgets.lib',
+  'RentAGuideWidgets.lib'
 ], function(
     angular,
     otademoToolApp,
     ngSanitize,
     ngTouch,
-    sabreDevStudioWidgets
+    sabreDevStudioWidgets,
+    RentAGuideWidgets
 ) {
   'use strict';
 
