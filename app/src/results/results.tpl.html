@@ -8,7 +8,7 @@
 
         <div class="col-lg-2" visible-lg>
             <div ng-if="!searchStatus.searchInProgress && searchStatus.searchCompletedSuccessful">
-                <div class="panel panel-default" ng-show="priceTrendsSearchCompletedSuccessful">
+                <div class="panel panel-default SDS-panel" ng-show="priceTrendsSearchCompletedSuccessful">
                     <div class="panel-heading SDS-panel-heading">
                         <h5 class="panel-title text-center">Price trends</h5>
                     </div>
@@ -53,6 +53,16 @@
                         </div>
                     </div>
                 </div>
+
+                <fare-range class="embeddedWidget"
+                            search-criteria="lastSuccessfulSearchCriteria">
+                    <p>Prices for tickets booked in last weeks for the same route</p>
+                </fare-range>
+                <!--<fare-range class="embeddedWidget"-->
+                            <!--search-criteria="lastSuccessfulSearchCriteria"-->
+                            <!--current-lowest-fare="{{latestLeadPrice.price}}"-->
+                            <!--current-lowest-fare-currency="{{latestLeadPrice.currency}}">-->
+                <!--</fare-range>-->
             </div>
 
             <!-- we have to keep this filters-panel in the DOM (ngShow, not ngIf, like for the other widgets above), so that it listens to itineraries update statistics.
