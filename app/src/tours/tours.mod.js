@@ -1,7 +1,6 @@
 define([
     'angular',
     'tours/toursSearchPage.ctr',
-    'RentAGuideWidgets.lib',
     'common/services/lastSearchCriteria.srv',
     'common/services/lastSelectedItem.srv',
     'tours/tourList.ctr',
@@ -9,7 +8,6 @@ define([
 ], function (
     angular,
     ToursSearchPageCtrl,
-    RentAGuideWidgets,
     LastSearchCriteriaService,
     LastSelectedItemService,
     ToursListCtrl,

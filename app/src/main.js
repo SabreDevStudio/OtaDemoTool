@@ -13,8 +13,7 @@ require.config({
     ngstorage: '../../bower_components/ngstorage/ngStorage',
     almond: '../../bower_components/almond/almond',
     SDSWidgets: '../../bower_components/sabre-dev-studio-widgets/dist/widgets/SDSWidgets.min',
-    RentAGuideWidgets: '../../bower_components/RentAGuideWidgets/dist/RentAGuideWidgets.min',
-    'RentAGuideWidgets.lib': '../../bower_components/RentAGuideWidgets/dist/RentAGuideWidgets.lib.min'
+    RentAGuideWidgets: '../../bower_components/RentAGuideWidgets/dist/RentAGuideWidgets'
   },
   shim: {
     angular: {
@@ -30,6 +29,11 @@ require.config({
       'angular'
     ],
     ngStorage: {
+      deps: [
+        'angular'
+      ]
+    },
+    RentAGuideWidgets: {
       deps: [
         'angular'
       ]
@@ -52,7 +56,7 @@ require([
   'angular-sanitize',
   'angular-touch',
   'SDSWidgets.lib',
-  'RentAGuideWidgets.lib'
+  'RentAGuideWidgets'
 ], function(
     angular,
     otademoToolApp,
