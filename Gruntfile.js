@@ -330,16 +330,6 @@ module.exports = function (grunt) {
       ]
     },
 
-    // Settings for grunt-bower-requirejs
-    bower: {
-      app: {
-        rjsConfig: '<%= yeoman.app %>/src/main.js',
-        options: {
-          exclude: ['requirejs']
-        }
-      }
-    },
-
     replace: {
       linkToOptimizedJs: {
         src: 'dist/index.html',
@@ -396,7 +386,6 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
-      'bower:app',
       'concurrent:server',
       'autoprefixer:server',
       'connect:livereload',
@@ -414,7 +403,6 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
-    'bower:app',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
