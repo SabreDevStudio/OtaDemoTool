@@ -14,7 +14,7 @@
                     </div>
                     <div class="panel-body SDS-panel-body">
 
-                        <low-fare-history class="embeddedWidget"
+                        <low-fare-history
                                           hide-chart-labels="true"
                                           hide-header="true"
                                           min-days-data-required="8"
@@ -26,7 +26,7 @@
                                           search-success-callback="priceTrendsSearchCompleteSuccessful(searchResults, searchCriteria)">
                         </low-fare-history>
 
-                        <fare-forecast class="embeddedWidget"
+                        <fare-forecast
                                        origin="{{lastSuccessfulSearchCriteria.getTripOrigin()}}"
                                        destination="{{lastSuccessfulSearchCriteria.getTripDestination()}}"
                                        departure-date="{{lastSuccessfulSearchCriteria.getTripDepartureDateTime().format()}}"
@@ -54,11 +54,11 @@
                     </div>
                 </div>
 
-                <fare-range class="embeddedWidget"
+                <fare-range
                             search-criteria="lastSuccessfulSearchCriteria">
                     <p>Prices for tickets booked in last weeks for the same route</p>
                 </fare-range>
-                <!--<fare-range class="embeddedWidget"-->
+                <!--<fare-range-->
                             <!--search-criteria="lastSuccessfulSearchCriteria"-->
                             <!--current-lowest-fare="{{latestLeadPrice.price}}"-->
                             <!--current-lowest-fare-currency="{{latestLeadPrice.currency}}">-->
@@ -76,12 +76,12 @@
         <div class="col-lg-10 small-padding">
             <div ng-if="!searchStatus.searchInProgress && searchStatus.searchCompletedSuccessful" visible-lg>
                 <alternate-dates-matrix ng-if="lastSuccessfulSearchCriteria.isAlternateDatesRequest()"
-                                        class="embeddedWidget"
+
                                         active-search-web-service="leadPriceCalendar"
                                         search-criteria="lastSuccessfulSearchCriteria">
                 </alternate-dates-matrix>
             </div>
-            <itinerary-list class="embeddedWidget"
+            <itinerary-list
                             active-search="true" active-search-web-service="{{searchStrategy}}"
                             search-criteria="newSearchCriteria"
                             selected-itinerary-callback="itinerarySelectedCallback(itinerary)"

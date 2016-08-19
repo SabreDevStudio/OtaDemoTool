@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="center-block" style="max-width: 800px">
-            <travel-seasonality class="embeddedWidget" destination="{{destination}}" chart-height="120px"/>
+            <travel-seasonality destination="{{destination}}" chart-height="120px"/>
         </div>
     </div>
 
@@ -14,7 +14,7 @@
         <search-in-progress-message search-params="searchParams"/>
     </div>
 
-    <destination-pricer class="embeddedWidget"
+    <destination-pricer
                         destination="{{destination}}"
                         search-link-enabled="true"
                         offer-clicked="offerClicked(searchCriteria)"
