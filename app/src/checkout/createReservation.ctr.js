@@ -1,16 +1,22 @@
 define([], function () {
   'use strict';
 
-    CreateReservationCtrl.$inject = ['$scope', 'calendarModel', 'LastSelectedItineraryService', '$state'];
     function CreateReservationCtrl(
         $scope,
         calendarModel,
         LastSelectedItineraryService,
-        $state
+        $state,
+        LastSelectedTourService,
+        GeoCodeDataService
         ) {
         $scope.$state = $state;
 
         $scope.selectedItinerary = LastSelectedItineraryService.get();
+
+        var destinationAirport = $scope.selectedItinerary.getFirstLegArrivalAirport();
+        GeoCodeDataService.getAirportGeoCoordinates(destinationAirport).then(function (geoCoords) {
+            $scope.destinationGeoCoords = geoCoords;
+        });
 
         $scope.calendarModel = calendarModel.generate(1940, 2015);
 
@@ -34,6 +40,11 @@ define([], function () {
 
         $scope.travellerDataInputComplete = function () {
             $state.go('createReservation.paymentDetailsInput');
+        };
+
+        $scope.tourSelectedCallback = function (tour) {
+            LastSelectedTourService.set(tour);
+            $state.go('tourDetails');
         };
 
         function initializeEmptyReservationData() {

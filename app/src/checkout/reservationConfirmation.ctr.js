@@ -5,7 +5,6 @@ define([
 ) {
     'use strict';
 
-    ReservationConfirmationCtrl.$inject = ['$scope', '$stateParams'];
     function ReservationConfirmationCtrl($scope, $stateParams) {
 
         $scope.anySpecialServiceRequestDefined = function () {

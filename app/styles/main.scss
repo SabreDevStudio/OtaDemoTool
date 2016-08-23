@@ -60,4 +60,26 @@ fare-forecast .panel {
   margin-bottom: 5px;
 }
 
+$bootstrapPanelInfoBorderColor: #bce8f1;
+
+rent-a-guide-tours#toursInCheckoutPage {
+  .panel {
+    border-color: $bootstrapPanelInfoBorderColor;
+  }
+
+  .panel-heading {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: $bootstrapPanelInfoBorderColor;
+  }
+
+  .panel-body {
+    border-color: $bootstrapPanelInfoBorderColor;
+  }
+
+  .list-group-item {
+    border-color: $bootstrapPanelInfoBorderColor;
+  }
+}
+
 @import "SDSBootstrapAddons";

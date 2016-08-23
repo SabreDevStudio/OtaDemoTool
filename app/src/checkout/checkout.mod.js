@@ -30,8 +30,21 @@ define([
         'otademoToolApp.commonFormInputDirectives',
         'otademoToolApp.commonBusinessFilters',
         'otademoToolApp.widgets.carRental',
-        'otademoToolApp.widgets.creditCardPayment'
+        'otademoToolApp.widgets.creditCardPayment',
+        'sabreDevStudioWebServices'
     ])
-        .controller('CreateReservationCtrl', CreateReservationCtrl)
-        .controller('ReservationConfirmationCtrl', ReservationConfirmationCtrl);
+        .controller('CreateReservationCtrl', [
+            '$scope',
+            'calendarModel',
+            'LastSelectedItineraryService',
+            '$state',
+            'LastSelectedTourService',
+            'CachedGeoCodeDataService',
+            CreateReservationCtrl
+        ])
+        .controller('ReservationConfirmationCtrl', [
+            '$scope',
+            '$stateParams',
+            ReservationConfirmationCtrl
+        ]);
 });

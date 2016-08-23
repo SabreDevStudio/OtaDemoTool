@@ -2,7 +2,7 @@
     <div class="panel-group">
         <div class="panel panel-info">
             <div class="panel-heading SDS-panel-heading">
-                Trip booked
+                <h4 class="panel-title text-center">Trip booked</h4>
             </div>
             <div class="panel-body SDS-panel-body">
                 <div class="OTADemoItineraryListElement">
@@ -20,7 +20,7 @@
 
         <div class="panel panel-info">
             <div class="panel-heading SDS-panel-heading">
-                Travel protection
+                <h4 class="panel-title text-center">Travel protection</h4>
             </div>
             <div class="panel-body SDS-panel-body">
                 <form>
@@ -45,7 +45,7 @@
 
         <div class="panel panel-info">
             <div class="panel-heading SDS-panel-heading">
-                Car rental
+                <h4 class="panel-title text-center">Car rental</h4>
             </div>
             <div class="panel-body SDS-panel-body">
                 <car-rental-widget
@@ -56,6 +56,13 @@
                 </car-rental-widget>
             </div>
         </div>
+
+        <rent-a-guide-tours id="toursInCheckoutPage"
+                location-longitude="{{destinationGeoCoords.longitude}}"
+                location-latitude="{{destinationGeoCoords.latitude}}"
+                tour-selected-callback="tourSelectedCallback(tour)"
+                tours-per-page="8">
+        </rent-a-guide-tours>
 
         <div class="panel">
             <div class="panel-body SDS-panel-body">
