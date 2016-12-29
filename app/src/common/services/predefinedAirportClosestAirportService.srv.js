@@ -1,10 +1,10 @@
 define([], function () {
     'use strict';
 
-    return function PredefinedAirportClosestAirportService() {
+    return function PredefinedAirportClosestAirportService($localStorage) {
         return {
             get: function () {
-                return "FRA";
+                return $localStorage.$default({origin: "FRA"}).origin;
             }
         };
     };
