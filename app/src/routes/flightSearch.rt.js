@@ -3,22 +3,15 @@ define([], function () {
 
     return function ($stateProvider) {
         $stateProvider
-            .state('defaultHomePage', {
-                url: '/defaultHomePage',
+            .state('demoHomePage', {
+                url: '/demoHomePage',
                 views: {
-                    'header': {
-                        templateUrl: 'src/header.tpl.html'
-                    },
                     'content': {
-                        templateUrl: 'src/search/defaultHomePage.tpl.html'
+                        templateUrl: 'src/demo/demo.tpl.html'
                     },
-                    'searchForm@defaultHomePage': {
+                    'searchForm@demoHomePage': {
                         templateUrl: 'src/search/searchForm.tpl.html',
                         controller: 'DefaultHomePageCtrl'
-                    },
-                    'inspirationalSuggestions@defaultHomePage': {
-                        templateUrl: 'src/inspirational/inspirationalSuggestions.tpl.html',
-                        controller: 'InspirationalSearchPageCtrl'
                     }
                 }
             })

@@ -12,32 +12,200 @@
     <link rel="stylesheet" href="bower_components/angular-rangeslider/angular.rangeSlider.css" />
     <link rel="stylesheet" href="bower_components/titatoggle/dist/titatoggle-dist.css" />
     <link rel="stylesheet" href="bower_components/titatoggle/dist/titatoggle-dist-min.css" />
+    <link rel="stylesheet" href="bower_components/WidgetsFilterPanel/dist/css/WidgetsFilterPanel.min.css" />
     <link rel="stylesheet" href="bower_components/sabre-dev-studio-widgets/dist/widgets/css/SDS.min.css" />
     <link rel="stylesheet" href="bower_components/RentAGuideWidgets/dist/css/RentAGuideWidgets.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/custom.css">
     <!-- endbuild -->
     <!-- needed for responsive top menu to work (hamurger menu) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- needed for responsive top menu to work (hamurger menu) ENDS -->
   </head>
+  <body>
+        <div class="navbar top-navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle main-navbar-toggle" data-toggle="collapse" data-target="#topNavCollapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div id="topNavCollapse" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav top-navbar-nav">
+                            <li><a href="http://www.sabre.com/">Sabre</a></li>
+                            <li><a href="https://www.sabretravelnetwork.com/">Travel Network</a></li>
+                            <li><a href="https://developer.sabre.com/">Sabre Dev Studio</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav top-navbar-nav navbar-right">
+                            <li><change-origin-select-local-storage></change-origin-select-local-storage></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                   aria-expanded="false">US<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">US</a></li>
+                                    <li><a href="#">DE</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+              </div>
+        <div id="local" class="navbar main-navbar navbar-default navbar-inverse main-navbar-inverse" style="display: block;">
+              <div class="container-fluid">
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle main-navbar-toggle" data-toggle="collapse" data-target="#mainNavCollapse">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </button>
+                      <a href="/page" class="navbar-brand main-navbar-brand">
+                          <img src="https://developer.sabre.com/files/Sabre-Logo-2013.png">
+                      </a>
+                      <h1 class="navbar-title main-navbar-title">
+                          <a class="home-link" href="/">OTA Demo Tool</a>
+                      </h1>
+                  </div>
+                  <div id="mainNavCollapse" class="collapse navbar-collapse">
+                      <ul id="site-map" class="nav navbar-nav main-navbar-nav">
+                          <li class="dropdown">
+                              <a href="#/demoHomePage" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                 aria-expanded="false">Demo<span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                  <li>
+                                      <a href="#">Flights</a>
+                                  </li>
+                                  <li>
+                                      <a href="#">Destination Finder</a>
+                                  </li>
+                                  <li>
+                                      <a href="#">Inspiration</a>
+                                  </li>
+                                  <li>
+                                      <a href="#">Cart</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li class="dropdown">
+                              <a class="dropdown-toggle" data-toggle="dropdown">Feedback <i class="caret"></i></a>
+                              <ul class="dropdown-menu">
+                                  <li>
+                                      <a href="#">Survey</a>
+                                  </li>
 
-    <div class="container-fluid">
-      <a href="#/" class="hidden-xs">
-        <img class="OTADemoSiteLogo" src="https://www.sabre.com/wp/wp-content/themes/sabrebootstrap/images/sabre-logo.png">
-      </a>
+                                  <li>
+                                      <a href="#">Contact</a>
+                                  </li>
 
-      <div ui-view="header"></div>
-      <div ui-view="content"></div>
+                              </ul>
+                          </li>
+                          <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources <i class="caret"></i></a>
+                              <ul class="dropdown-menu">
+                                  <li>
+                                      <a ui-sref="resources.basicSearch">Basic Search</a>
+                                  </li>
+                                  <li>
+                                      <a ui-sref="resources.calendarSearch">Calendar Search</a>
+                                  </li>
+                                  <li>
+                                      <a href="##/resources/alternateDates">Alternate Dates</a>
+                                  </li>
+                                  <li>
+                                      <a href="##/resources/inspirationalServices">Inspirational Services</a>
+                                  </li>
+                                  <li>
+                                      <a href="##/resources/intelligenceServices">Intelligence Services</a>
+                                  </li>
+                                  <li>
+                                      <a href="##/resources/compare">Compare</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li id="metaLinks" class="dropdown">
+                              <a class="dropdown-toggle" data-toggle="dropdown">About <i class="caret"></i></a>
+                              <ul class="dropdown-menu">
+                                  <li>
+                                      <a href="#">Sabre</a>
+                                  </li>
+                                  <li>
+                                      <a href="#">Travel Network</a>
+                                  </li>
+                                  <li>
+                                      <a href="#">Dev Studio</a>
+                                  </li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="site-search">
+                      <div ng-show="!isShowSearchForm">
+                          <a href="#">
+                              <i class="edl-icon--search edl-icon" ng-click="isShowSearchForm = !isShowSearchForm"></i>
+                          </a>
+                      </div>
+                      <div class="hidden-by-defaut" ng-class="{show: isShowSearchForm}">
+                          <a href="#">
+                              <i class="edl-icon edl-icon--close" ng-click="isShowSearchForm = !isShowSearchForm"></i>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        <div class="site-search-form" ng-class="{show: isShowSearchForm}">
+              <div class="inner container-fluid">
+                  <div id="edl-search" class="edl-search">
+                      <form action="/home/search/show_results" id="cse-search-box" class="edl-form">
+                          <div>
+                              <input class="edl-input" name="q" id="q" type="text" placeholder="Site search...">
+                              <input name="cx" value="000492012218074769583:z9egyc6spxy" type="hidden">
+                              <input name="cof" value="FORID:10" type="hidden">
+                              <input name="ie" value="UTF-8" type="hidden">
+                              <button type="submit" class="button button_220" name="sa" id="submit_search" value=" ">
+                                  <i class="glyphicon glyphicon-search"></i>
+                              </button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+    <div class="container main-container">
+        <div ui-view="header"></div>
+        <div ui-view="content"></div>
+    </div>
+    <div id="footer" class="edl-footer clearfix">
+        <div class="edl-footer-logo">
+            <img src="https://www.sabre.com/wp/wp-content/themes/sabre-edl/images/sabre-footer-logo.png" width="auto" height="auto" style="width:auto;">
+        </div>
+
+        <div class="edl-nav--footer">
+            <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="/careers">Careers</a></li>
+                <li><a href="/insights">News &amp; Insights</a></li>
+                <li><a href="http://investors.sabre.com">Investor Relations</a></li>
+            </ul>
+        </div>
+
+        <div class="off-rt">
+            <div class="edl-social">
+                <ul>
+                    <li><a href="https://twitter.com/Sabre_Corp" target="_blank"><i class="edl-icon--social-twitter edl-icon" alt="Twitter"></i></a></li>
+                    <li><a href="https://www.facebook.com/SabreCorporation" target="_blank"><i class="edl-icon--social-facebook edl-icon" alt="Facebook"></i></a></li>
+                    <li><a href="https://www.youtube.com/user/SabreNewsTV" target="_blank"><i class="edl-icon--social-youtube edl-icon" alt="YouTube"></i></a></li>
+                    <li><a href="https://www.linkedin.com/company/sabre-corporation" target="_blank"><i class="edl-icon--social-linkedin edl-icon" alt="Linked In"></i></a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <div class="footer">
-      <div class="container">
-      </div>
-    </div>
     <network-error-display dedup="true"/>
     <rent-a-guide-network-errors-display></rent-a-guide-network-errors-display>
     <script src="bower_components/requirejs/require.js" data-main="src/main.js"></script>

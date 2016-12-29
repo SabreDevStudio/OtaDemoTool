@@ -56,7 +56,7 @@ define([
             'InspirationalTravelDatesService',
             QueryParamsSearchCriteriaSource
         ])
-        .service('PredefinedAirportClosestAirportService', PredefinedAirportClosestAirportService)
+        .service('PredefinedAirportClosestAirportService', ['$localStorage', PredefinedAirportClosestAirportService])
         .service('QueryParamsClosestAirportService', [
             '$stateParams',
             QueryParamsClosestAirportService

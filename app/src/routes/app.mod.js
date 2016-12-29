@@ -13,7 +13,8 @@ define([
     'routes/flightSearch.rt',
     'routes/landingPages.rt',
     'routes/tours.rt',
-    'routes/auxiliary.rt'
+    'routes/auxiliary.rt',
+    'routes/resources.rt'
 ], function (
     angular,
     uiRouter,
@@ -28,7 +29,8 @@ define([
     flightsSearchRoutes,
     landingPagesRoutes,
     toursRoutes,
-    auxiliaryRoutes
+    auxiliaryRoutes,
+    resourcesRoutes
 ) {
     'use strict';
 
@@ -50,7 +52,8 @@ define([
         .config(['$stateProvider', landingPagesRoutes])
         .config(['$stateProvider', toursRoutes])
         .config(['$stateProvider', auxiliaryRoutes])
+        .config(['$stateProvider', resourcesRoutes])
         .config(['$urlRouterProvider', function ($urlRouterProvider) {
-            $urlRouterProvider.otherwise('/defaultHomePage');
+            $urlRouterProvider.otherwise('/demoHomePage');
         }])
 });
