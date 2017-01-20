@@ -12,7 +12,6 @@ require.config({
     text: '../../bower_components/text/text',
     ngstorage: '../../bower_components/ngstorage/ngStorage',
     almond: '../../bower_components/almond/almond',
-    SDSWidgets: '../../bower_components/sabre-dev-studio-widgets/dist/widgets/SDSWidgets.min',
     RentAGuideWidgets: '../../bower_components/RentAGuideWidgets/dist/RentAGuideWidgets'
   },
   shim: {

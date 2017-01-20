@@ -10,11 +10,14 @@ define([
     'templates.mod',
     'common/responsiveUtils/responsiveUtils.mod',
     'tours/tours.mod',
+    'resources/resources.mod',
     'routes/flightSearch.rt',
     'routes/landingPages.rt',
     'routes/tours.rt',
     'routes/auxiliary.rt',
-    'routes/resources.rt'
+    'resources/resources.rt',
+    'feedback/feedback.rt',
+    'policies/policies.rt'
 ], function (
     angular,
     uiRouter,
@@ -26,11 +29,14 @@ define([
     templatesModule,
     responsiveUtilsModule,
     toursModule,
+    resourcesModule,
     flightsSearchRoutes,
     landingPagesRoutes,
     toursRoutes,
     auxiliaryRoutes,
-    resourcesRoutes
+    resourcesRoutes,
+    feedbackRoutes,
+    policiesRoutes
 ) {
     'use strict';
 
@@ -42,6 +48,7 @@ define([
             'otademoToolApp.results',
             'otademoToolApp.inspirationalSearch',
             'otademoToolApp.tours',
+            'otademoToolApp.resources',
             'ui.router',
             'sdsWidgets',
             'otademoToolApp.templates',
@@ -53,6 +60,8 @@ define([
         .config(['$stateProvider', toursRoutes])
         .config(['$stateProvider', auxiliaryRoutes])
         .config(['$stateProvider', resourcesRoutes])
+        .config(['$stateProvider', feedbackRoutes])
+        .config(['$stateProvider', policiesRoutes])
         .config(['$urlRouterProvider', function ($urlRouterProvider) {
             $urlRouterProvider.otherwise('/demoHomePage');
         }])
