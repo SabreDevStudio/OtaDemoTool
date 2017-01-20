@@ -1,9 +1,10 @@
 define([
     'angular',
-    'common/directives/searchCriteriaShort.drv'
+    'common/directives/searchCriteriaShort.drv',
 ], function (
     angular,
-    SearchCriteriaShort
+    SearchCriteriaShort,
+    TopNavigation
 ) {
     'use strict';
 
