@@ -1,0 +1,19 @@
+/**************************************************************
+RESOURCES PAGE
+**************************************************************/
+
+.tileContainer {
+
+  margin-top: 30px;
+}
+
+@media screen and (min-width: 600px) {
+  .proto-modal .video-3-4 {
+    height: 400px;
+    width: 540px;
+  }
+}
+
+.minHeight20em {
+  min-height: 20em;
+}

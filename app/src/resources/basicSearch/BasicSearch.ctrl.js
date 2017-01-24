@@ -7,10 +7,10 @@ define([], function () {
         this.tiles = [];
 
         var bargainFinderMax = {
-            title: 'Flight List BFM',
+            title: 'Bargain Finder Max',
             description: 'Bargain Finder Max (BFM), our best-in-class low fare search product, is used to search for the ' +
             'lowest available priced itineraries based upon a specific date.',
-            widgetUrl: 'widgets/bfm.html',
+            widgetUrl: 'widgets/basicSearch/bfm.html',
             api: {
                 name: 'Bargain Finder Max',
                 url: 'https://developer.sabre.com/docs/read/rest_apis/air/search/bargain_finder_max'
@@ -18,10 +18,10 @@ define([], function () {
         };
 
         var instaFlightsSearch = {
-            title: 'Flight List InstaFlights',
+            title: 'InstaFlights Search',
             description: 'The InstaFlights Search API retrieves roundtrip or one-way flight itineraries with published ' +
             'fares and fare breakdowns for a given city pair and departure date.',
-            widgetUrl: '../widgetPage.html#/instaflights',
+            widgetUrl: 'widgets/basicSearch/instaflights.html',
             api: {
                 name: 'InstaFlights Search',
                 url: 'https://developer.sabre.com/docs/read/rest_apis/air/search/instaflights_search'
@@ -29,10 +29,10 @@ define([], function () {
         };
 
         var instaFlightsSearchWithFilters = {
-            title: 'Instaflights with filters',
+            title: 'InstaFlights Filters',
             description: 'The InstaFlights Search API retrieves roundtrip or one-way flight itineraries with published ' +
             'fares and fare breakdowns for a given city pair and departure date.',
-            widgetUrl: 'http://analytics.sabre.com/sdsdemo/dslab/widgets_DE/www/FiltersForFlightList.html',
+            widgetUrl: 'widgets/basicSearch/instaFlightsFilters.html',
             api: {
                 name: 'InstaFlights Search',
                 url: 'https://developer.sabre.com/docs/read/rest_apis/air/search/instaflights_search'
@@ -43,7 +43,7 @@ define([], function () {
             title: 'BFM Branded Fares',
             description: 'Bargain Finder Max (BFM), our best-in-class low fare search product, is used to search for the ' +
             'lowest available priced itineraries based upon a specific date.',
-            widgetUrl: '../widgetPage.html#/bfm',
+            widgetUrl: 'widgets/basicSearch/bfmBrandedFares.html',
             api: {
                 name: 'Bargain Finder Max',
                 url: 'https://developer.sabre.com/docs/read/rest_apis/air/search/bargain_finder_max'
@@ -51,10 +51,10 @@ define([], function () {
         }
 
         var bfmBaggageFilters = {
-            title: 'BFM with Bag Filters',
+            title: 'BFM Bag Filters',
             description: 'Bargain Finder Max (BFM), our best-in-class low fare search product, is used to search for the ' +
             'lowest available priced itineraries based upon a specific date.',
-            widgetUrl: 'http://analytics.sabre.com/sdsdemo/dslab/widgets_DE/www/FlightListBFMShopByBag.html',
+            widgetUrl: 'widgets/basicSearch/bfmBagFilters.html',
             api: {
                 name: 'Bargain Finder Max',
                 url: 'https://developer.sabre.com/docs/read/rest_apis/air/search/bargain_finder_max'
