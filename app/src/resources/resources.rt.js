@@ -22,11 +22,13 @@ define([], function () {
                     }
                 }
             })
-            .state('resources.calendarSearch', {
-                url: '/calendarSearch',
+            .state('resources.calendarNavigation', {
+                url: '/calendarNavigation',
                 views: {
                     'main-content@resources': {
-                        templateUrl: 'src/resources/calendarSearch/calendarSearch.tpl.html'
+                        templateUrl: 'src/resources/calendarNavigation/calendarNavigation.tpl.html',
+                        controller: 'CalendarNavigationCtrl',
+                        controllerAs: 'calendarNavigation'
                     }
                 }
             })
