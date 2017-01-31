@@ -3,24 +3,10 @@ define([], function () {
 
     return function ($stateProvider) {
         $stateProvider
-            .state('demoHomePage', {
-                url: '/demoHomePage',
-                views: {
-                    'content': {
-                        templateUrl: 'src/demo/demo.tpl.html'
-                    },
-                    'searchForm@demoHomePage': {
-                        templateUrl: 'src/search/searchForm.tpl.html',
-                        controller: 'DefaultHomePageCtrl'
-                    }
-                }
-            })
             .state('results', {
-                url: '/results',
+                parent: 'index',
+                url: '^/results',
                 views: {
-                    'header': {
-                        templateUrl: 'src/header.tpl.html'
-                    },
                     'content': {
                         templateUrl: 'src/results/results.tpl.html',
                         controller: 'ResultsPageCtrl'

@@ -4,7 +4,8 @@ define([], function () {
     return function ($stateProvider) {
         $stateProvider
             .state('cookiesPolicy', {
-                url: '/cookies-policy',
+                parent: 'index',
+                url: '^/cookiesPolicy',
                 views: {
                     'content': {
                         templateUrl: 'src/policies/cookiesPolicy.tpl.html'
@@ -12,7 +13,8 @@ define([], function () {
                 }
             })
             .state('privacyPolicy', {
-                url: '/privacy-policy',
+                parent: 'index',
+                url: '^/privacyPolicy',
                 views: {
                     'content': {
                         templateUrl: 'src/policies/privacyPolicy.tpl.html'
@@ -20,7 +22,8 @@ define([], function () {
                 }
             })
             .state('termsOfUse', {
-                url: '/terms-of-use',
+                parent: 'index',
+                url: '^/termsOfUse',
                 views: {
                     'content': {
                         templateUrl: 'src/policies/termsOfUse.tpl.html'

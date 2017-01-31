@@ -20,7 +20,7 @@ define([
         'otademoToolApp.widgets.searchStatus',
         'sDSLookups'
     ])
-        .constant('searchStrategyForSearch', 'instaflights-updated-with-bfm')
+        .constant('searchStrategyForSearch', 'bfm')
         .constant('searchStrategyForLandingPage', 'first-instaflights-on-errors-bfm')
         .controller('ResultsPageCtrl', [
             '$scope',
