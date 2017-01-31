@@ -15,7 +15,8 @@ define([
     'routes/landingPages.rt',
     'routes/tours.rt',
     'routes/auxiliary.rt',
-    'resources/resources.rt',
+    'routes/index.rt',
+    'demo/demo.rt',
     'feedback/feedback.rt',
     'policies/policies.rt'
 ], function (
@@ -34,7 +35,8 @@ define([
     landingPagesRoutes,
     toursRoutes,
     auxiliaryRoutes,
-    resourcesRoutes,
+    indexRoutes,
+    demoRoutes,
     feedbackRoutes,
     policiesRoutes
 ) {
@@ -59,7 +61,8 @@ define([
         .config(['$stateProvider', landingPagesRoutes])
         .config(['$stateProvider', toursRoutes])
         .config(['$stateProvider', auxiliaryRoutes])
-        .config(['$stateProvider', resourcesRoutes])
+        .config(['$stateProvider', indexRoutes])
+        .config(['$stateProvider', demoRoutes])
         .config(['$stateProvider', feedbackRoutes])
         .config(['$stateProvider', policiesRoutes])
         .config(['$urlRouterProvider', function ($urlRouterProvider) {

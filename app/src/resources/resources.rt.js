@@ -4,10 +4,11 @@ define([], function () {
     return function ($stateProvider) {
         $stateProvider
             .state('resources', {
+                parent: 'index',
                 abstract: true,
                 url: '/resources',
                 views: {
-                    'content': {
+                   'content': {
                         templateUrl: 'src/resources/resources.tpl.html'
                     }
                 }

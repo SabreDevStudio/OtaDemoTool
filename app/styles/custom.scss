@@ -20,26 +20,42 @@ FONTS
     font-style: normal;
     font-weight: 700;
     src: url('fonts/roboto/Roboto_700.eot?#iefix');
-    src: local('Roboto Bold'), local('Roboto-Bold'), url('fonts/roboto/Roboto_700.eot?#iefix') format('embedded-opentype'), url('fonts/roboto/Roboto_700.woff') format('woff'), url('fonts/roboto/Roboto_700.woff2') format('woff2'), url('fonts/roboto/Roboto_700.svg#Roboto') format('svg'), url('fonts/roboto/Roboto_700.ttf') format('truetype');
+    src: local('Roboto Bold'), local('Roboto-Bold'),
+        url('fonts/roboto/Roboto_700.eot?#iefix') format('embedded-opentype'),
+        url('fonts/roboto/Roboto_700.woff') format('woff'),
+        url('fonts/roboto/Roboto_700.woff2') format('woff2'),
+        url('fonts/roboto/Roboto_700.svg#Roboto') format('svg'),
+        url('fonts/roboto/Roboto_700.ttf') format('truetype');
 }
 @font-face {
     font-family: 'Roboto Slab';
     font-style: normal;
     font-weight: 300;
     src: url("fonts/roboto-slab/Roboto_Slab_300.eot?#iefix");
-    src: local("Roboto Slab Light"), local("RobotoSlab-Light"), url("fonts/roboto-slab/Roboto_Slab_300.eot?#iefix") format("embedded-opentype"), url("fonts/roboto-slab/Roboto_Slab_300.woff") format("woff"), url("fonts/roboto-slab/Roboto_Slab_300.woff2") format("woff2"), url("fonts/roboto-slab/Roboto_Slab_300.svg#RobotoSlab") format("svg"), url("fonts/roboto-slab/Roboto_Slab_300.ttf") format("truetype");
+    src: local("Roboto Slab Light"), local("RobotoSlab-Light"),
+        url("fonts/roboto-slab/Roboto_Slab_300.eot?#iefix") format("embedded-opentype"),
+        url("fonts/roboto-slab/Roboto_Slab_300.woff") format("woff"),
+        url("fonts/roboto-slab/Roboto_Slab_300.woff2") format("woff2"),
+        url("fonts/roboto-slab/Roboto_Slab_300.svg#RobotoSlab") format("svg"),
+        url("fonts/roboto-slab/Roboto_Slab_300.ttf") format("truetype");
 }
 @font-face {
     font-family: 'spark-icon-fill';
     src: url("fonts/spark/spark-icon-fill.eot?#iefix");
-    src: url("fonts/spark/spark-icon-fill.eot?#iefix") format("embedded-opentype"), url("fonts/spark/spark-icon-fill.woff") format("woff"), url("fonts/spark/spark-icon-fill.ttf") format("truetype"), url("fonts/spark/spark-icon-fill.svg#spark-icon-fill") format("svg");
+    src: url("fonts/spark/spark-icon-fill.eot?#iefix") format("embedded-opentype"),
+        url("fonts/spark/spark-icon-fill.woff") format("woff"),
+        url("fonts/spark/spark-icon-fill.ttf") format("truetype"),
+        url("fonts/spark/spark-icon-fill.svg#spark-icon-fill") format("svg");
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'spark-icon-line';
     src: url("fonts/spark/spark-icon-line.eot#iefix");
-    src: url("fonts/spark/spark-icon-line.eot?#iefix") format("embedded-opentype"), url("fonts/spark/spark-icon-line.woff") format("woff"), url("fonts/spark/spark-icon-line.ttf") format("truetype"), url("fonts/spark/spark-icon-line.svg#spark-icon-line") format("svg");
+    src: url("fonts/spark/spark-icon-line.eot?#iefix") format("embedded-opentype"),
+        url("fonts/spark/spark-icon-line.woff") format("woff"),
+        url("fonts/spark/spark-icon-line.ttf") format("truetype"),
+        url("fonts/spark/spark-icon-line.svg#spark-icon-line") format("svg");
     font-weight: normal;
     font-style: normal;
 }
