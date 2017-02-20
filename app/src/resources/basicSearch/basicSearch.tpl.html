@@ -25,8 +25,11 @@
             It’s our people who develop and deliver powerful solutions that meet the current and future needs for our airline, hotel, and travel agency customers.</p>
 
         <div class="row tileContainer">
-            <div ng-repeat="tile in basicSearch.tiles" class="col-md-4 col-sm-6 demoTile">
-                <widget-tile ng-model="tile"></widget-tile>
+            <div ng-repeat="tile in basicSearch.tiles">
+                <div class="clearfix" ng-if="$index % 2 == 0"></div>
+                <div class="col-md-6 col-sm-12 demoTile">
+                    <widget-tile ng-model="tile"></widget-tile>
+                </div>
             </div>
         </div>
     </div>
