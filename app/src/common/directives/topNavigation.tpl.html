@@ -11,9 +11,9 @@
         </div>
         <div id="topNavCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav top-navbar-nav">
-                <li><a href="http://www.sabre.com/">Sabre</a></li>
-                <li><a href="https://www.sabretravelnetwork.com/">Travel Network</a></li>
-                <li><a href="https://developer.sabre.com/">Sabre Dev Studio</a></li>
+                <li><a href="http://www.sabre.com/" target="_blank">Sabre</a></li>
+                <li><a href="https://www.sabretravelnetwork.com/" target="_blank">Travel Network</a></li>
+                <li><a href="https://developer.sabre.com/" target="_blank">Sabre Dev Studio</a></li>
             </ul>
             <ul class="nav navbar-nav top-navbar-nav navbar-right">
                 <li>
@@ -21,10 +21,10 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">DE<span class="caret"></span></a>
+                       aria-expanded="false">{{topNavigationCtrl.selectedCountry}}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">US</a></li>
-                        <li><a href="#">DE</a></li>
+                        <li><a href="#" ng-click="topNavigationCtrl.setSelectedCountry('US')">US</a></li>
+                        <li><a href="#" ng-click="topNavigationCtrl.setSelectedCountry('DE')">DE</a></li>
                     </ul>
                 </li>
             </ul>

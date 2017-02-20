@@ -7,7 +7,7 @@
     "angular-touch": "^1.3.0",
     "angular-ui-router": "~0.2.18",
     "bootstrap": "^3.2.0",
-    "sabre-dev-studio-widgets": "http://git.sabre.com/scm/smp/ui.git#419183fa0aed74fe8354051c2b8af5988c125eb6",
+    "sabre-dev-studio-widgets": "http://git.sabre.com/scm/smp/ui.git#4f04bc90fa56a06b7ddc0e3acfe438231f262ed8",
     "RentAGuideWidgets": "http://git.sabre.com/scm/smp/rentaguidewidgets.git#72a1169ee28fcaee7bf3f175ce2ec1629c235a31",
     "ngstorage": "~0.3.10",
     "lodash": "~4.13.1",
