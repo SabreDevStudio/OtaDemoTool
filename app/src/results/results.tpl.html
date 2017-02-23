@@ -68,7 +68,7 @@
             <!-- we have to keep this filters-panel in the DOM (ngShow, not ngIf, like for the other widgets above), so that it listens to itineraries update statistics.
                 Also it is not enough to just show it when search is successful, as then it misses the itineraries statistics event (event sent before event listener installed). -->
             <div ng-show="!searchStatus.searchInProgress && searchStatus.searchCompletedSuccessful">
-                <itineraries-filter-panel></itineraries-filter-panel>
+                <itineraries-filter-panel id="ItineraryListFilterPanel" owner-id="itin-list"></itineraries-filter-panel>
             </div>
 
         </div>
@@ -80,7 +80,7 @@
                                         search-criteria="lastSuccessfulSearchCriteria">
                 </alternate-dates-matrix>
             </div>
-            <itinerary-list
+            <itinerary-list itineraries-list-id="itin-list"
                             active-search="true" active-search-web-service="{{searchStrategy}}"
                             request-branded-itineraries="true"
                             search-criteria="newSearchCriteria"
