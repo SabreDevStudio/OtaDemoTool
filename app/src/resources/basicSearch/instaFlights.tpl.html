@@ -1,5 +1,10 @@
 <div class="container main-container">
-    <search-form class="embeddedWidget" hide-fields="IsPlusMinus3DaysFlexible" selectable-airports-for-this-pos-only="1"></search-form>
+    <search-form
+            class="embeddedWidget"
+            hide-fields="IsPlusMinus3DaysFlexible"
+            selectable-airports-for-this-pos-only="1"
+            origin-airport-code="{{ctrl.originAirportCode}}">
+    </search-form>
     <div class="row">
         <div class="col-lg-12 minHeight20em">
             <spinner-container

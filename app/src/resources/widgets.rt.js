@@ -15,6 +15,10 @@ define([], function () {
                         controllerAs: 'ctrl'
                     },
                     'content': {
+                        controller: ['$localStorage', function($localStorage){
+                            this.originAirportCode = $localStorage.$default({origin: "FRA"}).origin;
+                        }],
+                        controllerAs: 'ctrl',
                         template: '<ui-view/>'
                     }
                 },
