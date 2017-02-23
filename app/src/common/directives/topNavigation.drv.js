@@ -5,7 +5,7 @@ define([], function () {
         return {
 
             templateUrl: 'src/common/directives/topNavigation.tpl.html',
-            controller: ['$localStorage', 'countryConfigs', 'selectedCountryConfigs', function ($localStorage, countryConfigs, selectedCountryConfigs) {
+            controller: ['$localStorage', 'countryConfigs', 'selectedCountryConfigs', '$state', '$timeout', function ($localStorage, countryConfigs, selectedCountryConfigs, $state, $timeout) {
 
                 this.selectedCountry = $localStorage.$default({selectedCountry: "DE"}).selectedCountry;
                 updateselectedCountryConfigs(this.selectedCountry )
@@ -21,6 +21,10 @@ define([], function () {
                     selectedCountryConfigs.apiSpecificHeaders = countryConfigs[newValue].apiSpecificHeaders;
                     selectedCountryConfigs.pointOfSaleCountry = countryConfigs[newValue].pointOfSaleCountry;
                     selectedCountryConfigs.bfmRequestPcc = countryConfigs[newValue].bfmRequestPcc;
+                }
+                
+                this.reload = function () {
+                    $timeout($state.reload, 500);
                 }
             }],
             controllerAs: 'topNavigationCtrl'

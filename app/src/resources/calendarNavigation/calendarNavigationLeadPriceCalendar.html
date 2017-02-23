@@ -1,6 +1,9 @@
 <div class="container main-container">
     <partial command="include('partials/navigation.html')"></partial>
-    <div class="embeddedWidget" data-search-form></div>
+    <search-form
+            class="embeddedWidget"
+            origin-airport-code="{{ctrl.originAirportCode}}">
+    </search-form>
     <error-display class="embeddedWidget"></error-display>
     <network-error-display></network-error-display>
     <validation-error-display></validation-error-display>

@@ -1,9 +1,10 @@
 <div class="container main-container">
-    <div class="embeddedWidget"
-         data-search-form
-         hide-fields="IsPlusMinus3DaysFlexible"
-         selectable-airports-for-this-pos-only="1">
-    </div>
+    <search-form
+            class="embeddedWidget"
+            hide-fields="IsPlusMinus3DaysFlexible"
+            selectable-airports-for-this-pos-only="1"
+            origin-airport-code="{{ctrl.originAirportCode}}">
+    </search-form>
     <error-display class="embeddedWidget"></error-display>
     <network-error-display></network-error-display>
     <validation-error-display></validation-error-display>

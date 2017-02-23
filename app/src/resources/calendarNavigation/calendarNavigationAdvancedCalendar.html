@@ -1,6 +1,11 @@
 <div class="container main-container">
     <partial command="include('partials/navigation.html')"></partial>
-    <search-form class="embeddedWidget" show-advanced-date-flexibility-criteria="plusMinusDays,earliestDepartureLatestReturn" selectable-airports-for-this-pos-only="1"></search-form>
+    <search-form
+            class="embeddedWidget"
+            show-advanced-date-flexibility-criteria="plusMinusDays,earliestDepartureLatestReturn"
+            selectable-airports-for-this-pos-only="1"
+            origin-airport-code="{{ctrl.originAirportCode}}">
+    </search-form>
     <error-display class="embeddedWidget"></error-display>
     <network-error-display></network-error-display>
     <validation-error-display></validation-error-display>
