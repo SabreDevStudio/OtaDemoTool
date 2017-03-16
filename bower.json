@@ -2,12 +2,12 @@
   "name": "OTADemoTool",
   "version": "0.1.1",
   "dependencies": {
-    "angular": "^1.4.0",
-    "angular-sanitize": "^1.4.0",
-    "angular-touch": "^1.4.0",
+    "angular": "^1.5.0",
+    "angular-sanitize": "^1.5.0",
+    "angular-touch": "^1.5.0",
     "bootstrap": "^3.2.0",
-    "sabre-dev-studio-widgets": "http://git.sabre.com/scm/smp/ui.git#6faed62211a89185e81ea7701d4ecaafc722fca1",
-    "RentAGuideWidgets": "http://git.sabre.com/scm/smp/rentaguidewidgets.git#9835c4796f954410c12dcb85e3ca45829d106858",
+    "sabre-dev-studio-widgets": "http://git.sabre.com/scm/smp/ui.git#eb6ee62f4d582f05f6030a639ff51f3f23f1825a",
+    "RentAGuideWidgets": "http://git.sabre.com/scm/smp/rentaguidewidgets.git#7a71d226133aa3ff3dfc28aeea05bb618b0e4345",
     "ngstorage": "~0.3.10",
     "lodash": "~4.13.1",
     "requirejs": "^2.1.0",
@@ -16,10 +16,10 @@
   "appPath": "app",
   "moduleName": "otademoToolApp",
   "resolutions": {
-    "angular": "1.4.14",
+    "angular": "1.5.11",
     "bootstrap": "~3.3.5",
     "lodash": "4.13.x",
     "moment": "~2.14.1",
-    "WidgetsFilterPanel": "08946d7d066c514442933d778f525fd50b3a1556"
+    "WidgetsFilterPanel": "16bb1aa5d0be4d9f9c9d210504df08271227ec62"
   }
 }
