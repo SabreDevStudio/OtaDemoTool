@@ -4,7 +4,7 @@ require.config({
     angular: '../../bower_components/angular/angular',
     'angular-sanitize': '../../bower_components/angular-sanitize/angular-sanitize',
     'angular-touch': '../../bower_components/angular-touch/angular-touch',
-    'angular-ui-router': '../../bower_components/angular-ui-router/release/angular-ui-router',
+    'angular-ui-router': '../../node_modules/angular-ui-router/release/angular-ui-router',
     ngStorage: '../../bower_components/ngstorage/ngStorage',
     bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap',
     lodash: '../../bower_components/lodash/lodash',

@@ -80,6 +80,10 @@ module.exports = function (grunt) {
                 connect.static('./bower_components')
               ),
               connect().use(
+                  '/node_modules',
+                  connect.static('./node_modules')
+              ),
+              connect().use(
                 '/app/styles',
                 connect.static('./app/styles')
               ),
@@ -300,6 +304,11 @@ module.exports = function (grunt) {
           cwd: '.',
           dest: '.tmp',
           src: ['bower_components/**/*']
+        }, {
+            expand: true,
+            cwd: '.',
+            dest: '.tmp',
+            src: ['node_modules/**/*']
         }, {
           expand: true,
           cwd: '.tmp/images',
