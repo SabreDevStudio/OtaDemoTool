@@ -20,11 +20,11 @@
                     <change-origin-select origin-preset="FRA" on-change="topNavigationCtrl.reload()"></change-origin-select>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">{{topNavigationCtrl.selectedCountry}}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" ng-click="topNavigationCtrl.setSelectedCountry('US')">US</a></li>
-                        <li><a href="#" ng-click="topNavigationCtrl.setSelectedCountry('DE')">DE</a></li>
+                        <li><a ng-click="topNavigationCtrl.setSelectedCountry('US')">US</a></li>
+                        <li><a ng-click="topNavigationCtrl.setSelectedCountry('DE')">DE</a></li>
                     </ul>
                 </li>
             </ul>
