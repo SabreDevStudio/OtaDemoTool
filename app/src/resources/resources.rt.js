@@ -5,10 +5,6 @@ define([], function () {
         $stateProvider
             .state('resources', {
                 parent: 'index',
-<<<<<<< HEAD
-=======
-                abstract: true,
->>>>>>> 52340a0999ac5e932126de13cdfd9861286c593a
                 url: '/resources',
                 views: {
                    'content': {
@@ -64,13 +60,9 @@ define([], function () {
                 url: '/compare',
                 views: {
                     'main-content@resources': {
-<<<<<<< HEAD
                         templateUrl: 'src/resources/compare/compare.tpl.html',
                         controller: 'CompareCtrl',
                         controllerAs: 'compare'
-=======
-                        templateUrl: 'src/resources/compare/compare.tpl.html'
->>>>>>> 52340a0999ac5e932126de13cdfd9861286c593a
                     }
                 }
             })
