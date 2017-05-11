@@ -66,4 +66,8 @@ define([], function () {
     }
 
     return BasicSearchCtrl;
+<<<<<<< HEAD
+});
+=======
 })
+>>>>>>> 52340a0999ac5e932126de13cdfd9861286c593a

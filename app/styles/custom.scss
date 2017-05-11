@@ -548,6 +548,24 @@ ul.edl-nav--panel ul.edl-nav--tert li a{
 }
 
 /* Breadcrumbs */
+<<<<<<< HEAD
+#bread_crumb p {
+    font-size:11px;
+    line-height:14px;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    margin:0px;
+    padding:0px;
+    color:#aeaeae;
+    text-transform:uppercase;
+}
+
+#bread_crumb a {
+    color:#aeaeae;
+}
+
+#bread_crumb a:hover, #bread_crumb a:last-child {
+    color:#3399cc;
+=======
 .edl-breadcrumbs,
 .edl-breadcrumbs a{
     color: #999;
@@ -556,6 +574,7 @@ ul.edl-nav--panel ul.edl-nav--tert li a{
 }
 .edl-breadcrumbs a:hover{
     color:#3399CC;
+>>>>>>> 52340a0999ac5e932126de13cdfd9861286c593a
 }
 
 
