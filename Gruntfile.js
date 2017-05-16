@@ -258,8 +258,7 @@ module.exports = function (grunt) {
           },
           rewriter: function (url) {
             return url
-                .replace('images/creditCardLogos/', properties.cdnBase + '/creditCardLogos/')
-                .replace('images/carRental/', properties.cdnBase + '/carRental/');
+                .replace('images', properties.cdnBase)
           }
         },
         files: [{
