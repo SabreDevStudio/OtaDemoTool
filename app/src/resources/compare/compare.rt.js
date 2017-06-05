@@ -6,6 +6,8 @@ define([], function () {
             .state('widgets.bfmVsInstaFlights', {
                 url: '/bfmVsInstaFlights',
                 templateUrl: 'src/resources/compare/bfmVsInstaFlights.tpl.html',
+                controller: 'BfmVsInstaFlightsCtrl',
+                controllerAs: 'bfmVsInstaFlightsCtrl',
                 data: {
                     widgetTitle: 'BFM vs. InstaFlights Search'
                 }
