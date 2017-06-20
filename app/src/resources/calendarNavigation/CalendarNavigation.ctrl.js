@@ -8,65 +8,86 @@ define([], function () {
 
         var leadPriceChartAdvancedCalendar = {
             title: 'Lead Price Chart (Advanced Calendar)',
-            description: 'The Advanced Calendar Search API retrieves up to 200 roundtrip flight itineraries with published' +
-                'fares available from the Sabre cache for a specific origin, destination, and length of stay across a large set or range of travel dates.',
+            description: 'View price by date via bar graph with a call for lead non-stop and overall flights; provides full itinerary.',
             widgetUrl: 'widgets.leadPriceChartAdvancedCalendar',
-            api: {
-                name: 'Advanced Calendar Search',
-                url: 'https://developer.sabre.com/docs/rest_apis/air/search/advanced_calendar_search/'
-            }
+            apis: [
+                {
+                    name: 'Advanced Calendar Search',
+                    url: 'https://developer.sabre.com/docs/rest_apis/air/search/advanced_calendar_search/'
+                }
+            ]
         };
 
         var leadPriceChartLeadPriceCalendar = {
             title: 'Lead Price Chart (Lead Price Calendar)',
-            description: 'The Lead Price Calendar API returns the lowest published fares each of the next 192 calendar days for a given city pair.',
+            description: 'View price by date via bar graph with a call for lead non-stop and overall flights. A second call required to provide flight itineraries.',
             widgetUrl: 'widgets.leadPriceChartLeadPriceCalendar',
-            api: {
-                name: 'Lead Price Calendar',
-                url: 'https://developer.sabre.com/docs/read/rest_apis/air/search/lead_price_calendar'
-            }
+            apis: [
+                {
+                    name: 'Lead Price Calendar',
+                    url: 'https://developer.sabre.com/docs/read/rest_apis/air/search/lead_price_calendar'
+                },
+                {
+                    name: 'Bargain Finder Max',
+                    url: 'https://developer.sabre.com/docs/read/rest_apis/air/search/bargain_finder_max'
+                }
+            ]
         };
 
         var calendarTabsAdvancedCalendar = {
             title: 'Calendar Tab (Advanced Calendar)',
-            description: 'The Advanced Calendar Search API retrieves up to 200 roundtrip flight itineraries with published' +
-            'fares available from the Sabre cache for a specific origin, destination, and length of stay across a large set or range of travel dates.',
+            description: 'View price by date via single month calendar view with a call for lead non-stop and overall flights; provides full itinerary.',
             widgetUrl: 'widgets.calendarTabsAdvancedCalendar',
-            api: {
-                name: 'Advanced Calendar Search',
-                url: 'https://developer.sabre.com/docs/rest_apis/air/search/advanced_calendar_search/'
-            }
+            apis: [
+                {
+                    name: 'Advanced Calendar Search',
+                    url: 'https://developer.sabre.com/docs/rest_apis/air/search/advanced_calendar_search/'
+                }
+            ]
         };
 
         var calendarTabsLeadPriceCalendar = {
             title: 'Calendar Tabs (Lead Price Calendar)',
-            description: 'The Lead Price Calendar API returns the lowest published fares each of the next 192 calendar days for a given city pair.',
+            description: 'View price by date via single month calendar view with a call for lead non-stop and overall flights. A second call required to provide flight itineraries.',
             widgetUrl: 'widgets.calendarTabsLeadPriceCalendar',
-            api: {
-                name: 'Lead Price Calendar',
-                url: 'https://developer.sabre.com/docs/read/rest_apis/air/search/lead_price_calendar'
-            }
+            apis: [
+                {
+                    name: 'Lead Price Calendar',
+                    url: 'https://developer.sabre.com/docs/read/rest_apis/air/search/lead_price_calendar'
+                },
+                {
+                    name: 'Bargain Finder Max',
+                    url: 'https://developer.sabre.com/docs/read/rest_apis/air/search/bargain_finder_max'
+                }
+            ]
         };
 
         var calendarNavigationAdvancedCalendar = {
             title: 'Calendar Navigation (Advanced Calendar)',
-            description: 'The Advanced Calendar Search API retrieves up to 200 roundtrip flight itineraries with published' +
-            'fares available from the Sabre cache for a specific origin, destination, and length of stay across a large set or range of travel dates.',
+            description: 'View price by date via multi-month calendar view with a call for lead non-stop and overall flights; provides full itinerary',
             widgetUrl: 'widgets.calendarNavigationAdvancedCalendar',
-            api: {
-                name: 'Advanced Calendar Search',
-                url: 'https://developer.sabre.com/docs/rest_apis/air/search/advanced_calendar_search/'
-            }
+            apis: [
+                {
+                    name: 'Advanced Calendar Search',
+                    url: 'https://developer.sabre.com/docs/rest_apis/air/search/advanced_calendar_search/'
+                }
+            ]
         };
 
         var calendarNavigationLeadPriceCalendar = {
             title: 'Calendar Navigation (Lead Price Calendar)',
-            description: 'The Lead Price Calendar API returns the lowest published fares each of the next 192 calendar days for a given city pair.',
+            description: 'View price by date via multi-month calendar view with a call for lead non-stop and overall flights. A second call required to provide flight itineraries.',
             widgetUrl: 'widgets.calendarNavigationLeadPriceCalendar',
-            api: {
-                name: 'Lead Price Calendar',
-                url: 'https://developer.sabre.com/docs/read/rest_apis/air/search/lead_price_calendar'
-            }
+            apis: [
+                {
+                    name: 'Lead Price Calendar',
+                    url: 'https://developer.sabre.com/docs/read/rest_apis/air/search/lead_price_calendar'
+                },
+                {
+                    name: 'Bargain Finder Max',
+                    url: 'https://developer.sabre.com/docs/read/rest_apis/air/search/bargain_finder_max'
+                }
+            ]
         };
 
         this.tiles.push(leadPriceChartAdvancedCalendar, leadPriceChartLeadPriceCalendar, calendarTabsAdvancedCalendar

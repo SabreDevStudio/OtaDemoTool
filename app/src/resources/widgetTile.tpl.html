@@ -14,15 +14,15 @@
         <h4>Description</h4>
         <p>{{ngModel.description}}</p>
         <button type="button" data-toggle="modal"
-                data-target="#bfm-videoModal" class="btn btn-default btn-block">Play Video</button>
+                 class="btn btn-default btn-block">Play Video</button> <!-- data-target="#bfm-videoModal" -->
         <a ui-sref="{{::ngModel.widgetUrl}}" class="btn btn-default btn-block"
            target="_blank">Launch Webapp</a>
         <a href="https://github.com/SabreDevStudio/SabreDevStudioWidgetLibrary" class="btn btn-default btn-block"
            target="_blank">Download Source</a>
         <h4>APIs used</h4>
-        <ul class="list-unstyled">
-            <li><a ng-href={{::ngModel.api.url}}
-                   target="_blank">{{::ngModel.api.name}}</a>
+        <ul class="list-unstyled" ng-repeat="api in ngModel.apis">
+            <li><a ng-href={{::api.url}}
+                   target="_blank">{{::api.name}}</a>
             </li>
         </ul>
     </div>
