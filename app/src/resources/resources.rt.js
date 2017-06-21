@@ -36,7 +36,9 @@ define([], function () {
                 url: '/alternateDates',
                 views: {
                     'main-content@resources': {
-                        templateUrl: 'src/resources/alternateDates/alternateDates.tpl.html'
+                        templateUrl: 'src/resources/alternateDates/alternateDates.tpl.html',
+                        controller: 'AlternateDatesCtrl',
+                        controllerAs: 'alternateDates'
                     }
                 }
             })

@@ -6,11 +6,18 @@
     <error-display class="embeddedWidget"></error-display>
     <network-error-display></network-error-display>
     <validation-error-display></validation-error-display>
+    <div class="form-group">
+        <label for="shoppingProfile" class="input-sm control-label">Choose one profile</label>
+        <select id="shoppingProfile" ng-options="shoppingProfile.description for shoppingProfile in bfmVsInstaFlightsCtrl.shoppingProfiles"
+                ng-model="bfmVsInstaFlightsCtrl.selectedProfile"></select>
+    </div>
     <div class="row">
         <div class="col-xs-6 minHeight20em">
-            <h3 class="text-center">Instaflights</h3>
+            <h3 class="text-center">Shopping Profile</h3>
             <spinner-container spinner-id="spinner-1" spinner-options="{radius:30, width:8, length: 16}">
-                <itinerary-list active-search="true" active-search-web-service="instaflights"
+                <itinerary-list active-search="true"
+                                active-search-web-service="bfmVsInstaFlightsCtrl.selectedProfile.activeSearchWebService"
+                                shopping-profile="bfmVsInstaFlightsCtrl.selectedProfile.shoppingProfileName"
                                 search-started-callback="startSpin()" search-success-callback="stopSpin()"
                                 search-error-callback="stopSpin()">
                 </itinerary-list>
