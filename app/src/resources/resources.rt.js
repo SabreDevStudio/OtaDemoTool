@@ -46,7 +46,9 @@ define([], function () {
                 url: '/inspirationalServices',
                 views: {
                     'main-content@resources': {
-                        templateUrl: 'src/resources/inspirationalServices/inspirationalServices.tpl.html'
+                        templateUrl: 'src/resources/inspirationalServices/inspirationalServices.tpl.html',
+                        controller: 'InspirationalServicesCtrl',
+                        controllerAs: 'inspirationalServices'
                     }
                 }
             })

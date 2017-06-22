@@ -25,5 +25,14 @@
             Learn more about Destination Finder <a href="https://developer.sabre.com/docs/read/rest_apis/air/search/destination_finder" target="_blank">here</a>.<br/>
             Learn more about Flight To <a href="https://developer.sabre.com/docs/read/rest_apis/air/search/flights_to" target="_blank">here</a>.<br/><br/>
         </div>
+
+        <div class="row tileContainer">
+            <div ng-repeat="tile in inspirationalServices.tiles">
+                <div class="clearfix" ng-if="$index % 2 == 0"></div>
+                <div class="col-md-6 col-sm-12 demoTile">
+                    <widget-tile ng-model="tile"></widget-tile>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

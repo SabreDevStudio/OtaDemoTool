@@ -12,6 +12,7 @@ define([
     'resources/alternateDates/alternateDates.rt',
     'resources/compare/compare.rt',
     'resources/widgets.rt',
+    'resources/inspirationalServices/inspirational.mod'
 ], function (
     angular,
     WidgetTile,
@@ -25,14 +26,16 @@ define([
     CalendarNavigationRoutes,
     AlternateDatesRoutes,
     CompareRoutes,
-    WidgetsRoutes
+    WidgetsRoutes,
+    InspirationalModule
 ) {
     'use strict';
 
     angular
         .module('otademoToolApp.resources', [
-        'ui.router'
-    ])
+            'otademoToolApp.resources.inspirationalServices',
+            'ui.router'
+        ])
         .directive('widgetTile', WidgetTile)
 
         .controller('BasicSearchCtrl', BasicSearchCtrl)

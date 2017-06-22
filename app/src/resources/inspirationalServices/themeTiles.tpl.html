@@ -1,0 +1,29 @@
+<div class="container-fluid">
+
+    <div ng-if="searchStatus.searchInProgress" class="row">
+        <search-in-progress-message search-params="searchParams"/>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading SDS-panel-heading text-center">
+            <h4 class="panel-title">Best offers</h4>
+        </div>
+        <div class="panel-body SDS-panel-body">
+            <travel-themes-selection-bar></travel-themes-selection-bar>
+
+            <tiles-themed-destination-finder
+                    closest-airport="{{::closestAirport}}"
+                    search-offer-clicked="searchOfferClicked(searchCriteria)"
+                    search-started-callback="searchStartedCallback(searchCriteria)"
+                    search-success-callback="searchSuccessCallback()"
+                    search-error-callback="searchErrorCallback()">
+            </tiles-themed-destination-finder>
+
+        </div>
+    </div>
+
+    <div ng-if="!searchStatus.searchInProgress && !searchStatus.searchCompletedSuccessful" class="row">
+        <search-error-message search-params="searchParams"/>
+    </div>
+
+</div>
