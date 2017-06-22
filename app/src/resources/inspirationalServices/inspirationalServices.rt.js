@@ -23,7 +23,7 @@ define([], function () {
                 url: '/flightTo',
                 templateUrl: 'src/resources/inspirationalServices/flightTo.tpl.html',
                 data: {
-                    widgetTitle: 'Dates Matrix (Lead Price Calendar)'
+                    widgetTitle: 'Flight To'
                 }
             })
     }
