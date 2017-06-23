@@ -56,7 +56,9 @@ define([], function () {
                 url: '/intelligenceServices',
                 views: {
                     'main-content@resources': {
-                        templateUrl: 'src/resources/intelligenceServices/intelligenceServices.tpl.html'
+                        templateUrl: 'src/resources/intelligenceServices/intelligenceServices.tpl.html',
+                        controller: 'IntelligenceServicesCtrl',
+                        controllerAs: 'intelligenceServices'
                     }
                 }
             })

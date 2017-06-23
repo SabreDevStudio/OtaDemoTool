@@ -25,5 +25,15 @@
             Learn more about the Intelligence APIs <a href="https://developer.sabre.com/docs/read/rest_apis/air/intelligence/travel_seasonality" target="_blank">here</a>.
             <br/><br/>
         </div>
+
+        <div class="row tileContainer">
+            <div ng-repeat="tile in intelligenceServices.tiles">
+                <div class="clearfix" ng-if="$index % 2 == 0"></div>
+                <div class="col-md-6 col-sm-12 demoTile">
+                    <widget-tile ng-model="tile"></widget-tile>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

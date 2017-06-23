@@ -12,7 +12,8 @@ define([
     'resources/alternateDates/alternateDates.rt',
     'resources/compare/compare.rt',
     'resources/widgets.rt',
-    'resources/inspirationalServices/inspirational.mod'
+    'resources/inspirationalServices/inspirational.mod',
+    'resources/intelligenceServices/intelligence.mod'
 ], function (
     angular,
     WidgetTile,
@@ -27,13 +28,15 @@ define([
     AlternateDatesRoutes,
     CompareRoutes,
     WidgetsRoutes,
-    InspirationalModule
+    InspirationalModule,
+    IntelligenceModule
 ) {
     'use strict';
 
     angular
         .module('otademoToolApp.resources', [
             'otademoToolApp.resources.inspirationalServices',
+            'otademoToolApp.resources.intelligenceServices',
             'ui.router'
         ])
         .directive('widgetTile', WidgetTile)
