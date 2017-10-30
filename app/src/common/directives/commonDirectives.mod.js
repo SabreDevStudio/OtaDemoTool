@@ -1,12 +1,18 @@
 define([
     'angular',
-    'common/directives/searchCriteriaShort.drv'
+    'common/directives/searchCriteriaShort.drv',
+    'common/directives/topNavigation.drv'
 ], function (
     angular,
-    SearchCriteriaShort
+    SearchCriteriaShort,
+    TopNavigation
 ) {
     'use strict';
 
-    angular.module('otademoToolApp.commonDirectives', [])
-        .directive('searchCriteriaShort', SearchCriteriaShort);
+    angular.module('otademoToolApp.commonDirectives', [
+        'ngStorage',
+        'configuration',
+    ])
+        .directive('searchCriteriaShort', SearchCriteriaShort)
+        .directive('topNavigation', TopNavigation);
 });

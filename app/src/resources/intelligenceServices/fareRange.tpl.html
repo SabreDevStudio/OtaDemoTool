@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <search-form
+            class="embeddedWidget"
+            hide-fields="ADTPaxNumber,DirectFlightsOnly,IsPlusMinus3DaysFlexible,PreferredAirline,PreferredCabin"
+            selectable-airports-for-this-pos-only="1"
+            selectable-airports-dictionary="fareRange">
+    </search-form>
+
+    <error-display class="embeddedWidget"></error-display>
+    <network-error-display></network-error-display>
+    <validation-error-display></validation-error-display>
+    <div style="width: 500px; margin: auto">
+        <fare-range class="embeddedWidget fareRangeWidget">
+            <p>Prices for tickets booked in last weeks for the same route</p>
+        </fare-range>
+    </div>
+
+</div>

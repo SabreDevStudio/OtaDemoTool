@@ -1,0 +1,39 @@
+<div id="bread_crumb">
+    <p><a ui-sref="demoHomePage">home</a> » <a ui-sref="resources">resources</a> » <a ui-sref="resources.intelligenceServices">intelligence services</a></p>
+    <span class="crumb-grad"></span>
+</div>
+
+<div id="post-10184" class="post-10184 page type-page status-publish has-post-thumbnail hentry">
+    <div class="entry-header">
+        <h1 class="entry-title">Intelligence Services</h1>
+    </div>
+
+    <div class="entry-content">
+        <div class="entry-thumb">
+            <img width="720" height="300"
+                 src="images/intelligenceServices.jpg"
+                 class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                 alt="Intelligence Services">
+
+            <h3>Technology to give you an edge</h3>
+
+            <p>Educate your customers with travel insights which will enhance their travel purchase decisions using historical data from the Intelligence APIs.
+                Create enticing travel packages and campaigns for your business by providing the most competitive travel options.
+                Implement forecasting and history tools to estimate the optimal purchase time to secure the best possible fare.
+                Use destination trend data to create packages which will encourage customers to book high value (and lowest fare option) itineraries.
+            </p>
+            Learn more about the Intelligence APIs <a href="https://developer.sabre.com/docs/read/rest_apis/air/intelligence/travel_seasonality" target="_blank">here</a>.
+            <br/><br/>
+        </div>
+
+        <div class="row tileContainer">
+            <div ng-repeat="tile in intelligenceServices.tiles">
+                <div class="clearfix" ng-if="$index % 2 == 0"></div>
+                <div class="col-md-6 col-sm-12 demoTile">
+                    <widget-tile ng-model="tile"></widget-tile>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

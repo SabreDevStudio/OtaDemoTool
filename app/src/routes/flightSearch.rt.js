@@ -3,31 +3,10 @@ define([], function () {
 
     return function ($stateProvider) {
         $stateProvider
-            .state('defaultHomePage', {
-                url: '/defaultHomePage',
-                views: {
-                    'header': {
-                        templateUrl: 'src/header.tpl.html'
-                    },
-                    'content': {
-                        templateUrl: 'src/search/defaultHomePage.tpl.html'
-                    },
-                    'searchForm@defaultHomePage': {
-                        templateUrl: 'src/search/searchForm.tpl.html',
-                        controller: 'DefaultHomePageCtrl'
-                    },
-                    'inspirationalSuggestions@defaultHomePage': {
-                        templateUrl: 'src/inspirational/inspirationalSuggestions.tpl.html',
-                        controller: 'InspirationalSearchPageCtrl'
-                    }
-                }
-            })
             .state('results', {
-                url: '/results',
+                parent: 'index',
+                url: '^/results',
                 views: {
-                    'header': {
-                        templateUrl: 'src/header.tpl.html'
-                    },
                     'content': {
                         templateUrl: 'src/results/results.tpl.html',
                         controller: 'ResultsPageCtrl'

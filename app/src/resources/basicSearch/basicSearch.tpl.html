@@ -1,0 +1,38 @@
+<div id="bread_crumb">
+    <p><a ui-sref="demoHomePage">home</a> » <a ui-sref="resources">resources</a> » <a ui-sref="resources.basicSearch">basic search</a></p>
+    <span class="crumb-grad"></span>
+</div>
+
+<div id="post-10184" class="post-10184 page type-page status-publish has-post-thumbnail hentry">
+    <div class="entry-header">
+        <h1 class="entry-title">Basic Search</h1>
+    </div>
+
+    <div class="entry-content">
+
+        <div class="entry-thumb">
+            <img width="720" height="300"
+                 src="images/basicSearch.jpg"
+                 class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                 alt="Basic Search">
+
+            <h3>Technology to help you succeed</h3>
+
+            <p>Use a wide range of search solutions to provide your customer with a variety of itinerary options which can be tailored to their needs,
+                while also accommodating preferences and offering flexibility on over 400 airlines. Sabre’s Bargain Finder Max search API is a best-in-class
+                complete low fare search tool used by leading online travel sites worldwide. Bargain Finder Max facilitates search for the lowest available
+                priced itineraries for a specified date and also allows a wide range of customization via specified parameters.
+                Learn more about Bargain Finder Max <a target="_blank" href="https://developer.sabre.com/docs/read/rest_apis/air/search/bargain_finder_max">here</a>.
+            </p>
+        </div>
+
+        <div class="row tileContainer">
+            <div ng-repeat="tile in basicSearch.tiles">
+                <div class="clearfix" ng-if="$index % 2 == 0"></div>
+                <div class="col-md-6 col-sm-12 demoTile">
+                    <widget-tile ng-model="tile"></widget-tile>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,14 +6,18 @@ define([
     'checkout/checkout.mod',
     'results/results.mod',
     'common/ui/clipboard/clipboard.mod',
-    'inspirational/inspirational.mod',
     'templates.mod',
     'common/responsiveUtils/responsiveUtils.mod',
     'tours/tours.mod',
+    'resources/resources.mod',
     'routes/flightSearch.rt',
     'routes/landingPages.rt',
     'routes/tours.rt',
-    'routes/auxiliary.rt'
+    'routes/auxiliary.rt',
+    'routes/index.rt',
+    'demo/demo.rt',
+    'feedback/feedback.rt',
+    'policies/policies.rt'
 ], function (
     angular,
     uiRouter,
@@ -21,14 +25,18 @@ define([
     checkoutModule,
     resultsModule,
     clipboardModule,
-    inspirationalModule,
     templatesModule,
     responsiveUtilsModule,
     toursModule,
+    resourcesModule,
     flightsSearchRoutes,
     landingPagesRoutes,
     toursRoutes,
-    auxiliaryRoutes
+    auxiliaryRoutes,
+    indexRoutes,
+    demoRoutes,
+    feedbackRoutes,
+    policiesRoutes
 ) {
     'use strict';
 
@@ -38,8 +46,8 @@ define([
             'otademoToolApp.checkout',
             'otademoToolApp.clipboard',
             'otademoToolApp.results',
-            'otademoToolApp.inspirationalSearch',
             'otademoToolApp.tours',
+            'otademoToolApp.resources',
             'ui.router',
             'sdsWidgets',
             'otademoToolApp.templates',
@@ -50,7 +58,11 @@ define([
         .config(['$stateProvider', landingPagesRoutes])
         .config(['$stateProvider', toursRoutes])
         .config(['$stateProvider', auxiliaryRoutes])
+        .config(['$stateProvider', indexRoutes])
+        .config(['$stateProvider', demoRoutes])
+        .config(['$stateProvider', feedbackRoutes])
+        .config(['$stateProvider', policiesRoutes])
         .config(['$urlRouterProvider', function ($urlRouterProvider) {
-            $urlRouterProvider.otherwise('/defaultHomePage');
+            $urlRouterProvider.otherwise('/demoHomePage');
         }])
 });

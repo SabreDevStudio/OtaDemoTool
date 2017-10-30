@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div>Flight list goes here...</div>
+    <!-- when putting widgets together pass as cutoff like 80% of the lowest fare -->
+    <button type="button" id="FareNabber" class="btn btn-primary"
+            data-fare-nabber data-origin="SFO" data-destination="DFW" data-departure-date="2017-01-01"
+            data-return-date="2017-02-01"
+            passenger-type="ADT"
+            passenger-count="1"
+            data-maximum-acceptable-price="143.23" data-maximum-acceptable-price-currency="USD">
+        Subscribe for price alerts
+    </button>
+    <error-display class="embeddedWidget"></error-display>
+    <network-error-display></network-error-display>
+    <validation-error-display></validation-error-display>
+    <div>Other page content</div>
+</div>

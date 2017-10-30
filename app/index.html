@@ -1,46 +1,52 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Sabre OTA demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />-->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
-    <link rel="stylesheet" href="bower_components/angular-rangeslider/angular.rangeSlider.css" />
-    <link rel="stylesheet" href="bower_components/titatoggle/dist/titatoggle-dist.css" />
-    <link rel="stylesheet" href="bower_components/titatoggle/dist/titatoggle-dist-min.css" />
-    <link rel="stylesheet" href="bower_components/WidgetsFilterPanel/dist/css/WidgetsFilterPanel.min.css" />
-    <link rel="stylesheet" href="bower_components/sabre-dev-studio-widgets/dist/widgets/css/SDS.min.css" />
-    <link rel="stylesheet" href="bower_components/RentAGuideWidgets/dist/css/RentAGuideWidgets.min.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-    <!-- needed for responsive top menu to work (hamurger menu) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <!-- needed for responsive top menu to work (hamurger menu) ENDS -->
-  </head>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Sabre OTA demo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.) styles/vendor.css -->
+        <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />-->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+        <link rel="stylesheet" href="bower_components/angular-rangeslider/angular.rangeSlider.css" />
+        <link rel="stylesheet" href="bower_components/titatoggle/dist/titatoggle-dist.css" />
+        <link rel="stylesheet" href="bower_components/titatoggle/dist/titatoggle-dist-min.css" />
+        <link rel="stylesheet" href="bower_components/WidgetsFilterPanel/dist/css/WidgetsFilterPanel.min.css" />
+        <link rel="stylesheet" href="bower_components/sabre-dev-studio-widgets/dist/widgets/css/SDS.min.css" />
+        <link rel="stylesheet" href="bower_components/RentAGuideWidgets/dist/css/RentAGuideWidgets.min.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+              rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-    <div class="container-fluid">
-      <a href="#/" class="hidden-xs">
-        <img class="OTADemoSiteLogo" src="https://www.sabre.com/wp/wp-content/themes/sabrebootstrap/images/sabre-logo.png">
-      </a>
+        <!-- build:css(.tmp) styles/OTA.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/custom.css">
+        <link rel="stylesheet" href="styles/contact.css">
+        <link rel="stylesheet" href="styles/resources.css">
+        <!-- endbuild -->
 
-      <div ui-view="header"></div>
-      <div ui-view="content"></div>
-    </div>
+        <!-- needed for responsive top menu to work (hamurger menu) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- needed for responsive top menu to work (hamurger menu) ENDS -->
+    </head>
+    <body>
 
-    <div class="footer">
-      <div class="container">
-      </div>
-    </div>
-    <network-error-display dedup="true"/>
-    <rent-a-guide-network-errors-display></rent-a-guide-network-errors-display>
-    <script src="bower_components/requirejs/require.js" data-main="src/main.js"></script>
-  </body>
+        <top-navigation></top-navigation>
+
+        <div ui-view="mainNavigation"></div>
+
+        <div class="container-fluid main-container">
+            <div ui-view="content"></div>
+        </div>
+
+        <ng-include src="'src/layout/footer.html'"></ng-include>
+
+        <network-error-display dedup="true"/>
+        <rent-a-guide-network-errors-display></rent-a-guide-network-errors-display>
+        <script src="bower_components/requirejs/require.js" data-main="src/main.js"></script>
+    </body>
 </html>

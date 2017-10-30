@@ -1,13 +1,13 @@
 {
   "name": "OTADemoTool",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "dependencies": {
     "angular": "1.6.6",
     "angular-sanitize": "1.6.6",
     "angular-touch": "1.6.6",
     "bootstrap": "^3.2.0",
-    "sabre-dev-studio-widgets": "http://git.sabre.com/scm/smp/ui.git#fa72bddc29421cc74f71c75b4b7937854e2ef848",
-    "RentAGuideWidgets": "http://git.sabre.com/scm/smp/rentaguidewidgets.git#fca6890de5d15ccc7902835b87f4fe2eef49aebc",
+    "sabre-dev-studio-widgets": "http://git.sabre.com/scm/smp/ui.git#9bf525e2ac21d7e2fb25886e9f5cf53345d49c81",
+    "RentAGuideWidgets": "http://git.sabre.com/scm/smp/rentaguidewidgets.git#3ee86f0118d63f3dc33c3257cfc53508ae6e5d7a",
     "ngstorage": "~0.3.10",
     "lodash": "~4.13.1",
     "requirejs": "^2.1.0",

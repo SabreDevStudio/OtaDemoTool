@@ -1,0 +1,38 @@
+<div id="bread_crumb">
+    <p><a ui-sref="demoHomePage">home</a> » <a ui-sref="resources">resources</a> » <a ui-sref="resources.calendarNavigation">calendar navigation</a></p>
+    <span class="crumb-grad"></span>
+</div>
+
+<div id="post-10184" class="post-10184 page type-page status-publish has-post-thumbnail hentry">
+    <div class="entry-header">
+        <h1 class="entry-title">Calendar Navigation</h1>
+    </div>
+
+    <div class="entry-content">
+        <div class="entry-thumb">
+            <img width="720" height="300"
+                 src="images/calendarNavigation.jpg"
+                 class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                 alt="Calendar Navigation">
+
+            <h3>Technology to accommodate</h3>
+
+            <p>Make your agency the go to resource to find the best itinerary option by referencing city pair data using
+                the Lead Price Calendar or Advanced Calendar Search APIs. These Sabre options provide up to 192 days of
+                shopped fare data for nonstop and overall lead price. The Advanced Calendar Search API will also provide
+                the corresponding flight itinerary and fare breakdown. Using city pairs and including multiple parameters,
+                create filters to support requirements and identify the least expensive, top itinerary options across your customers’ date range.</p>
+            Learn more about the Lead Price Calendar <a href="https://developer.sabre.com/docs/read/rest_apis/air/search/lead_price_calendar" target="_blank">here.</a><br/>
+            Learn more about the Advanced Calendar Search <a href="https://developer.sabre.com/docs/rest_apis/air/search/advanced_calendar_search" target="_blank">here.</a>
+        </div>
+
+        <div class="row tileContainer">
+            <div ng-repeat="tile in calendarNavigation.tiles">
+                <div class="clearfix" ng-if="$index % 2 == 0"></div>
+                <div class="col-lg-6 col-md-12 demoTile">
+                    <widget-tile ng-model="tile"></widget-tile>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

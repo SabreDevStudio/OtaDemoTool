@@ -1,0 +1,38 @@
+<div id="bread_crumb">
+    <p><a ui-sref="demoHomePage">home</a> » <a ui-sref="resources">resources</a> » <a ui-sref="resources.inspirationalServices">inspirational services</a></p>
+    <span class="crumb-grad"></span>
+</div>
+
+<div id="post-10184" class="post-10184 page type-page status-publish has-post-thumbnail hentry">
+    <div class="entry-header">
+        <h1 class="entry-title">Inspirational Services</h1>
+    </div>
+
+    <div class="entry-content">
+        <div class="entry-thumb">
+            <img width="720" height="300"
+                 src="images/inspirationalServices.jpg"
+                 class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                 alt="Inspirational Services">
+
+            <h3>Technology to inspire</h3>
+
+            <p>Inspire your customer with booking ideas for the perfect destination. The Inspirational APIs enable you to server your customer on a more personal level.
+                Customers identify preferences such as activity, experience or geographical region, the API then returns top destinations to prompt
+                their decision making transitioning from look to book. These API’s also enable you to create campaigns and packages based on destination
+                and low fare pairing to driving booking revenue.
+            </p>
+            Learn more about Destination Finder <a href="https://developer.sabre.com/docs/read/rest_apis/air/search/destination_finder" target="_blank">here</a>.<br/>
+            Learn more about Flight To <a href="https://developer.sabre.com/docs/read/rest_apis/air/search/flights_to" target="_blank">here</a>.<br/><br/>
+        </div>
+
+        <div class="row tileContainer">
+            <div ng-repeat="tile in inspirationalServices.tiles">
+                <div class="clearfix" ng-if="$index % 2 == 0"></div>
+                <div class="col-md-6 col-sm-12 demoTile">
+                    <widget-tile ng-model="tile"></widget-tile>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div id="bread_crumb">
+    <p><a ui-sref="demoHomePage">home</a> » <a ui-sref="resources">resources</a> » <a ui-sref="resources.compare">compare</a></p>
+    <span class="crumb-grad"></span>
+</div>
+
+<div id="post-10184" class="post-10184 page type-page status-publish has-post-thumbnail hentry">
+    <div class="entry-header">
+        <h1 class="entry-title">Compare</h1>
+    </div>
+
+    <div class="entry-content">
+        <div class="entry-thumb">
+            <img width="720" height="300"
+                 src="images/compare.jpg"
+                 class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                 alt="Compare">
+
+            <h3>Technology to make you efficient</h3>
+
+            <p>Improve your business productivity with fewer queries and increase your business revenue with a higher shopping to ticketing ratio.
+                The Instaflights and Diversity features offer a variety of options for business personalization to find your customers not just the lowest fare,
+                but the best fare for their needs.  Test then implement the search experience which will provide efficiencies to benefit your customer.</p>
+                Learn more about InstaFlights <a href="https://developer.sabre.com/docs/read/rest_apis/air/search/instaflights_search" target="_blank">here</a>. <br/>
+                Learn more about Bargain Finder Max <a href="https://developer.sabre.com/docs/read/rest_apis/air/search/bargain_finder_max" target="_blank">here</a>.
+        </div>
+
+        <div class="row tileContainer">
+            <div ng-repeat="tile in compare.tiles">
+                <div class="clearfix" ng-if="$index % 2 == 0"></div>
+                <div class="col-md-6 col-sm-12 demoTile">
+                    <widget-tile ng-model="tile"></widget-tile>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

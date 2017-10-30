@@ -1,0 +1,37 @@
+<div class="container-fluid main-container">
+    <search-form
+            class="embeddedWidget"
+            hide-fields="IsPlusMinus3DaysFlexible"
+            selectable-airports-for-this-pos-only="1"
+            origin-airport-code="{{ctrl.originAirportCode}}">
+    </search-form>
+    <error-display class="embeddedWidget"></error-display>
+    <network-error-display></network-error-display>
+    <validation-error-display></validation-error-display>
+    <div class="row">
+        <div class="col-lg-12 minHeight20em">
+            <spinner-container
+                    spinner-id="spinner-1"
+                    spinner-options="{radius:30, width:8, length: 16}">
+                <div class="col-lg-3">
+                    <itineraries-filter-panel
+                            id="ItineraryListFilterPanel"
+                            owner-id="itin-list">
+                    </itineraries-filter-panel>
+                </div>
+                <div class="col-lg-9">
+                        <div id="ItineraryList">
+                            <itinerary-list
+                                    itineraries-list-id="itin-list"
+                                    active-search="true"
+                                    active-search-web-service="instaflights"
+                                    search-started-callback="startSpin()"
+                                    search-success-callback="stopSpin()"
+                                    search-error-callback="stopSpin()">
+                            </itinerary-list>
+                        </div>
+                </div>
+            </spinner-container>
+        </div>
+    </div>
+</div>

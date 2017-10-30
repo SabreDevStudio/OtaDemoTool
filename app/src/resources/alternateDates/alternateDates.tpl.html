@@ -1,0 +1,36 @@
+<div id="bread_crumb">
+    <p><a ui-sref="demoHomePage">home</a> » <a ui-sref="resources">resources</a> » <a ui-sref="resources.alternateDates">alternate dates</a></p>
+    <span class="crumb-grad"></span>
+</div>
+
+<div id="post-10184" class="post-10184 page type-page status-publish has-post-thumbnail hentry">
+    <div class="entry-header">
+        <h1 class="entry-title">Alternate Dates</h1>
+    </div>
+
+    <div class="entry-content">
+        <div class="entry-thumb">
+            <img width="720" height="300"
+                 src="images/alternateDates.jpg"
+                 class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                 alt="Alternate Dates">
+
+            <h3>Technology to make you agile</h3>
+
+            <p>Assisting your budget conscious and date flexible customer is now quick and efficient using the Bargain Finder Max Alternate Date Shopping API.
+                Using a single query, search for multiple date pairs and return more itinerary options with each date pair. With +/- 1, +/-3 and +/-7 day options,
+                you are sure to quickly return the best itinerary and lowest fare options to accommodate your customer.</p>
+
+            <p>Learn more about Alternate Dates <a href="https://developer.sabre.com/docs/read/rest_apis/air/search/bargain_finder_max/alternate_dates" target="_blank">here.</a></p>
+        </div>
+
+        <div class="row tileContainer">
+            <div ng-repeat="tile in alternateDates.tiles">
+                <div class="clearfix" ng-if="$index % 2 == 0"></div>
+                <div class="col-md-6 col-sm-12 demoTile">
+                    <widget-tile ng-model="tile"></widget-tile>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

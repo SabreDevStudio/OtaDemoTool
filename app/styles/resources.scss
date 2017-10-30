@@ -1,0 +1,36 @@
+/**************************************************************
+RESOURCES PAGE
+**************************************************************/
+
+.tileContainer {
+
+  margin-top: 30px;
+}
+
+@media screen and (min-width: 600px) {
+  .proto-modal .video-3-4 {
+    height: 400px;
+    width: 540px;
+  }
+}
+
+#content_main h2, #content_large h2, #sidebar h2 {
+  font-size: 18px;
+  font-weight: normal;
+  padding: 0px 0 7px;
+  margin: 0;
+  color: #333;
+  line-height: 24px;
+}
+
+.entry-thumb {
+  width: 720px;
+
+  p {
+    margin-top: 20px;
+  }
+}
+
+.minHeight20em {
+  min-height: 20em;
+}

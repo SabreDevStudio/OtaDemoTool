@@ -175,7 +175,7 @@ module.exports = function (grunt) {
       },
       dist: {
           files: {
-            '.tmp/styles/main.css': '<%= yeoman.app %>/styles/main.scss'
+            '.tmp/styles/main.css': 'app/styles/main.scss'
           }
       }
     },
@@ -240,8 +240,7 @@ module.exports = function (grunt) {
           },
           rewriter: function (url) {
             return url
-                .replace('images/creditCardLogos/', properties.cdnBase + '/creditCardLogos/')
-                .replace('images/carRental/', properties.cdnBase + '/carRental/');
+                .replace('images', properties.cdnBase)
           }
         },
         files: [{
@@ -279,7 +278,7 @@ module.exports = function (grunt) {
             '.htaccess',
             '*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/*/*.*'
           ]
         }, {
           expand: true,
