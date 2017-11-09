@@ -3,6 +3,7 @@
 /dist
 /.tmp
 /.sass-cache
+/.vscode
 /bower_components
 *.css
 *.css.map

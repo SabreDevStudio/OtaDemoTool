@@ -1,13 +1,21 @@
 define([], function () {
     'use strict';
 
-    return function searchCriteriaShort() {
+    return function searchCriteriaShort(AirportsResourceService) {
         return {
-
             templateUrl: 'src/common/directives/topNavigation.tpl.html',
-            controller: ['$localStorage', 'countryConfigs', 'selectedCountryConfigs', '$state', '$timeout', function ($localStorage, countryConfigs, selectedCountryConfigs, $state, $timeout) {
+            controller: ['$localStorage', 'countryConfigs', 'selectedCountryConfigs', '$state', '$timeout',
+            function ($localStorage, countryConfigs, selectedCountryConfigs, $state, $timeout) {
+                var _this = this;
+                this.originCodePreset = '';
+                this.selectedCountry = $localStorage.$default({selectedCountry: "US"}).selectedCountry;
 
-                this.selectedCountry = $localStorage.$default({selectedCountry: "DE"}).selectedCountry;
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    AirportsResourceService.getNearestAirport(position.coords.latitude, position.coords.longitude).$promise.then(function(data){
+                        _this.originCodePreset = data.code;
+                    });
+                });
+
                 updateselectedCountryConfigs(this.selectedCountry )
 
                 this.setSelectedCountry = function (newValue) {

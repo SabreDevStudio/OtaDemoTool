@@ -2,6 +2,7 @@
 define([
     'angular',
     'angular-ui-router',
+    'angular-resource',
     'search/search.mod',
     'checkout/checkout.mod',
     'results/results.mod',
@@ -21,6 +22,7 @@ define([
 ], function (
     angular,
     uiRouter,
+    ngResource,
     searchModule,
     checkoutModule,
     resultsModule,

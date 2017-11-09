@@ -7,7 +7,7 @@ define([], function () {
         this.tiles = [];
 
         var lowFareForecast = {
-            title: 'Low Fare Forecast',
+            title: 'Low Fare Forecast (beta version)',
             description: 'Estimate whether the lowest published fare will rise, fall or stay the same in the next 7 days to ensure best purchase option based on historical fare prices paid.',
             widgetUrl: 'widgets.lowFareForecast',
             apis: [

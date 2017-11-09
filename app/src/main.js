@@ -5,6 +5,7 @@ require.config({
     'angular-sanitize': '../../bower_components/angular-sanitize/angular-sanitize',
     'angular-touch': '../../bower_components/angular-touch/angular-touch',
     'angular-ui-router': '../../node_modules/angular-ui-router/release/angular-ui-router',
+    'angular-resource':'../../node_modules/angular-resource/angular-resource',
     ngStorage: '../../bower_components/ngstorage/ngStorage',
     bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap',
     lodash: '../../bower_components/lodash/lodash',
@@ -25,6 +26,9 @@ require.config({
       'angular'
     ],
     'angular-touch': [
+      'angular'
+    ],
+    'angular-resource': [
       'angular'
     ],
     ngStorage: {
