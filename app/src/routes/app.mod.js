@@ -53,8 +53,7 @@ define([
             'ui.router',
             'sdsWidgets',
             'otademoToolApp.templates',
-            'otademoToolApp.responsiveUtils',
-            'RentAGuideWidgets'
+            'otademoToolApp.responsiveUtils'
         ])
         .config(['$stateProvider', flightsSearchRoutes])
         .config(['$stateProvider', landingPagesRoutes])
