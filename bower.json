@@ -6,7 +6,7 @@
     "angular-sanitize": "1.6.6",
     "angular-touch": "1.6.6",
     "bootstrap": "^3.2.0",
-    "sabre-dev-studio-widgets": "http://git.sabre.com/scm/smp/ui.git#515cc6856c1ee9a8ce60a9cc4572a8d363ca7a37",
+    "sabre-dev-studio-widgets": "https://github.com/SabreDevStudio/WidgetLibrary.git#515cc6856c1ee9a8ce60a9cc4572a8d363ca7a37",
     "ngstorage": "~0.3.10",
     "lodash": "~4.13.1",
     "requirejs": "^2.1.0",
